@@ -12,7 +12,7 @@ namespace DAL
 
         public DAO()
         {
-            client = new MongoClient("mongodb+srv://liquid:8XhofoQHbeuqnI18@cluster0.odpygx7.mongodb.net/?retryWrites=true&w=majority");
+            client = new MongoClient("mongodb+srv://projecttickets:wFK6NeiHfAKvHAiB@cluster0.tpy88by.mongodb.net/");
         }                           //mongodb+srv://liquid:8XhofoQHbeuqnI18@cluster0.odpygx7.mongodb.net/
         //mongodb+srv://liquid:8XhofoQHbeuqnI18@cluster0.odpygx7.mongodb.net/
 
