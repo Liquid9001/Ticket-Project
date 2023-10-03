@@ -3,28 +3,40 @@ using MongoDB.Driver;
 using System.Collections.Generic;
 using Model;
 using MongoDB.Bson.Serialization;
+using MongoProject.Model;
 
 namespace DAL
 {
     public class DAO
     {
         private MongoClient client;
+        private IMongoDatabase db;
+        private IMongoCollection<BsonDocument> collection;
 
         public DAO()
         {
             client = new MongoClient("mongodb+srv://projecttickets:wFK6NeiHfAKvHAiB@cluster0.tpy88by.mongodb.net/");
+            db = client.GetDatabase("TicketProject");
         }
 
-        public List<Databases_Model> GetDatabases()
+        public void AddEmployee(Employee employee)
         {
-            List<Databases_Model> all_databases = new List<Databases_Model>();
-            
-            foreach (BsonDocument db in client.ListDatabases().ToList())
+            collection = db.GetCollection<BsonDocument>("Employees");
+            var document = new BsonDocument
             {
-                all_databases.Add(BsonSerializer.Deserialize<Databases_Model>(db));
-            }
-            return all_databases;
+                {"FirstName", employee.firstName },
+                {"LastName", employee.lastName },
+                {"username", employee.username },
+                {"password", employee.password },
+                {"EmailAddress", employee.email },
+                {"PhoneNumber", employee.phoneNumber },
+                {"Location", employee.location },
+                {"isServiceDesk", employee.isServiceDesk }
+            };
+            collection.InsertOne(document);
         }
+
+        
     }
 
 
