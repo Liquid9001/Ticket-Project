@@ -10,10 +10,6 @@
 
   <ItemGroup>
     <Folder Include="DAL\" />
-<<<<<<< HEAD
-    <Folder Include="Model\" />
-=======
->>>>>>> Development
     <Folder Include="Logic\" />
   </ItemGroup>
 

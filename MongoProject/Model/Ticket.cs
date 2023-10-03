@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MongoProject.Model
 {
-    internal class Ticket
+    public class Ticket
     {
         int ticket_id;
         string ticket_name;

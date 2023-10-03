@@ -12,6 +12,9 @@ namespace Logic
             dao = new DAO();
         }
 
-        
+        public void AddEmployee()
+        {
+            
+        }
     }
 }

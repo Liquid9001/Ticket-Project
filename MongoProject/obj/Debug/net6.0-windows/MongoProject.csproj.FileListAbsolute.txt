@@ -30,8 +30,6 @@ C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoP
 C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.pdb
 C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.genruntimeconfig.cache
 C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\ref\MongoProject.dll
-<<<<<<< HEAD
-=======
 C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.exe
 C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.deps.json
 C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.runtimeconfig.json
@@ -64,4 +62,3 @@ C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\refin
 C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.pdb
 C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.genruntimeconfig.cache
 C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\ref\MongoProject.dll
->>>>>>> Development
