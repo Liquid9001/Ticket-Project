@@ -1,52 +1,52 @@
-﻿using MongoDB.Bson;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MongoProject.Model
 {
     public class Ticket
     {
-        public ObjectId Ticket_id { get; set; }
-        public string Title { get; set; }
-        public TicketType TypeOfIncident { get; set; }
-        public string Description { get; set; }
-        public TicketStatus Status { get; set; }
-        public ObjectId EmployeeID { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime Deadline { get; set; }
-        public List<Comment> Comments { get; set; }
-        public TicketPriority Priority { get; set; }
+        int ticket_id;
+        string ticket_name;
+        TicketType ticketType;
+        string ticket_description;
+        TicketStatus ticketStatus;
+        TicketPriority ticketPriority;
+        DateTime ticket_created;
+        DateTime ticket_deadline;
+        DateTime ticket_resolved;
+        DateTime ticket_closed;
+        Employee ticket_assigned;
+        List<string> comments;
 
-        public Ticket(string title, TicketType typeOfIncident, string description, TicketStatus status, ObjectId employeeID, DateTime createdAt, DateTime deadline, TicketPriority priority)
+        public Ticket(string ticket_name, string ticket_description, DateTime ticket_created, DateTime ticket_deadline, DateTime ticket_resolved, DateTime ticket_closed, Employee ticket_assigned, List<string> comments, TicketType ticketType, TicketStatus ticketStatus, TicketPriority ticketPriority)
         {
-            Title = title;
-            TypeOfIncident = typeOfIncident;
-            Description = description;
-            Status = status;
-            EmployeeID = employeeID;
-            CreatedAt = createdAt;
-            Deadline = deadline;
-            Priority = priority;
+            Ticket_name = ticket_name;
+            Ticket_description = ticket_description;
+            Ticket_created = ticket_created;
+            Ticket_deadline = ticket_deadline;
+            Ticket_resolved = ticket_resolved;
+            Ticket_closed = ticket_closed;
+            Ticket_assigned = ticket_assigned;
+            Comments = comments;
+            TicketType = ticketType;
+            TicketStatus = ticketStatus;
+            TicketPriority = ticketPriority;
         }
-    }
 
-
-
-    public class Comment
-    {
-        public string CommentText { get; set; }
-        public CommentedBy CommentedBy { get; set; }
-        public DateTime CommentDate { get; set; }
-    }
-
-    public class CommentedBy
-    {
-        public UserId UserID { get; set; }
-    }
-
-    public class UserId
-    {
-        public ObjectId Ref { get; set; }
-        public ObjectId ID { get; set; }
+        public int Ticket_id { get => ticket_id; }
+        public string Ticket_name { get => ticket_name; set => ticket_name = value; }
+        public string Ticket_description { get => ticket_description; set => ticket_description = value; }
+        public DateTime Ticket_created { get => ticket_created; set => ticket_created = value; }
+        public DateTime Ticket_deadline { get => ticket_deadline; set => ticket_deadline = value; }
+        public DateTime Ticket_resolved { get => ticket_resolved; set => ticket_resolved = value; }
+        public DateTime Ticket_closed { get => ticket_closed; set => ticket_closed = value; }
+        public Employee Ticket_assigned { get => ticket_assigned; set => ticket_assigned = value; }
+        public List<string> Comments { get => comments; set => comments = value; }
+        public TicketType TicketType { get => ticketType; set => ticketType = value; }
+        public TicketStatus TicketStatus { get => ticketStatus; set => ticketStatus = value; }
+        public TicketPriority TicketPriority { get => ticketPriority; set => ticketPriority = value; }
     }
 }
