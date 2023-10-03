@@ -52,7 +52,6 @@ namespace DemoApp
             Margin = new Padding(6, 7, 6, 7);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
             ResumeLayout(false);
         }
 

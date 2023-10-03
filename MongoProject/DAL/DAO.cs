@@ -19,7 +19,7 @@ namespace DAL
             db = client.GetDatabase("TicketProject");
         }
 
-        public void AddEmployee(Employee employee)
+        /*public void AddEmployee(Employee employee)
         {
             collection = db.GetCollection<BsonDocument>("Employees");
             var document = new BsonDocument
@@ -34,7 +34,7 @@ namespace DAL
                 {"isServiceDesk", employee.isServiceDesk }
             };
             collection.InsertOne(document);
-        }
+        }*/
 
         
     }
