@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "x8KSEfr+Fj88jeiiEdGvF6i1QocYXuIj2IdmipQgs6usUKKsI+vl5CLerPcbVVrgHrYVT33UDGSEdNy8nMrFXg==",
   "success": true,
   "projectFilePath": "C:\\Users\\dinka\\Nextcloud\\Documents\\Inholland\\Design Patterns\\MongoProject\\MongoProject\\MongoProject.csproj",
+=======
+  "dgSpecHash": "cBUDu3px4KxjzZCE4f8aWxlKv6jbb254jha8eckrTNr2yGMCK9nFInhVq6N+WPBg6MXv51fAXu41dHnI0lri0w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dinka\\Github\\Ticket-Project\\MongoProject\\MongoProject.csproj",
+>>>>>>> Development
   "expectedPackageFiles": [
     "C:\\Users\\dinka\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\dinka\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",

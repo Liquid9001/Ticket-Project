@@ -790,11 +790,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\dinka\\Nextcloud\\Documents\\Inholland\\Design Patterns\\MongoProject\\MongoProject\\MongoProject.csproj",
       "projectName": "MongoProject",
       "projectPath": "C:\\Users\\dinka\\Nextcloud\\Documents\\Inholland\\Design Patterns\\MongoProject\\MongoProject\\MongoProject.csproj",
       "packagesPath": "C:\\Users\\dinka\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\dinka\\Nextcloud\\Documents\\Inholland\\Design Patterns\\MongoProject\\MongoProject\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\dinka\\Github\\Ticket-Project\\MongoProject\\MongoProject.csproj",
+      "projectName": "MongoProject",
+      "projectPath": "C:\\Users\\dinka\\Github\\Ticket-Project\\MongoProject\\MongoProject.csproj",
+      "packagesPath": "C:\\Users\\dinka\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dinka\\Github\\Ticket-Project\\MongoProject\\obj\\",
+>>>>>>> Development
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dinka\\AppData\\Roaming\\NuGet\\NuGet.Config",
