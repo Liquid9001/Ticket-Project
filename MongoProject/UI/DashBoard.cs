@@ -8,10 +8,10 @@ using Model;
 
 namespace DemoApp
 {
-    public partial class Form1 : Form
+    public partial class DashBoard : Form
     {
         private Databases databases;
-        public Form1()
+        public DashBoard()
         {
             InitializeComponent();
             databases = new Databases();
