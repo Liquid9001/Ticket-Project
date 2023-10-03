@@ -785,19 +785,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dinka\\.nuget\\packages\\": {}
+    "C:\\Users\\Louise\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dinka\\Nextcloud\\Documents\\Inholland\\Design Patterns\\MongoProject\\MongoProject\\MongoProject.csproj",
+      "projectUniqueName": "C:\\Users\\Louise\\Source\\Repos\\Ticket-Project_0\\MongoProject\\MongoProject.csproj",
       "projectName": "MongoProject",
-      "projectPath": "C:\\Users\\dinka\\Nextcloud\\Documents\\Inholland\\Design Patterns\\MongoProject\\MongoProject\\MongoProject.csproj",
-      "packagesPath": "C:\\Users\\dinka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dinka\\Nextcloud\\Documents\\Inholland\\Design Patterns\\MongoProject\\MongoProject\\obj\\",
+      "projectPath": "C:\\Users\\Louise\\Source\\Repos\\Ticket-Project_0\\MongoProject\\MongoProject.csproj",
+      "packagesPath": "C:\\Users\\Louise\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Louise\\Source\\Repos\\Ticket-Project_0\\MongoProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\dinka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Louise\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -851,7 +851,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
