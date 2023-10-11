@@ -8,7 +8,7 @@ namespace MongoProject.Model
 {
     public class Employee
     {
-        int employee_id;
+        string employee_id;
         string firstName;
         string lastName;
         string username;
@@ -30,7 +30,7 @@ namespace MongoProject.Model
             IsServiceDesk = isServiceDesk;
         }
 
-        public int Employee_id { get => employee_id; }
+        public string Employee_id { get => employee_id; }
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public string Username { get => username; set => username = value; }

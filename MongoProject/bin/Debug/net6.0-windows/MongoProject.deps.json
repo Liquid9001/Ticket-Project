@@ -9,7 +9,8 @@
       "MongoProject/1.0.0": {
         "dependencies": {
           "MongoDB.Bson": "2.21.0",
-          "MongoDB.Driver": "2.21.0"
+          "MongoDB.Driver": "2.21.0",
+          "WinForms.DataVisualization": "1.9.0-pr"
         },
         "runtime": {
           "MongoProject.dll": {}
@@ -156,6 +157,18 @@
         }
       },
       "System.Security.Principal.Windows/5.0.0": {},
+      "WinForms.DataVisualization/1.9.0-pr": {
+        "runtime": {
+          "lib/net6.0-windows7.0/WinForms.DataVisualization.Utilities.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.9.0.0"
+          },
+          "lib/net6.0-windows7.0/WinForms.DataVisualization.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.9.0.0"
+          }
+        }
+      },
       "ZstdSharp.Port/0.6.2": {
         "runtime": {
           "lib/net6.0/ZstdSharp.dll": {
@@ -290,6 +303,13 @@
       "sha512": "sha512-t0MGLukB5WAVU9bO3MGzvlGnyJPgUlcwerXn1kzBRjwLKixT96XV0Uza41W49gVd8zEMFu9vQEFlv0IOrytICA==",
       "path": "system.security.principal.windows/5.0.0",
       "hashPath": "system.security.principal.windows.5.0.0.nupkg.sha512"
+    },
+    "WinForms.DataVisualization/1.9.0-pr": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cXzyzrS6QO/og2Ro0t+4OFSUBtoDZxnR3Cki/yh0fzMtpR3291TZoU7CUPZuQN1zkQKhw9VTdLsp8XieenkB1A==",
+      "path": "winforms.datavisualization/1.9.0-pr",
+      "hashPath": "winforms.datavisualization.1.9.0-pr.nupkg.sha512"
     },
     "ZstdSharp.Port/0.6.2": {
       "type": "package",

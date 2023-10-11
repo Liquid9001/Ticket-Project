@@ -20,6 +20,8 @@ namespace DAL
 
         }
 
+       
+
         public void AddEmployee(Employee employee)
         {
             collection = db.GetCollection<BsonDocument>("Employees");
@@ -46,7 +48,7 @@ namespace DAL
                 {"TypeOfIncident", (int)ticket.TicketType },
                 {"Description", ticket.Ticket_description },
                 {"Status", (int)ticket.TicketStatus },
-                {"EmployeeID", ticket.AssignedEmployee.Employee_id },
+               // {"EmployeeID", ticket.AssignedEmployee.Employee_id },
                 {"CreatedAt", ticket.Ticket_created },
                 {"Deadline", ticket.Ticket_deadline },
                 {"TicketPriority", (int)ticket.TicketPriority }

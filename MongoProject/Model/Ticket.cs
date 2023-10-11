@@ -18,10 +18,12 @@ namespace MongoProject.Model
         DateTime ticket_deadline;
         DateTime ticket_resolved;
         DateTime ticket_closed;
-        Employee assignedEmployee;
         List<string> comments;
+        string firstname;
+        string lastname;
+        string employeeId;
 
-        public Ticket(string ticket_name, string ticket_description, DateTime ticket_created, DateTime ticket_deadline, DateTime ticket_resolved, DateTime ticket_closed, Employee employee, List<string> comments, TicketType ticketType, TicketStatus ticketStatus, TicketPriority ticketPriority)
+        public Ticket(string ticket_name, string ticket_description, DateTime ticket_created, DateTime ticket_deadline, string firstname, string lastname, string employeeId, List<string> comments, TicketType ticketType, TicketStatus ticketStatus, TicketPriority ticketPriority)
         {
             Ticket_name = ticket_name;
             Ticket_description = ticket_description;
@@ -29,11 +31,13 @@ namespace MongoProject.Model
             Ticket_deadline = ticket_deadline;
             Ticket_resolved = ticket_resolved;
             Ticket_closed = ticket_closed;
-            AssignedEmployee = employee;
             Comments = comments;
             TicketType = ticketType;
             TicketStatus = ticketStatus;
             TicketPriority = ticketPriority;
+            Firstname = firstname;
+            Lastname = lastname;
+            EmployeeId = employeeId;
         }
 
         public int Ticket_id { get => ticket_id; }
@@ -43,7 +47,10 @@ namespace MongoProject.Model
         public DateTime Ticket_deadline { get => ticket_deadline; set => ticket_deadline = value; }
         public DateTime Ticket_resolved { get => ticket_resolved; set => ticket_resolved = value; }
         public DateTime Ticket_closed { get => ticket_closed; set => ticket_closed = value; }
-        public Employee AssignedEmployee { get => assignedEmployee; set => assignedEmployee = value; }
+        public string Firstname {get => firstname; set => firstname = value;}
+        public string Lastname { get => lastname; set => lastname = value; }
+        public string EmployeeId { get => employeeId; set => employeeId = value; }
+
         public List<string> Comments { get => comments; set => comments = value; }
         public TicketType TicketType { get => ticketType; set => ticketType = value; }
         public TicketStatus TicketStatus { get => ticketStatus; set => ticketStatus = value; }

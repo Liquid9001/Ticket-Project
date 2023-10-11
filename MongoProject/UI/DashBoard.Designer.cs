@@ -38,7 +38,6 @@ namespace DemoApp
             licensedToLabel = new Label();
             noDeskLabel = new Label();
             addIncidentPanel = new Panel();
-            outputReportedDate = new Label();
             deadlineFollowUpInput = new ComboBox();
             priorityInput = new ComboBox();
             userReportedInput = new ComboBox();
@@ -53,11 +52,16 @@ namespace DemoApp
             userReportedLabel = new Label();
             incidentTypeLabel = new Label();
             subjectIncidentLabel = new Label();
-            reportedDateLabel = new Label();
             newIncidentLabel = new Label();
+            ticketOverviewPanel = new Panel();
+            listViewTicketOverview = new ListView();
+            filterTextBoxInput = new TextBox();
+            createIncidentButton = new Button();
+            overviewTicketLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)gardenGroupLogo).BeginInit();
             DashboardPanel.SuspendLayout();
             addIncidentPanel.SuspendLayout();
+            ticketOverviewPanel.SuspendLayout();
             SuspendLayout();
             // 
             // gardenGroupLogo
@@ -142,7 +146,6 @@ namespace DemoApp
             // addIncidentPanel
             // 
             addIncidentPanel.BackColor = Color.White;
-            addIncidentPanel.Controls.Add(outputReportedDate);
             addIncidentPanel.Controls.Add(deadlineFollowUpInput);
             addIncidentPanel.Controls.Add(priorityInput);
             addIncidentPanel.Controls.Add(userReportedInput);
@@ -157,25 +160,16 @@ namespace DemoApp
             addIncidentPanel.Controls.Add(userReportedLabel);
             addIncidentPanel.Controls.Add(incidentTypeLabel);
             addIncidentPanel.Controls.Add(subjectIncidentLabel);
-            addIncidentPanel.Controls.Add(reportedDateLabel);
             addIncidentPanel.Controls.Add(newIncidentLabel);
             addIncidentPanel.Location = new Point(14, 216);
             addIncidentPanel.Name = "addIncidentPanel";
             addIncidentPanel.Size = new Size(1713, 1141);
             addIncidentPanel.TabIndex = 2;
             // 
-            // outputReportedDate
-            // 
-            outputReportedDate.BorderStyle = BorderStyle.FixedSingle;
-            outputReportedDate.Location = new Point(388, 111);
-            outputReportedDate.Name = "outputReportedDate";
-            outputReportedDate.Size = new Size(500, 39);
-            outputReportedDate.TabIndex = 23;
-            // 
             // deadlineFollowUpInput
             // 
             deadlineFollowUpInput.FormattingEnabled = true;
-            deadlineFollowUpInput.Location = new Point(388, 548);
+            deadlineFollowUpInput.Location = new Point(391, 508);
             deadlineFollowUpInput.Name = "deadlineFollowUpInput";
             deadlineFollowUpInput.Size = new Size(500, 40);
             deadlineFollowUpInput.TabIndex = 22;
@@ -183,7 +177,7 @@ namespace DemoApp
             // priorityInput
             // 
             priorityInput.FormattingEnabled = true;
-            priorityInput.Location = new Point(388, 459);
+            priorityInput.Location = new Point(391, 419);
             priorityInput.Name = "priorityInput";
             priorityInput.Size = new Size(500, 40);
             priorityInput.TabIndex = 21;
@@ -191,7 +185,7 @@ namespace DemoApp
             // userReportedInput
             // 
             userReportedInput.FormattingEnabled = true;
-            userReportedInput.Location = new Point(388, 371);
+            userReportedInput.Location = new Point(391, 331);
             userReportedInput.Name = "userReportedInput";
             userReportedInput.Size = new Size(500, 40);
             userReportedInput.TabIndex = 20;
@@ -200,7 +194,7 @@ namespace DemoApp
             // incidentTypeInput
             // 
             incidentTypeInput.FormattingEnabled = true;
-            incidentTypeInput.Location = new Point(388, 277);
+            incidentTypeInput.Location = new Point(391, 237);
             incidentTypeInput.Name = "incidentTypeInput";
             incidentTypeInput.Size = new Size(500, 40);
             incidentTypeInput.TabIndex = 19;
@@ -208,10 +202,11 @@ namespace DemoApp
             // 
             // subjectInput
             // 
-            subjectInput.Location = new Point(388, 191);
+            subjectInput.Location = new Point(391, 151);
             subjectInput.Name = "subjectInput";
             subjectInput.Size = new Size(500, 39);
             subjectInput.TabIndex = 18;
+            subjectInput.TextChanged += subjectInput_TextChanged;
             // 
             // submitTicketButton
             // 
@@ -219,7 +214,8 @@ namespace DemoApp
             submitTicketButton.FlatAppearance.BorderColor = Color.Black;
             submitTicketButton.FlatAppearance.MouseDownBackColor = Color.White;
             submitTicketButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            submitTicketButton.Location = new Point(647, 969);
+            submitTicketButton.ForeColor = Color.White;
+            submitTicketButton.Location = new Point(650, 929);
             submitTicketButton.Name = "submitTicketButton";
             submitTicketButton.Size = new Size(241, 73);
             submitTicketButton.TabIndex = 17;
@@ -230,7 +226,7 @@ namespace DemoApp
             // 
             cancelButton.BackColor = Color.White;
             cancelButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            cancelButton.Location = new Point(388, 969);
+            cancelButton.Location = new Point(391, 929);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new Size(204, 73);
             cancelButton.TabIndex = 16;
@@ -239,7 +235,7 @@ namespace DemoApp
             // 
             // descriptionInput
             // 
-            descriptionInput.Location = new Point(388, 654);
+            descriptionInput.Location = new Point(391, 614);
             descriptionInput.MinimumSize = new Size(0, 200);
             descriptionInput.Multiline = true;
             descriptionInput.Name = "descriptionInput";
@@ -249,7 +245,7 @@ namespace DemoApp
             // descriptionLabel
             // 
             descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new Point(70, 654);
+            descriptionLabel.Location = new Point(73, 614);
             descriptionLabel.Name = "descriptionLabel";
             descriptionLabel.Size = new Size(140, 32);
             descriptionLabel.TabIndex = 14;
@@ -258,7 +254,7 @@ namespace DemoApp
             // deadlineFollowUpLabel
             // 
             deadlineFollowUpLabel.AutoSize = true;
-            deadlineFollowUpLabel.Location = new Point(68, 548);
+            deadlineFollowUpLabel.Location = new Point(68, 508);
             deadlineFollowUpLabel.Name = "deadlineFollowUpLabel";
             deadlineFollowUpLabel.Size = new Size(223, 32);
             deadlineFollowUpLabel.TabIndex = 13;
@@ -267,7 +263,7 @@ namespace DemoApp
             // priorityLabel
             // 
             priorityLabel.AutoSize = true;
-            priorityLabel.Location = new Point(68, 459);
+            priorityLabel.Location = new Point(71, 419);
             priorityLabel.Name = "priorityLabel";
             priorityLabel.Size = new Size(94, 32);
             priorityLabel.TabIndex = 12;
@@ -276,7 +272,7 @@ namespace DemoApp
             // userReportedLabel
             // 
             userReportedLabel.AutoSize = true;
-            userReportedLabel.Location = new Point(68, 371);
+            userReportedLabel.Location = new Point(71, 331);
             userReportedLabel.Name = "userReportedLabel";
             userReportedLabel.Size = new Size(201, 32);
             userReportedLabel.TabIndex = 11;
@@ -285,7 +281,7 @@ namespace DemoApp
             // incidentTypeLabel
             // 
             incidentTypeLabel.AutoSize = true;
-            incidentTypeLabel.Location = new Point(68, 277);
+            incidentTypeLabel.Location = new Point(71, 237);
             incidentTypeLabel.Name = "incidentTypeLabel";
             incidentTypeLabel.Size = new Size(192, 32);
             incidentTypeLabel.TabIndex = 10;
@@ -294,20 +290,11 @@ namespace DemoApp
             // subjectIncidentLabel
             // 
             subjectIncidentLabel.AutoSize = true;
-            subjectIncidentLabel.Location = new Point(68, 191);
+            subjectIncidentLabel.Location = new Point(71, 151);
             subjectIncidentLabel.Name = "subjectIncidentLabel";
             subjectIncidentLabel.Size = new Size(215, 32);
             subjectIncidentLabel.TabIndex = 9;
             subjectIncidentLabel.Text = "Subject of incident";
-            // 
-            // reportedDateLabel
-            // 
-            reportedDateLabel.AutoSize = true;
-            reportedDateLabel.Location = new Point(68, 111);
-            reportedDateLabel.Name = "reportedDateLabel";
-            reportedDateLabel.Size = new Size(225, 32);
-            reportedDateLabel.TabIndex = 8;
-            reportedDateLabel.Text = "Date/time reported:";
             // 
             // newIncidentLabel
             // 
@@ -320,22 +307,84 @@ namespace DemoApp
             newIncidentLabel.TabIndex = 7;
             newIncidentLabel.Text = "Create new incident ticket";
             // 
+            // ticketOverviewPanel
+            // 
+            ticketOverviewPanel.BackColor = Color.White;
+            ticketOverviewPanel.Controls.Add(listViewTicketOverview);
+            ticketOverviewPanel.Controls.Add(filterTextBoxInput);
+            ticketOverviewPanel.Controls.Add(createIncidentButton);
+            ticketOverviewPanel.Controls.Add(overviewTicketLabel);
+            ticketOverviewPanel.Location = new Point(14, 216);
+            ticketOverviewPanel.Name = "ticketOverviewPanel";
+            ticketOverviewPanel.Size = new Size(1713, 1141);
+            ticketOverviewPanel.TabIndex = 24;
+            // 
+            // listViewTicketOverview
+            // 
+            listViewTicketOverview.FullRowSelect = true;
+            listViewTicketOverview.GridLines = true;
+            listViewTicketOverview.Location = new Point(68, 236);
+            listViewTicketOverview.Name = "listViewTicketOverview";
+            listViewTicketOverview.Size = new Size(1577, 863);
+            listViewTicketOverview.TabIndex = 20;
+            listViewTicketOverview.UseCompatibleStateImageBehavior = false;
+            // 
+            // filterTextBoxInput
+            // 
+            filterTextBoxInput.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            filterTextBoxInput.ForeColor = Color.Silver;
+            filterTextBoxInput.Location = new Point(68, 146);
+            filterTextBoxInput.Multiline = true;
+            filterTextBoxInput.Name = "filterTextBoxInput";
+            filterTextBoxInput.Size = new Size(468, 73);
+            filterTextBoxInput.TabIndex = 19;
+            filterTextBoxInput.Text = " Filter by email";
+            // 
+            // createIncidentButton
+            // 
+            createIncidentButton.BackColor = Color.DeepSkyBlue;
+            createIncidentButton.FlatAppearance.BorderColor = Color.Black;
+            createIncidentButton.FlatAppearance.MouseDownBackColor = Color.White;
+            createIncidentButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            createIncidentButton.ForeColor = Color.White;
+            createIncidentButton.Location = new Point(1404, 146);
+            createIncidentButton.Name = "createIncidentButton";
+            createIncidentButton.Size = new Size(241, 73);
+            createIncidentButton.TabIndex = 18;
+            createIncidentButton.Text = "CREATE INCIDENT";
+            createIncidentButton.UseVisualStyleBackColor = false;
+            createIncidentButton.Click += createIncidentButton_Click;
+            // 
+            // overviewTicketLabel
+            // 
+            overviewTicketLabel.AutoSize = true;
+            overviewTicketLabel.BackColor = Color.Transparent;
+            overviewTicketLabel.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
+            overviewTicketLabel.Location = new Point(16, 13);
+            overviewTicketLabel.Name = "overviewTicketLabel";
+            overviewTicketLabel.Size = new Size(453, 71);
+            overviewTicketLabel.TabIndex = 8;
+            overviewTicketLabel.Text = "Overview Tickets";
+            // 
             // DashBoard
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1739, 1369);
+            Controls.Add(ticketOverviewPanel);
             Controls.Add(addIncidentPanel);
             Controls.Add(DashboardPanel);
             Margin = new Padding(6, 7, 6, 7);
             Name = "DashBoard";
-            Text = "Form1";
+            Text = "Dashboard";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)gardenGroupLogo).EndInit();
             DashboardPanel.ResumeLayout(false);
             DashboardPanel.PerformLayout();
             addIncidentPanel.ResumeLayout(false);
             addIncidentPanel.PerformLayout();
+            ticketOverviewPanel.ResumeLayout(false);
+            ticketOverviewPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -356,16 +405,19 @@ namespace DemoApp
         private Label userReportedLabel;
         private Label incidentTypeLabel;
         private Label subjectIncidentLabel;
-        private Label reportedDateLabel;
         private Label newIncidentLabel;
         private TextBox subjectInput;
         private Button submitTicketButton;
         private Button cancelButton;
         private ComboBox incidentTypeInput;
-        private Label outputReportedDate;
         private ComboBox deadlineFollowUpInput;
         private ComboBox priorityInput;
         private ComboBox userReportedInput;
+        private Panel ticketOverviewPanel;
+        private ListView listViewTicketOverview;
+        private TextBox filterTextBoxInput;
+        private Button createIncidentButton;
+        private Label overviewTicketLabel;
     }
 }
 
