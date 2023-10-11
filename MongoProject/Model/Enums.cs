@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace MongoProject.Model
 {
-    enum TicketStatus
+    public enum TicketStatus
     {
         Open,
         Closed,
         InProgress,
         Resolved
     }
-    enum TicketPriority
+    public enum TicketPriority
     {
         Low,
         Medium,
         High
     }
-    enum TicketType
+    public enum TicketType
     {
         Software,
         Hardware,
