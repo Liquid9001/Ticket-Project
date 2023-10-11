@@ -17,6 +17,7 @@ namespace DAL
         {
             client = new MongoClient("mongodb+srv://projecttickets:wFK6NeiHfAKvHAiB@cluster0.tpy88by.mongodb.net/");
             db = client.GetDatabase("TicketProject");
+
         }
 
         public void AddEmployee(Employee employee)
@@ -36,7 +37,28 @@ namespace DAL
             collection.InsertOne(document);
         }
 
+<<<<<<< HEAD
         
+=======
+        public void AddTicket(Ticket ticket)
+        {
+            collection = db.GetCollection<BsonDocument>("Tickets");
+            BsonDocument document = new BsonDocument
+            {
+                {"Title", ticket.Ticket_name },
+                {"TypeOfIncident", (int)ticket.TicketType },
+                {"Description", ticket.Ticket_description },
+                {"Status", (int)ticket.TicketStatus },
+                {"EmployeeID", ticket.AssignedEmployee.Employee_id },
+                {"CreatedAt", ticket.Ticket_created },
+                {"Deadline", ticket.Ticket_deadline },
+                {"TicketPriority", (int)ticket.TicketPriority }
+            };
+            collection.InsertOne(document);
+        }
+
+
+>>>>>>> Louise
     }
 
 

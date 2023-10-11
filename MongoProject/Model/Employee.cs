@@ -18,7 +18,23 @@ namespace MongoProject.Model
         string location;
         bool isServiceDesk;
 
+<<<<<<< HEAD
         public int Employee_id { get => employee_id; set => employee_id = value; }
+=======
+        public Employee(string firstName, string lastName, string username, string password, string email, string phoneNumber, string location, bool isServiceDesk)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Username = username;
+            Password = password;
+            Email = email;
+            PhoneNumber = phoneNumber;
+            Location = location;
+            IsServiceDesk = isServiceDesk;
+        }
+
+        public int Employee_id { get => employee_id; }
+>>>>>>> Louise
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public string Username { get => username; set => username = value; }
