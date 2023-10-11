@@ -18,10 +18,10 @@ namespace MongoProject.Model
         DateTime ticket_deadline;
         DateTime ticket_resolved;
         DateTime ticket_closed;
-        Employee ticket_assigned;
+        Employee assignedEmployee;
         List<string> comments;
 
-        public Ticket(string ticket_name, string ticket_description, DateTime ticket_created, DateTime ticket_deadline, DateTime ticket_resolved, DateTime ticket_closed, Employee ticket_assigned, List<string> comments, TicketType ticketType, TicketStatus ticketStatus, TicketPriority ticketPriority)
+        public Ticket(string ticket_name, string ticket_description, DateTime ticket_created, DateTime ticket_deadline, DateTime ticket_resolved, DateTime ticket_closed, Employee employee, List<string> comments, TicketType ticketType, TicketStatus ticketStatus, TicketPriority ticketPriority)
         {
             Ticket_name = ticket_name;
             Ticket_description = ticket_description;
@@ -29,7 +29,7 @@ namespace MongoProject.Model
             Ticket_deadline = ticket_deadline;
             Ticket_resolved = ticket_resolved;
             Ticket_closed = ticket_closed;
-            Ticket_assigned = ticket_assigned;
+            AssignedEmployee = employee;
             Comments = comments;
             TicketType = ticketType;
             TicketStatus = ticketStatus;
@@ -43,7 +43,7 @@ namespace MongoProject.Model
         public DateTime Ticket_deadline { get => ticket_deadline; set => ticket_deadline = value; }
         public DateTime Ticket_resolved { get => ticket_resolved; set => ticket_resolved = value; }
         public DateTime Ticket_closed { get => ticket_closed; set => ticket_closed = value; }
-        public Employee Ticket_assigned { get => ticket_assigned; set => ticket_assigned = value; }
+        public Employee AssignedEmployee { get => assignedEmployee; set => assignedEmployee = value; }
         public List<string> Comments { get => comments; set => comments = value; }
         public TicketType TicketType { get => ticketType; set => ticketType = value; }
         public TicketStatus TicketStatus { get => ticketStatus; set => ticketStatus = value; }
