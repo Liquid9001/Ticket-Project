@@ -221,6 +221,7 @@ namespace DemoApp
             submitTicketButton.TabIndex = 17;
             submitTicketButton.Text = "SUBMIT TICKET";
             submitTicketButton.UseVisualStyleBackColor = false;
+            submitTicketButton.Click += submitTicketButton_Click;
             // 
             // cancelButton
             // 
@@ -232,6 +233,7 @@ namespace DemoApp
             cancelButton.TabIndex = 16;
             cancelButton.Text = "CANCEL";
             cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += cancelButton_Click;
             // 
             // descriptionInput
             // 
@@ -241,6 +243,7 @@ namespace DemoApp
             descriptionInput.Name = "descriptionInput";
             descriptionInput.Size = new Size(500, 257);
             descriptionInput.TabIndex = 15;
+            descriptionInput.TextChanged += descriptionInput_TextChanged;
             // 
             // descriptionLabel
             // 
@@ -371,8 +374,8 @@ namespace DemoApp
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1739, 1369);
-            Controls.Add(ticketOverviewPanel);
             Controls.Add(addIncidentPanel);
+            Controls.Add(ticketOverviewPanel);
             Controls.Add(DashboardPanel);
             Margin = new Padding(6, 7, 6, 7);
             Name = "DashBoard";

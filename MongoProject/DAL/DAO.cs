@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Model;
 using MongoDB.Bson.Serialization;
 using MongoProject.Model;
+using Logic;
 
 namespace DAL
 {
@@ -11,7 +12,6 @@ namespace DAL
     {
         private MongoClient client;
         private IMongoDatabase db;
-        private IMongoCollection<BsonDocument> collection;
 
         public DAO()
         {
@@ -20,9 +20,23 @@ namespace DAL
 
         }
 
-       
+        public List<Employee> GetEmployees()
+        {
+            IMongoCollection<Employee> collection = db.GetCollection<Employee>("Employees");
+            FilterDefinition<Employee> filter = Builders<Employee>.Filter.Empty;
+            List<Employee> employees = collection.Find(filter).ToList();
+            return employees;
+        }
 
-        public void AddEmployee(Employee employee)
+        public List<Ticket> GetTickets()
+        {
+            IMongoCollection<Ticket> collection = db.GetCollection<Ticket>("Tickets");
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Empty;
+            List<Ticket> tickets = collection.Find(filter).ToList();
+            return tickets;
+        }
+
+        /*public void AddEmployee(Employee employee)
         {
             collection = db.GetCollection<BsonDocument>("Employees");
             BsonDocument document = new BsonDocument
@@ -39,6 +53,8 @@ namespace DAL
             collection.InsertOne(document);
         }
 
+
+
         public void AddTicket(Ticket ticket)
         {
             collection = db.GetCollection<BsonDocument>("Tickets");
@@ -48,15 +64,13 @@ namespace DAL
                 {"TypeOfIncident", (int)ticket.TicketType },
                 {"Description", ticket.Ticket_description },
                 {"Status", (int)ticket.TicketStatus },
-               // {"EmployeeID", ticket.AssignedEmployee.Employee_id },
+                {"EmployeeID", ticket.EmployeeID },
                 {"CreatedAt", ticket.Ticket_created },
                 {"Deadline", ticket.Ticket_deadline },
                 {"TicketPriority", (int)ticket.TicketPriority }
             };
             collection.InsertOne(document);
-        }
-
-
+        }*/
     }
 
 

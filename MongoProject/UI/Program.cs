@@ -18,5 +18,7 @@ namespace DemoApp
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new DashBoard());
         }
+
+        
     }
 }

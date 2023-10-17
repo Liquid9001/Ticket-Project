@@ -39,20 +39,6 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "dependencies": {
-            "MongoDB.Bson": {
-              "target": "Package",
-              "version": "[2.21.0, )"
-            },
-            "MongoDB.Driver": {
-              "target": "Package",
-              "version": "[2.21.0, )"
-            },
-            "WinForms.DataVisualization": {
-              "target": "Package",
-              "version": "[1.9.0-pr, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

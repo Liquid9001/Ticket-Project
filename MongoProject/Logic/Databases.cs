@@ -1,5 +1,5 @@
 ﻿using DAL;
-using Model;
+using MongoProject.Model;
 using System.Collections.Generic;
 
 namespace Logic
@@ -12,6 +12,14 @@ namespace Logic
             dao = new DAO();
         }
 
-       
+        public void AddEmployee()
+        {
+            
+        }
+
+        public List<Employee> GetEmployees()
+        {
+            return dao.GetEmployees();
+        }
     }
 }

@@ -3,41 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace MongoProject.Model
 {
     public class Employee
     {
-        string employee_id;
-        string firstName;
-        string lastName;
-        string username;
-        string password;
-        string email;
-        string phoneNumber;
-        string location;
-        bool isServiceDesk;
+        public ObjectId Id { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public bool isServiceDesk { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string EmailAddress { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Location { get; set; }
 
-        public Employee(string firstName, string lastName, string username, string password, string email, string phoneNumber, string location, bool isServiceDesk)
+        public Employee(string username, string password, bool isServiceDesk, string FirstName, string LastName, string EmailAddress, string PhoneNumber, string Location)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Username = username;
-            Password = password;
-            Email = email;
-            PhoneNumber = phoneNumber;
-            Location = location;
-            IsServiceDesk = isServiceDesk;
+            this.username = username;
+            this.password = password;
+            this.isServiceDesk = isServiceDesk;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.EmailAddress = EmailAddress;
+            this.PhoneNumber = PhoneNumber;
+            this.Location = Location;
         }
-
-        public string Employee_id { get => employee_id; }
-        public string FirstName { get => firstName; set => firstName = value; }
-        public string LastName { get => lastName; set => lastName = value; }
-        public string Username { get => username; set => username = value; }
-        public string Password { get => password; set => password = value; }
-        public string Email { get => email; set => email = value; }
-        public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
-        public string Location { get => location; set => location = value; }
-        public bool IsServiceDesk { get => isServiceDesk; set => isServiceDesk = value; }
     }
 }
