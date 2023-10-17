@@ -7,6 +7,7 @@ using Logic;
 using Model;
 using MongoProject.Model;
 using MongoDB.Bson.Serialization.Serializers;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DemoApp
 {
@@ -17,6 +18,22 @@ namespace DemoApp
         {
             InitializeComponent();
             databases = new Databases();
+            List<Ticket> ticketList = databases.GetTickets();
+
+            foreach (Ticket ticket in ticketList)
+            {
+                ListViewItem listViewItem = new ListViewItem(new[]
+                {
+                    ticket.Ticket_id.ToString(),
+                    ticket.Title,
+                    ticket.EmployeeID.ToString(),
+                    ticket.CreatedAt.ToString("dd/MM/yyyy"),
+                    ticket.Status.ToString()
+                });
+
+                listViewTicketOverview.Items.Add(listViewItem);
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -57,17 +74,24 @@ namespace DemoApp
             deadlineFollowUpInput.DataSource = TicketDeadline;
             deadlineFollowUpInput.Text = TicketDeadline[0];
 
+            //initiate combobox 'reported user'
+            List<Employee> employees = databases.GetEmployees();
+            userReportedInput.DataSource = employees;
+            userReportedInput.DisplayMember = "FirstName";
+            userReportedInput.Text = "Select user";
+
+
             addIncidentPanel.Show();
         }
 
         private void subjectInput_TextChanged(object sender, EventArgs e)
         {
-            string subject = subjectInput.Text;
+            
         }
 
         private void descriptionInput_TextChanged(object sender, EventArgs e)
         {
-            string description = descriptionInput.Text;
+
         }
 
 
@@ -81,7 +105,33 @@ namespace DemoApp
         //creates ticket
         private void submitTicketButton_Click(object sender, EventArgs e)
         {
-            
+            Employee employee = (Employee)userReportedInput.SelectedItem;
+            Ticket ticket = new Ticket(subjectInput.Text, (TicketType)incidentTypeInput.SelectedItem, descriptionInput.Text, TicketStatus.Open, employee.Id, DateTime.Now, GetDeadline(deadlineFollowUpInput.SelectedText), (TicketPriority)priorityInput.SelectedItem);
+
+
+        }
+
+        //calculates deadline of ticket
+        private DateTime GetDeadline(string index)
+        {
+
+            DateTime deadlineDate = DateTime.Now;
+            switch (index)
+            {
+                case "7 days":
+                    deadlineDate = DateTime.Now.AddDays(7);
+                    break;
+                case "14 days":
+                    deadlineDate = DateTime.Now.AddDays(14);
+                    break;
+                case "28 days":
+                    deadlineDate = DateTime.Now.AddDays(28);
+                    break;
+                case "6 months":
+                    deadlineDate = DateTime.Now.AddMonths(6);
+                    break;
+            }
+            return deadlineDate;
         }
     }
 }

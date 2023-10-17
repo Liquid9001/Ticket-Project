@@ -55,6 +55,11 @@ namespace DemoApp
             newIncidentLabel = new Label();
             ticketOverviewPanel = new Panel();
             listViewTicketOverview = new ListView();
+            ID = new ColumnHeader();
+            Subject = new ColumnHeader();
+            User = new ColumnHeader();
+            Date = new ColumnHeader();
+            Status = new ColumnHeader();
             filterTextBoxInput = new TextBox();
             createIncidentButton = new Button();
             overviewTicketLabel = new Label();
@@ -324,6 +329,8 @@ namespace DemoApp
             // 
             // listViewTicketOverview
             // 
+            listViewTicketOverview.Columns.AddRange(new ColumnHeader[] { ID, Subject, User, Date, Status });
+            listViewTicketOverview.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             listViewTicketOverview.FullRowSelect = true;
             listViewTicketOverview.GridLines = true;
             listViewTicketOverview.Location = new Point(68, 236);
@@ -331,6 +338,32 @@ namespace DemoApp
             listViewTicketOverview.Size = new Size(1577, 863);
             listViewTicketOverview.TabIndex = 20;
             listViewTicketOverview.UseCompatibleStateImageBehavior = false;
+            listViewTicketOverview.View = View.Details;
+            // 
+            // ID
+            // 
+            ID.Text = "ID";
+            ID.Width = 150;
+            // 
+            // Subject
+            // 
+            Subject.Text = "Subject";
+            Subject.Width = 800;
+            // 
+            // User
+            // 
+            User.Text = "User";
+            User.Width = 180;
+            // 
+            // Date
+            // 
+            Date.Text = "Date";
+            Date.Width = 250;
+            // 
+            // Status
+            // 
+            Status.Text = "Status";
+            Status.Width = 200;
             // 
             // filterTextBoxInput
             // 
@@ -374,8 +407,8 @@ namespace DemoApp
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1739, 1369);
-            Controls.Add(addIncidentPanel);
             Controls.Add(ticketOverviewPanel);
+            Controls.Add(addIncidentPanel);
             Controls.Add(DashboardPanel);
             Margin = new Padding(6, 7, 6, 7);
             Name = "DashBoard";
@@ -421,6 +454,11 @@ namespace DemoApp
         private TextBox filterTextBoxInput;
         private Button createIncidentButton;
         private Label overviewTicketLabel;
+        private ColumnHeader ID;
+        private ColumnHeader Subject;
+        private ColumnHeader User;
+        private ColumnHeader Date;
+        private ColumnHeader Status;
     }
 }
 

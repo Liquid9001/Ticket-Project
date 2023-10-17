@@ -112,14 +112,11 @@ C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\Mong
 C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoDB.Libmongocrypt.dll
 C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\SharpCompress.dll
 C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\Snappier.dll
-C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\WinForms.DataVisualization.Utilities.dll
-C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\WinForms.DataVisualization.dll
 C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\ZstdSharp.dll
 C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\runtimes\linux\native\libmongocrypt.so
 C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\runtimes\win\native\mongocrypt.dll
 C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.AssemblyReference.cache
-C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.Properties.Resources.resources
 C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\DemoApp.DashBoard.resources
 C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.GenerateResource.cache
 C:\Users\Louise\Desktop\school\INF2a\Periode 1\Project NOSQL\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.GeneratedMSBuildEditorConfig.editorconfig
