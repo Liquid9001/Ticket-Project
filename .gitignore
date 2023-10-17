@@ -69,3 +69,10 @@ $RECYCLE.BIN/
 
 # VS Code directories
 .vscode/
+*.v2
+*.v2
+.vs/MongoProject/DesignTimeBuild/.dtbcache.v2
+MongoProject/bin/Debug/net6.0-windows/MongoProject.deps.json
+*.dll
+*.exe
+*.pdb
