@@ -8,7 +8,7 @@ namespace MongoProject.Model
 {
     public class Employee
     {
-        int employee_id;
+        string employee_id;
         string firstName;
         string lastName;
         string username;
@@ -18,9 +18,6 @@ namespace MongoProject.Model
         string location;
         bool isServiceDesk;
 
-<<<<<<< HEAD
-        public int Employee_id { get => employee_id; set => employee_id = value; }
-=======
         public Employee(string firstName, string lastName, string username, string password, string email, string phoneNumber, string location, bool isServiceDesk)
         {
             FirstName = firstName;
@@ -33,8 +30,7 @@ namespace MongoProject.Model
             IsServiceDesk = isServiceDesk;
         }
 
-        public int Employee_id { get => employee_id; }
->>>>>>> Louise
+        public string Employee_id { get => employee_id; }
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public string Username { get => username; set => username = value; }
