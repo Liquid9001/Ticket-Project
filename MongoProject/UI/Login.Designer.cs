@@ -34,6 +34,13 @@
             noDeskLabel = new Label();
             gardenGroupLogo = new PictureBox();
             EmailLabel = new Label();
+            passwordLabel = new Label();
+            emailTextBox = new TextBox();
+            passwordTextBox = new TextBox();
+            noDeskTextLabel = new Label();
+            label2 = new Label();
+            rememberMeCheckBox = new CheckBox();
+            loginButton = new Button();
             DashboardPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gardenGroupLogo).BeginInit();
             SuspendLayout();
@@ -46,7 +53,7 @@
             DashboardPanel.Controls.Add(noDeskLabel);
             DashboardPanel.Controls.Add(gardenGroupLogo);
             DashboardPanel.Location = new Point(0, 1);
-            DashboardPanel.Margin = new Padding(2);
+            DashboardPanel.Margin = new Padding(2, 2, 2, 2);
             DashboardPanel.Name = "DashboardPanel";
             DashboardPanel.Size = new Size(1065, 124);
             DashboardPanel.TabIndex = 2;
@@ -78,7 +85,7 @@
             // 
             gardenGroupLogo.Image = (Image)resources.GetObject("gardenGroupLogo.Image");
             gardenGroupLogo.Location = new Point(2, -1);
-            gardenGroupLogo.Margin = new Padding(2);
+            gardenGroupLogo.Margin = new Padding(2, 2, 2, 2);
             gardenGroupLogo.Name = "gardenGroupLogo";
             gardenGroupLogo.Size = new Size(406, 86);
             gardenGroupLogo.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -88,11 +95,75 @@
             // EmailLabel
             // 
             EmailLabel.AutoSize = true;
-            EmailLabel.Location = new Point(526, 255);
+            EmailLabel.Location = new Point(368, 274);
             EmailLabel.Name = "EmailLabel";
             EmailLabel.Size = new Size(46, 20);
             EmailLabel.TabIndex = 3;
             EmailLabel.Text = "Email";
+            // 
+            // passwordLabel
+            // 
+            passwordLabel.AutoSize = true;
+            passwordLabel.Location = new Point(368, 364);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new Size(70, 20);
+            passwordLabel.TabIndex = 4;
+            passwordLabel.Text = "Password";
+            // 
+            // emailTextBox
+            // 
+            emailTextBox.Location = new Point(368, 297);
+            emailTextBox.Name = "emailTextBox";
+            emailTextBox.Size = new Size(279, 27);
+            emailTextBox.TabIndex = 5;
+            // 
+            // passwordTextBox
+            // 
+            passwordTextBox.Location = new Point(368, 397);
+            passwordTextBox.Name = "passwordTextBox";
+            passwordTextBox.Size = new Size(279, 27);
+            passwordTextBox.TabIndex = 6;
+            // 
+            // noDeskTextLabel
+            // 
+            noDeskTextLabel.AutoSize = true;
+            noDeskTextLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            noDeskTextLabel.Location = new Point(431, 137);
+            noDeskTextLabel.Name = "noDeskTextLabel";
+            noDeskTextLabel.Size = new Size(127, 28);
+            noDeskTextLabel.TabIndex = 7;
+            noDeskTextLabel.Text = "NoDesk: TGG";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(330, 187);
+            label2.Name = "label2";
+            label2.Size = new Size(391, 56);
+            label2.TabIndex = 8;
+            label2.Text = "Please provide login credentials to login to \r\nNoDesk for The Garden Group";
+            // 
+            // rememberMeCheckBox
+            // 
+            rememberMeCheckBox.AutoSize = true;
+            rememberMeCheckBox.Location = new Point(368, 445);
+            rememberMeCheckBox.Name = "rememberMeCheckBox";
+            rememberMeCheckBox.Size = new Size(129, 24);
+            rememberMeCheckBox.TabIndex = 10;
+            rememberMeCheckBox.Text = "Remember Me";
+            rememberMeCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // loginButton
+            // 
+            loginButton.BackColor = Color.DeepSkyBlue;
+            loginButton.ForeColor = SystemColors.ButtonHighlight;
+            loginButton.Location = new Point(387, 493);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(218, 58);
+            loginButton.TabIndex = 11;
+            loginButton.Text = "Login";
+            loginButton.UseVisualStyleBackColor = false;
             // 
             // Login
             // 
@@ -100,6 +171,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1067, 595);
+            Controls.Add(loginButton);
+            Controls.Add(rememberMeCheckBox);
+            Controls.Add(label2);
+            Controls.Add(noDeskTextLabel);
+            Controls.Add(passwordTextBox);
+            Controls.Add(emailTextBox);
+            Controls.Add(passwordLabel);
             Controls.Add(EmailLabel);
             Controls.Add(DashboardPanel);
             Name = "Login";
@@ -118,5 +196,12 @@
         private Label noDeskLabel;
         private PictureBox gardenGroupLogo;
         private Label EmailLabel;
+        private Label passwordLabel;
+        private TextBox emailTextBox;
+        private TextBox passwordTextBox;
+        private Label noDeskTextLabel;
+        private Label label2;
+        private CheckBox rememberMeCheckBox;
+        private Button loginButton;
     }
 }
