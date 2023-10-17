@@ -790,11 +790,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dinka\\Desktop\\TicketProject\\TicketProject\\TicketProject.csproj",
+      "projectUniqueName": "C:\\Users\\dinka\\Github\\Ticket-Project\\TicketProject\\TicketProject.csproj",
       "projectName": "TicketProject",
-      "projectPath": "C:\\Users\\dinka\\Desktop\\TicketProject\\TicketProject\\TicketProject.csproj",
+      "projectPath": "C:\\Users\\dinka\\Github\\Ticket-Project\\TicketProject\\TicketProject.csproj",
       "packagesPath": "C:\\Users\\dinka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dinka\\Desktop\\TicketProject\\TicketProject\\obj\\",
+      "outputPath": "C:\\Users\\dinka\\Github\\Ticket-Project\\TicketProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dinka\\AppData\\Roaming\\NuGet\\NuGet.Config",

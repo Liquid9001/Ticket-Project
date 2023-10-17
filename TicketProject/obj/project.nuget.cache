@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+/wtW9ND0rcEdxq9l7aUQSIIV5Cu094wNpZetHhDsUnfHt/B6LiC0uMfU+E3xRoghLJgOqVmSGxAJs7wQMV6Gw==",
+  "dgSpecHash": "WRAoqf4Dg5o6BktZPOdcOU2EMsZZs1IG3+g6V/tGXJxuYoKsr0E2Uxi9cVU7v4WtlPxdIiGBiUCmOfoTtgqhOg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dinka\\Desktop\\TicketProject\\TicketProject\\TicketProject.csproj",
+  "projectFilePath": "C:\\Users\\dinka\\Github\\Ticket-Project\\TicketProject\\TicketProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dinka\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\dinka\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
