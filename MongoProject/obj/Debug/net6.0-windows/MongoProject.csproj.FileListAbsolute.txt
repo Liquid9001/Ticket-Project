@@ -1,0 +1,99 @@
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\MongoProject.exe
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\MongoProject.deps.json
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\MongoProject.runtimeconfig.json
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\MongoProject.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\MongoProject.pdb
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\AWSSDK.Core.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\AWSSDK.SecurityToken.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\DnsClient.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\MongoDB.Bson.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\MongoDB.Driver.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\MongoDB.Driver.Core.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\MongoDB.Libmongocrypt.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\SharpCompress.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\Snappier.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\ZstdSharp.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\runtimes\linux\native\libmongocrypt.so
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\bin\Debug\net6.0-windows\runtimes\win\native\mongocrypt.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.AssemblyReference.cache
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\DemoApp.Form1.resources
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.GenerateResource.cache
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.AssemblyInfoInputs.cache
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.AssemblyInfo.cs
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.CoreCompileInputs.cache
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.CopyComplete
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\refint\MongoProject.dll
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.pdb
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.genruntimeconfig.cache
+C:\Users\dinka\Nextcloud\Documents\Inholland\Design Patterns\MongoProject\MongoProject\obj\Debug\net6.0-windows\ref\MongoProject.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.exe
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.deps.json
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.runtimeconfig.json
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.pdb
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\AWSSDK.Core.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\AWSSDK.SecurityToken.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\DnsClient.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoDB.Bson.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoDB.Driver.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoDB.Driver.Core.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoDB.Libmongocrypt.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\SharpCompress.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\Snappier.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\ZstdSharp.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\runtimes\linux\native\libmongocrypt.so
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\runtimes\win\native\mongocrypt.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.AssemblyReference.cache
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\DemoApp.Form1.resources
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.GenerateResource.cache
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.AssemblyInfoInputs.cache
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.AssemblyInfo.cs
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.CoreCompileInputs.cache
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.CopyComplete
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\refint\MongoProject.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.pdb
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.genruntimeconfig.cache
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\ref\MongoProject.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.AssemblyReference.cache
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.Properties.Resources.resources
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\DemoApp.DashBoard.resources
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.GenerateResource.cache
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.AssemblyInfoInputs.cache
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.AssemblyInfo.cs
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.CoreCompileInputs.cache
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\refint\MongoProject.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.pdb
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.exe
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.deps.json
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.runtimeconfig.json
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoProject.pdb
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\AWSSDK.Core.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\AWSSDK.SecurityToken.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\DnsClient.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoDB.Bson.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoDB.Driver.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoDB.Driver.Core.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\MongoDB.Libmongocrypt.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\SharpCompress.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\Snappier.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\WinForms.DataVisualization.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\ZstdSharp.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\runtimes\linux\native\libmongocrypt.so
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\runtimes\win\native\mongocrypt.dll
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.CopyComplete
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.genruntimeconfig.cache
+C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\ref\MongoProject.dll

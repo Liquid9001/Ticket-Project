@@ -6,52 +6,53 @@ using MongoDB.Bson;
 using Logic;
 using Model;
 using MongoProject.Model;
+using MongoDB.Bson.Serialization.Serializers;
 
 namespace DemoApp
 {
     public partial class DashBoard : Form
     {
-        private Databases database;
+        private Databases databases;
         public DashBoard()
         {
             InitializeComponent();
-            database = new Databases();
+            databases = new Databases();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DashboardPanel.Hide();
-            addIncidentPanel.Hide();
-            userManagementPanel.Show();
+            /* var dbList = databases.Get_All_Databases();
 
-            List<Employee> employees = database.GetEmployees();
-
-            foreach (Employee employee in employees)
-            {
-                ListViewItem item = new ListViewItem(employee.FirstName);
-                item.SubItems.Add(employee.LastName);
-                item.SubItems.Add(employee.PhoneNumber);
-                listViewUsers.Items.Add(item);
-            }
-
+             foreach (var db in dbList)
+             {
+                 //listBox1.Items.Add(db.name);
+             }*/
         }
 
-        private void listViewUsers_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void userManagementPanel_Paint(object sender, PaintEventArgs e)
+        //create incident button is clicked
+        private void createIncidentButton_Click(object sender, EventArgs e)
         {
-            List<Employee> employees = database.GetEmployees();
-            foreach (Employee employee in employees)
-            {
-                ListViewItem item = new ListViewItem(employee.FirstName);
-                item.SubItems.Add(employee.LastName);
-                item.SubItems.Add(employee.PhoneNumber);
-                listViewUsers.Items.Add(item);
-            }
+            ticketOverviewPanel.Hide();
 
+            //initiate combobox 'type of incident'
+            incidentTypeInput.DataSource = Enum.GetValues(typeof(TicketType));
+            incidentTypeInput.Text = "Select type";
+
+            //iniciate combobox 'select user'
+            //userReportedInput.DataSource = 
+
+
+            addIncidentPanel.Show();
+        }
+
+        private void subjectInput_TextChanged(object sender, EventArgs e)
+        {
+            string subject = subjectInput.Text;
         }
     }
 }
