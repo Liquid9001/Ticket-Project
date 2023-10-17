@@ -50,7 +50,6 @@ C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\runti
 C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\dinka\Github\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\runtimes\win\native\mongocrypt.dll
 C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.AssemblyReference.cache
-C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\DemoApp.Form1.resources
 C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.GenerateResource.cache
 C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.AssemblyInfoInputs.cache
@@ -97,3 +96,4 @@ C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\bin\Debug\ne
 C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.CopyComplete
 C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.genruntimeconfig.cache
 C:\Users\Louise\Desktop\Inf1C\webmarkup\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\ref\MongoProject.dll
+C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\DemoApp.DashBoard.resources

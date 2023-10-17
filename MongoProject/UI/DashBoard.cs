@@ -21,12 +21,11 @@ namespace DemoApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /* var dbList = databases.Get_All_Databases();
-
-             foreach (var db in dbList)
-             {
-                 //listBox1.Items.Add(db.name);
-             }*/
+            DashboardPanel.Show();
+            addIncidentPanel.Hide();
+            addUserPanel.Hide();
+            ticketOverviewPanel.Hide();
+            userManagementPanel.Hide();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,6 +52,45 @@ namespace DemoApp
         private void subjectInput_TextChanged(object sender, EventArgs e)
         {
             string subject = subjectInput.Text;
+        }
+
+        private void createUserCreateButton_Click(object sender, EventArgs e)
+        {
+
+            string username = firstNameTextBox.Text;
+            string password = passwordTextBox.Text;
+            bool isServiceDesk = isServiceDeskCheckBox.Checked;
+            string firstName = firstNameTextBox.Text;
+            string lastName = lastNameTextBox.Text;
+            string emailAddress = emailTextBox.Text;
+            string phoneNumber = phoneNumberTextBox.Text;
+            string location = locationTextBox.Text;
+
+            Employee employee = new Employee(username, password, isServiceDesk, firstName, lastName, emailAddress, phoneNumber, location);
+
+            databases.AddEmployee(employee);
+        }
+
+        private void createUserCancelButton_Click(object sender, EventArgs e)
+        {
+            addUserPanel.Hide();
+            userManagementPanel.Show();
+        }
+
+        private void addUserButton_Click(object sender, EventArgs e)
+        {
+            userManagementPanel.Hide();
+            addUserPanel.Show();
+        }
+
+        private void userManagementButton_Click(object sender, EventArgs e)
+        {
+            userManagementPanel.Show();
+            List<Employee> employees = databases.GetEmployees();
+            for (int i = 0; i < employees.Count; i++)
+            {
+
+            }
         }
     }
 }

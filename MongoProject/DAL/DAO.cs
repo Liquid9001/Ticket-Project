@@ -20,7 +20,7 @@ namespace DAL
 
         }
 
-        public List<Employee> GetEmployees()
+        public List<Employee> GetAllEmployees()
         {
             IMongoCollection<Employee> collection = db.GetCollection<Employee>("Employees");
             FilterDefinition<Employee> filter = Builders<Employee>.Filter.Empty;
@@ -28,7 +28,7 @@ namespace DAL
             return employees;
         }
 
-        public List<Ticket> GetTickets()
+        public List<Ticket> GetAllTickets()
         {
             IMongoCollection<Ticket> collection = db.GetCollection<Ticket>("Tickets");
             FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Empty;
@@ -36,41 +36,21 @@ namespace DAL
             return tickets;
         }
 
-        /*public void AddEmployee(Employee employee)
+        public void AddEmployee(Employee employee)
         {
-            collection = db.GetCollection<BsonDocument>("Employees");
-            BsonDocument document = new BsonDocument
-            {
-                {"FirstName", employee.FirstName },
-                {"LastName", employee.LastName },
-                {"username", employee.Username },
-                {"password", employee.Password },
-                {"EmailAddress", employee.Email },
-                {"PhoneNumber", employee.PhoneNumber },
-                {"Location", employee.Location },
-                {"isServiceDesk", employee.IsServiceDesk }
-            };
-            collection.InsertOne(document);
+            IMongoCollection<Employee> collection = db.GetCollection<Employee>("Employees");
+            
+            collection.InsertOne(employee);
         }
 
 
 
         public void AddTicket(Ticket ticket)
         {
-            collection = db.GetCollection<BsonDocument>("Tickets");
-            BsonDocument document = new BsonDocument
-            {
-                {"Title", ticket.Ticket_name },
-                {"TypeOfIncident", (int)ticket.TicketType },
-                {"Description", ticket.Ticket_description },
-                {"Status", (int)ticket.TicketStatus },
-                {"EmployeeID", ticket.EmployeeID },
-                {"CreatedAt", ticket.Ticket_created },
-                {"Deadline", ticket.Ticket_deadline },
-                {"TicketPriority", (int)ticket.TicketPriority }
-            };
-            collection.InsertOne(document);
-        }*/
+            IMongoCollection<Ticket> collection = db.GetCollection<Ticket>("Tickets");
+
+            collection.InsertOne(ticket);
+        }
     }
 
 
