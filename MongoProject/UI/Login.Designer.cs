@@ -53,7 +53,7 @@
             DashboardPanel.Controls.Add(noDeskLabel);
             DashboardPanel.Controls.Add(gardenGroupLogo);
             DashboardPanel.Location = new Point(0, 1);
-            DashboardPanel.Margin = new Padding(2, 2, 2, 2);
+            DashboardPanel.Margin = new Padding(2);
             DashboardPanel.Name = "DashboardPanel";
             DashboardPanel.Size = new Size(1065, 124);
             DashboardPanel.TabIndex = 2;
@@ -85,7 +85,7 @@
             // 
             gardenGroupLogo.Image = (Image)resources.GetObject("gardenGroupLogo.Image");
             gardenGroupLogo.Location = new Point(2, -1);
-            gardenGroupLogo.Margin = new Padding(2, 2, 2, 2);
+            gardenGroupLogo.Margin = new Padding(2);
             gardenGroupLogo.Name = "gardenGroupLogo";
             gardenGroupLogo.Size = new Size(406, 86);
             gardenGroupLogo.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -164,6 +164,7 @@
             loginButton.TabIndex = 11;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = false;
+            loginButton.Click += loginButton_Click;
             // 
             // Login
             // 
