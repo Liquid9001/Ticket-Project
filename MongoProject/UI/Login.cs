@@ -38,7 +38,6 @@ namespace MongoProject.UI
                 Properties.Settings.Default.Password = passwordTextBox.Text;
                 Properties.Settings.Default.Save();
                 MessageBox.Show("saved user");
-                MessageBox.Show(Properties.Settings.Default.Username, Properties.Settings.Default.Password);
             }
             if (!rememberMeCheckBox.Checked)
             {
