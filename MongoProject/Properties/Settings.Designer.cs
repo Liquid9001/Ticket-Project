@@ -12,7 +12,11 @@ namespace MongoProject.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+<<<<<<< HEAD
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.6.0.0")]
+=======
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.7.0.0")]
+>>>>>>> 12ae9c38d5a101dbb2496bef38310199414d9aff
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
