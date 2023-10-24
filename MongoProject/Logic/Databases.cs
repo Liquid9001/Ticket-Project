@@ -21,5 +21,10 @@ namespace Logic
         {
             return dao.GetAllEmployees();
         }
+
+        public List<Ticket> GetTickets()
+        {
+            return dao.GetTickets();
+        }
     }
 }

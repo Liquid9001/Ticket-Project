@@ -55,6 +55,11 @@ namespace DemoApp
             newIncidentLabel = new Label();
             ticketOverviewPanel = new Panel();
             listViewTicketOverview = new ListView();
+            ID = new ColumnHeader();
+            Subject = new ColumnHeader();
+            User = new ColumnHeader();
+            Date = new ColumnHeader();
+            Status = new ColumnHeader();
             filterTextBoxInput = new TextBox();
             createIncidentButton = new Button();
             overviewTicketLabel = new Label();
@@ -253,6 +258,7 @@ namespace DemoApp
             submitTicketButton.TabIndex = 17;
             submitTicketButton.Text = "SUBMIT TICKET";
             submitTicketButton.UseVisualStyleBackColor = false;
+            submitTicketButton.Click += submitTicketButton_Click;
             // 
             // cancelButton
             // 
@@ -264,6 +270,7 @@ namespace DemoApp
             cancelButton.TabIndex = 16;
             cancelButton.Text = "CANCEL";
             cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += cancelButton_Click;
             // 
             // descriptionInput
             // 
@@ -273,6 +280,7 @@ namespace DemoApp
             descriptionInput.Name = "descriptionInput";
             descriptionInput.Size = new Size(462, 241);
             descriptionInput.TabIndex = 15;
+            descriptionInput.TextChanged += descriptionInput_TextChanged;
             // 
             // descriptionLabel
             // 
@@ -353,6 +361,8 @@ namespace DemoApp
             // 
             // listViewTicketOverview
             // 
+            listViewTicketOverview.Columns.AddRange(new ColumnHeader[] { ID, Subject, User, Date, Status });
+            listViewTicketOverview.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             listViewTicketOverview.FullRowSelect = true;
             listViewTicketOverview.GridLines = true;
             listViewTicketOverview.Location = new Point(63, 221);
@@ -360,6 +370,32 @@ namespace DemoApp
             listViewTicketOverview.Size = new Size(1456, 809);
             listViewTicketOverview.TabIndex = 20;
             listViewTicketOverview.UseCompatibleStateImageBehavior = false;
+            listViewTicketOverview.View = View.Details;
+            // 
+            // ID
+            // 
+            ID.Text = "ID";
+            ID.Width = 150;
+            // 
+            // Subject
+            // 
+            Subject.Text = "Subject";
+            Subject.Width = 800;
+            // 
+            // User
+            // 
+            User.Text = "User";
+            User.Width = 180;
+            // 
+            // Date
+            // 
+            Date.Text = "Date";
+            Date.Width = 250;
+            // 
+            // Status
+            // 
+            Status.Text = "Status";
+            Status.Width = 200;
             // 
             // filterTextBoxInput
             // 
@@ -661,10 +697,15 @@ namespace DemoApp
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
+<<<<<<< HEAD
             ClientSize = new Size(1605, 1283);
             Controls.Add(userManagementPanel);
             Controls.Add(ticketOverviewPanel);
+=======
+            ClientSize = new Size(1739, 1369);
+>>>>>>> Louise
             Controls.Add(addIncidentPanel);
+            Controls.Add(ticketOverviewPanel);
             Controls.Add(DashboardPanel);
             Controls.Add(addUserPanel);
             Margin = new Padding(6, 7, 6, 7);
@@ -715,6 +756,7 @@ namespace DemoApp
         private TextBox filterTextBoxInput;
         private Button createIncidentButton;
         private Label overviewTicketLabel;
+<<<<<<< HEAD
         private Panel userManagementPanel;
         private ListView userOverviewLV;
         private TextBox userSearchBox;
@@ -744,6 +786,13 @@ namespace DemoApp
         private TextBox locationTextBox;
         private Label serviceDeskLabel;
         private CheckBox isServiceDeskCheckBox;
+=======
+        private ColumnHeader ID;
+        private ColumnHeader Subject;
+        private ColumnHeader User;
+        private ColumnHeader Date;
+        private ColumnHeader Status;
+>>>>>>> Louise
     }
 }
 

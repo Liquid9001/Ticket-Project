@@ -16,7 +16,7 @@ namespace MongoProject.Model
     public enum TicketPriority
     {
         Low,
-        Medium,
+        Normal,
         High
     }
     public enum TicketType
@@ -25,4 +25,6 @@ namespace MongoProject.Model
         Hardware,
         Service
     }
+
+   
 }
