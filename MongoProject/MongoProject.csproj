@@ -13,7 +13,6 @@
     <PackageReference Include="MongoDB.Driver" Version="2.22.0" />
   </ItemGroup>
 
-<<<<<<< HEAD
   <ItemGroup>
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -29,6 +28,4 @@
     </None>
   </ItemGroup>
 
-=======
->>>>>>> Louise
 </Project>
