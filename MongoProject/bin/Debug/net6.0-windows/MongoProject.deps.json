@@ -8,10 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "MongoProject/1.0.0": {
         "dependencies": {
-<<<<<<< HEAD
           "MongoDB.Bson": "2.22.0",
-=======
->>>>>>> origin/Enes
           "MongoDB.Driver": "2.22.0"
         },
         "runtime": {
