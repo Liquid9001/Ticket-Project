@@ -4,5 +4,8 @@
     <Compile Update="UI\DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UI\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

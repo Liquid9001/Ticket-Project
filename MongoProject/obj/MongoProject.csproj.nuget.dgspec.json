@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\dinka\\Github\\Ticket-Project\\MongoProject\\MongoProject.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dinka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\MongoProject.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\MongoProject.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\MongoProject.csproj",
+        "projectName": "MongoProject",
+        "projectPath": "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\MongoProject.csproj",
+        "packagesPath": "C:\\Users\\enesb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\enesb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> origin/Enes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,10 +57,13 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+<<<<<<< HEAD
             "MongoDB.Bson": {
               "target": "Package",
               "version": "[2.22.0, )"
             },
+=======
+>>>>>>> origin/Enes
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.22.0, )"
@@ -68,7 +88,11 @@
               "privateAssets": "none"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+>>>>>>> origin/Enes
         }
       }
     }
