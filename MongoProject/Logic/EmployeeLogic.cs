@@ -1,4 +1,5 @@
-﻿using MongoProject.Model;
+﻿using DAL;
+using MongoProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,13 @@ namespace MongoProject.Logic
 {
     public class EmployeeLogic
     {
-      /*  public Employee ValidateUser(Employee employee)
+        DAO dao = new DAO();
+        public Employee ValidateUser(Employee employee)
         {
             
             try
             {
-                Employee staffvalidate = _staffDAO.GetStaffByUsername(em.username);
+                Employee staffvalidate = dao.GetEmployeeUsername(employee.username.ToString());
                 if (staffvalidate.password == HashPassword(employee.password))
                 {
                     return staffvalidate;
@@ -27,7 +29,7 @@ namespace MongoProject.Logic
                 return null;
             }
 
-        }*/
+        }
 
         string HashPassword(string passcode)
         {

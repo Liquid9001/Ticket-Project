@@ -33,9 +33,9 @@
             licensedToLabel = new Label();
             noDeskLabel = new Label();
             gardenGroupLogo = new PictureBox();
-            EmailLabel = new Label();
+            usernameLabel = new Label();
             passwordLabel = new Label();
-            emailTextBox = new TextBox();
+            usernameTextBox = new TextBox();
             passwordTextBox = new TextBox();
             noDeskTextLabel = new Label();
             label2 = new Label();
@@ -92,14 +92,14 @@
             gardenGroupLogo.TabIndex = 1;
             gardenGroupLogo.TabStop = false;
             // 
-            // EmailLabel
+            // usernameLabel
             // 
-            EmailLabel.AutoSize = true;
-            EmailLabel.Location = new Point(368, 274);
-            EmailLabel.Name = "EmailLabel";
-            EmailLabel.Size = new Size(46, 20);
-            EmailLabel.TabIndex = 3;
-            EmailLabel.Text = "Email";
+            usernameLabel.AutoSize = true;
+            usernameLabel.Location = new Point(368, 274);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new Size(75, 20);
+            usernameLabel.TabIndex = 3;
+            usernameLabel.Text = "Username";
             // 
             // passwordLabel
             // 
@@ -110,12 +110,12 @@
             passwordLabel.TabIndex = 4;
             passwordLabel.Text = "Password";
             // 
-            // emailTextBox
+            // usernameTextBox
             // 
-            emailTextBox.Location = new Point(368, 297);
-            emailTextBox.Name = "emailTextBox";
-            emailTextBox.Size = new Size(279, 27);
-            emailTextBox.TabIndex = 5;
+            usernameTextBox.Location = new Point(368, 297);
+            usernameTextBox.Name = "usernameTextBox";
+            usernameTextBox.Size = new Size(279, 27);
+            usernameTextBox.TabIndex = 5;
             // 
             // passwordTextBox
             // 
@@ -177,9 +177,9 @@
             Controls.Add(label2);
             Controls.Add(noDeskTextLabel);
             Controls.Add(passwordTextBox);
-            Controls.Add(emailTextBox);
+            Controls.Add(usernameTextBox);
             Controls.Add(passwordLabel);
-            Controls.Add(EmailLabel);
+            Controls.Add(usernameLabel);
             Controls.Add(DashboardPanel);
             Name = "Login";
             Text = "Login";
@@ -196,9 +196,9 @@
         private Label licensedToLabel;
         private Label noDeskLabel;
         private PictureBox gardenGroupLogo;
-        private Label EmailLabel;
+        private Label usernameLabel;
         private Label passwordLabel;
-        private TextBox emailTextBox;
+        private TextBox usernameTextBox;
         private TextBox passwordTextBox;
         private Label noDeskTextLabel;
         private Label label2;

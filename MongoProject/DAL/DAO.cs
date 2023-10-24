@@ -71,6 +71,25 @@ namespace DAL
             };
             collection.InsertOne(document);
         }*/
+
+
+
+
+
+
+
+
+
+
+
+
+        public Employee GetEmployeeUsername(string username) 
+        {
+            IMongoCollection<Employee> collection = db.GetCollection<Employee>("Employees");
+            FilterDefinition<Employee> filter = Builders<Employee>.Filter.Eq("username", username);
+            Employee employee = collection.Find(filter).First();
+            return employee;
+        }
     }
 
 

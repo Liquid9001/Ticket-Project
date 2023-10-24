@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoProject.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace DemoApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DashBoard());
+            Application.Run(new Login());
         }
 
         
