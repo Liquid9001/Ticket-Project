@@ -9,10 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <PackageReference Include="MongoDB.Bson" Version="2.22.0" />
-=======
->>>>>>> origin/Enes
     <PackageReference Include="MongoDB.Driver" Version="2.22.0" />
   </ItemGroup>
 
