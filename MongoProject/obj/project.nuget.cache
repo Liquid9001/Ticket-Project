@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UJ2liJ6e9E1zP8S4G5Of2T9i/8pgpvCnxPPMRJif6Upzf088HeYZwZDPTHPCuh5askJj8m2Pc+FWOtQsM7rE1A==",
+  "dgSpecHash": "uf3Bb0eLZrsQYBPH5TU94w3HekixnARqY7o8cU6aQQpwQjdNfbpjI1otOzKAfZQbr+bEo8j5R9aPT5QdTzm4/g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dinka\\Github\\Ticket-Project\\MongoProject\\MongoProject.csproj",
+  "projectFilePath": "C:\\Users\\dinka\\Desktop\\dink\\MongoProject\\MongoProject\\MongoProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dinka\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\dinka\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
@@ -23,12 +23,5 @@
     "C:\\Users\\dinka\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
     "C:\\Users\\dinka\\.nuget\\packages\\zstdsharp.port\\0.6.2\\zstdsharp.port.0.6.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\dinka\\Github\\Ticket-Project\\MongoProject\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

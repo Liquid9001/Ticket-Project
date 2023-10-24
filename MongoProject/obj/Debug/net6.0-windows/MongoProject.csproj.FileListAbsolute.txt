@@ -32,14 +32,3 @@ C:\Users\dinka\Desktop\dink\MongoProject\MongoProject\obj\Debug\net6.0-windows\r
 C:\Users\dinka\Desktop\dink\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.pdb
 C:\Users\dinka\Desktop\dink\MongoProject\MongoProject\obj\Debug\net6.0-windows\MongoProject.genruntimeconfig.cache
 C:\Users\dinka\Desktop\dink\MongoProject\MongoProject\obj\Debug\net6.0-windows\ref\MongoProject.dll
-C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.AssemblyReference.cache
-C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\DemoApp.DashBoard.resources
-C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.UI.Login.resources
-C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.GenerateResource.cache
-C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.AssemblyInfoInputs.cache
-C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.AssemblyInfo.cs
-C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.csproj.CoreCompileInputs.cache
-C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.dll
-C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\refint\MongoProject.dll
-C:\Users\dinka\Github\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.pdb
