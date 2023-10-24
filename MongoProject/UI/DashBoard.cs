@@ -36,17 +36,77 @@ namespace DemoApp
         //create incident button is clicked
         private void createIncidentButton_Click(object sender, EventArgs e)
         {
+            List<string> TicketDeadline = new List<string>();
+            TicketDeadline.Add("7 days");
+            TicketDeadline.Add("14 days");
+            TicketDeadline.Add("28 days");
+            TicketDeadline.Add("6 months");
+
             ticketOverviewPanel.Hide();
 
             //initiate combobox 'type of incident'
             incidentTypeInput.DataSource = Enum.GetValues(typeof(TicketType));
             incidentTypeInput.Text = "Select type";
 
-            //iniciate combobox 'select user'
-            //userReportedInput.DataSource = 
+            //initiate combobox 'priority'
+            priorityInput.DataSource = Enum.GetValues(typeof(TicketPriority));
+            priorityInput.Text = TicketPriority.Normal.ToString();
 
+            //initiate combobox 'Deadline/Follow up'
+            deadlineFollowUpInput.DataSource = TicketDeadline;
+            deadlineFollowUpInput.Text = TicketDeadline[0];
 
+            //initiate combobox 'reported user'
+            List<Employee> employees = databases.GetEmployees();
+            userReportedInput.DataSource = employees;
+            userReportedInput.DisplayMember = "FirstName";
+            if (loggedInEmployee.isServiceDesk == true)
+            {
+                userReportedInput.Text = "Select user";
+            }
+            else
+            {
+                userReportedInput.Text = loggedInEmployee.FirstName;
+            }
             addIncidentPanel.Show();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            addIncidentPanel.Hide();
+            ticketOverviewPanel.Show();
+        }
+
+        private void submitTicketButton_Click(object sender, EventArgs e)
+        {
+            Employee employee = (Employee)userReportedInput.SelectedItem;
+            Ticket ticket = new Ticket(subjectInput.Text, (TicketType)incidentTypeInput.SelectedItem, descriptionInput.Text, TicketStatus.Open, employee.Id, DateTime.Now, GetDeadline(deadlineFollowUpInput.SelectedText), (TicketPriority)priorityInput.SelectedItem);
+            addIncidentPanel.Hide();
+            //popup
+            ticketOverviewPanel.Show();
+
+        }
+
+        private DateTime GetDeadline(string index)
+        {
+
+            DateTime deadlineDate = DateTime.Now;
+            switch (index)
+            {
+                case "7 days":
+                    deadlineDate = DateTime.Now.AddDays(7);
+                    break;
+                case "14 days":
+                    deadlineDate = DateTime.Now.AddDays(14);
+                    break;
+                case "28 days":
+                    deadlineDate = DateTime.Now.AddDays(28);
+                    break;
+                case "6 months":
+                    deadlineDate = DateTime.Now.AddMonths(6);
+                    break;
+            }
+            return deadlineDate;
         }
 
         private void subjectInput_TextChanged(object sender, EventArgs e)
