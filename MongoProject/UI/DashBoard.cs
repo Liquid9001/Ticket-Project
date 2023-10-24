@@ -14,12 +14,15 @@ namespace DemoApp
     public partial class DashBoard : Form
     {
         private Databases databases;
-        public DashBoard()
+
+        public Employee loggedInEmployee { get; private set; }
+
+        public DashBoard(Employee loggedinEmployee)
         {
             InitializeComponent();
             databases = new Databases();
             List<Ticket> ticketList = databases.GetTickets();
-
+            loggedInEmployee = loggedinEmployee;
             foreach (Ticket ticket in ticketList)
             {
                 ListViewItem listViewItem = new ListViewItem(new[]
@@ -78,15 +81,20 @@ namespace DemoApp
             List<Employee> employees = databases.GetEmployees();
             userReportedInput.DataSource = employees;
             userReportedInput.DisplayMember = "FirstName";
-            userReportedInput.Text = "Select user";
-
-
+            if (loggedInEmployee.isServiceDesk == true)
+            {
+                userReportedInput.Text = "Select user";
+            }
+            else
+            {
+                userReportedInput.Text = loggedInEmployee.FirstName;
+            }
             addIncidentPanel.Show();
         }
 
         private void subjectInput_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void descriptionInput_TextChanged(object sender, EventArgs e)
@@ -107,7 +115,9 @@ namespace DemoApp
         {
             Employee employee = (Employee)userReportedInput.SelectedItem;
             Ticket ticket = new Ticket(subjectInput.Text, (TicketType)incidentTypeInput.SelectedItem, descriptionInput.Text, TicketStatus.Open, employee.Id, DateTime.Now, GetDeadline(deadlineFollowUpInput.SelectedText), (TicketPriority)priorityInput.SelectedItem);
-
+            addIncidentPanel.Hide();
+            //popup
+            ticketOverviewPanel.Show();
 
         }
 

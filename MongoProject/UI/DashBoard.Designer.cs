@@ -407,8 +407,8 @@ namespace DemoApp
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1739, 1369);
-            Controls.Add(ticketOverviewPanel);
             Controls.Add(addIncidentPanel);
+            Controls.Add(ticketOverviewPanel);
             Controls.Add(DashboardPanel);
             Margin = new Padding(6, 7, 6, 7);
             Name = "DashBoard";
