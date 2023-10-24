@@ -28,7 +28,7 @@ namespace DemoApp
             DashboardPanel.Show();
             addIncidentPanel.Hide();
             addUserPanel.Hide();
-            ticketOverviewPanel.Hide();
+            ticketOverviewPanel.Show();
             userManagementPanel.Hide();
         }
 
@@ -54,11 +54,7 @@ namespace DemoApp
 
             //initiate combobox 'priority'
             priorityInput.DataSource = Enum.GetValues(typeof(TicketPriority));
-<<<<<<< HEAD
             priorityInput.Text = TicketPriority.Medium.ToString();
-=======
-            priorityInput.Text = TicketPriority.Normal.ToString();
->>>>>>> Louise
 
             //initiate combobox 'Deadline/Follow up'
             deadlineFollowUpInput.DataSource = TicketDeadline;

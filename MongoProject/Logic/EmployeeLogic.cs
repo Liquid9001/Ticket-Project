@@ -35,7 +35,6 @@ namespace MongoProject.Logic
         {
             SHA256 sha256 = SHA256.Create();
             var passwordInBytes = Encoding.Default.GetBytes(passcode);
-<<<<<<< HEAD
             var hashedPassword = sha256.ComputeHash(passwordInBytes);
             return Convert.ToHexString(hashedPassword);
         }
@@ -44,10 +43,6 @@ namespace MongoProject.Logic
         {
             employee.password = HashPassword(employee.password);
             dao.AddEmployee(employee);
-=======
-            var hassedPassword = sha256.ComputeHash(passwordInBytes);
-            return Convert.ToHexString(hassedPassword);
->>>>>>> Louise
         }
     }
 }
