@@ -178,7 +178,11 @@ namespace DemoApp
             List<Employee> employees = databases.GetEmployees();
             for (int i = 0; i < employees.Count; i++)
             {
-
+                ListViewItem item = new ListViewItem(i + 1.ToString());
+                item.SubItems.Add(employees[i].FirstName);
+                item.SubItems.Add(employees[i].LastName);
+                item.SubItems.Add("30");
+                userOverviewLV.Items.Add(item);
             }
         }
     }
