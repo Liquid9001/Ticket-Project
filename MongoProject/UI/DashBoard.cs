@@ -7,12 +7,16 @@ using Logic;
 using Model;
 using MongoProject.Model;
 using MongoDB.Bson.Serialization.Serializers;
+using MongoProject.Logic;
 
 namespace DemoApp
 {
+
     public partial class DashBoard : Form
     {
+        Employee loggedInEmployee;
         private Databases databases;
+        private EmployeeLogic employeeLogic;
         public DashBoard()
         {
             InitializeComponent();
@@ -50,7 +54,7 @@ namespace DemoApp
 
             //initiate combobox 'priority'
             priorityInput.DataSource = Enum.GetValues(typeof(TicketPriority));
-            priorityInput.Text = TicketPriority.Normal.ToString();
+            priorityInput.Text = TicketPriority.Medium.ToString();
 
             //initiate combobox 'Deadline/Follow up'
             deadlineFollowUpInput.DataSource = TicketDeadline;
@@ -128,7 +132,13 @@ namespace DemoApp
 
             Employee employee = new Employee(username, password, isServiceDesk, firstName, lastName, emailAddress, phoneNumber, location);
 
-            databases.AddEmployee(employee);
+            employeeLogic.AddEmployee(employee);
+
+            MessageBox.Show("User created");
+            addUserPanel.Hide();
+            userManagementPanel.Show();
+
+
         }
 
         private void createUserCancelButton_Click(object sender, EventArgs e)
@@ -147,11 +157,12 @@ namespace DemoApp
         {
             userManagementPanel.Show();
             List<Employee> employees = databases.GetEmployees();
+            userOverviewLV.Items.Clear();
             for (int i = 0; i < employees.Count; i++)
             {
-                ListViewItem item = new ListViewItem(i + 1.ToString());
+                ListViewItem item = new ListViewItem((i + 1).ToString());
+                item.SubItems.Add(employees[i].EmailAddress);
                 item.SubItems.Add(employees[i].FirstName);
-                item.SubItems.Add(employees[i].LastName);
                 item.SubItems.Add("30");
                 userOverviewLV.Items.Add(item);
             }

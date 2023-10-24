@@ -662,8 +662,8 @@ namespace DemoApp
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1605, 1283);
-            Controls.Add(userManagementPanel);
             Controls.Add(ticketOverviewPanel);
+            Controls.Add(userManagementPanel);
             Controls.Add(addIncidentPanel);
             Controls.Add(DashboardPanel);
             Controls.Add(addUserPanel);
