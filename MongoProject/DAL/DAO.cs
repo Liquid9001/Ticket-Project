@@ -43,8 +43,6 @@ namespace DAL
             collection.InsertOne(employee);
         }
 
-
-
         public void AddTicket(Ticket ticket)
         {
             IMongoCollection<Ticket> collection = db.GetCollection<Ticket>("Tickets");
