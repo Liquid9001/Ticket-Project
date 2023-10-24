@@ -41,6 +41,7 @@
             label2 = new Label();
             rememberMeCheckBox = new CheckBox();
             loginButton = new Button();
+            forgotLoginButton = new Button();
             DashboardPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gardenGroupLogo).BeginInit();
             SuspendLayout();
@@ -114,14 +115,14 @@
             // 
             usernameTextBox.Location = new Point(368, 297);
             usernameTextBox.Name = "usernameTextBox";
-            usernameTextBox.Size = new Size(279, 27);
+            usernameTextBox.Size = new Size(296, 27);
             usernameTextBox.TabIndex = 5;
             // 
             // passwordTextBox
             // 
             passwordTextBox.Location = new Point(368, 397);
             passwordTextBox.Name = "passwordTextBox";
-            passwordTextBox.Size = new Size(279, 27);
+            passwordTextBox.Size = new Size(296, 27);
             passwordTextBox.TabIndex = 6;
             // 
             // noDeskTextLabel
@@ -166,12 +167,22 @@
             loginButton.UseVisualStyleBackColor = false;
             loginButton.Click += loginButton_Click;
             // 
+            // forgotLoginButton
+            // 
+            forgotLoginButton.Location = new Point(517, 440);
+            forgotLoginButton.Name = "forgotLoginButton";
+            forgotLoginButton.Size = new Size(168, 29);
+            forgotLoginButton.TabIndex = 12;
+            forgotLoginButton.Text = "Forgot Login Details?";
+            forgotLoginButton.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1067, 595);
+            Controls.Add(forgotLoginButton);
             Controls.Add(loginButton);
             Controls.Add(rememberMeCheckBox);
             Controls.Add(label2);
@@ -204,5 +215,6 @@
         private Label label2;
         private CheckBox rememberMeCheckBox;
         private Button loginButton;
+        private Button forgotLoginButton;
     }
 }
