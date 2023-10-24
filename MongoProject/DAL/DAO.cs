@@ -36,6 +36,20 @@ namespace DAL
             return tickets;
         }
 
+        public void AddEmployee(Employee employee)
+        {
+            IMongoCollection<Employee> collection = db.GetCollection<Employee>("Employees");
+
+            collection.InsertOne(employee);
+        }
+
+        public void AddTicket(Ticket ticket)
+        {
+            IMongoCollection<Ticket> collection = db.GetCollection<Ticket>("Tickets");
+
+            collection.InsertOne(ticket);
+        }
+
         /*public void AddEmployee(Employee employee)
         {
             collection = db.GetCollection<BsonDocument>("Employees");

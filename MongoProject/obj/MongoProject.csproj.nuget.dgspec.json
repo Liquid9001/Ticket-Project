@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Louise\\Desktop\\school\\INF2a\\Periode 1\\Project NOSQL\\Ticket-Project\\MongoProject\\MongoProject.csproj": {}
+    "C:\\Users\\dinka\\Github\\Ticket-Project\\MongoProject\\MongoProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Louise\\Desktop\\school\\INF2a\\Periode 1\\Project NOSQL\\Ticket-Project\\MongoProject\\MongoProject.csproj": {
+    "C:\\Users\\dinka\\Github\\Ticket-Project\\MongoProject\\MongoProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Louise\\Desktop\\school\\INF2a\\Periode 1\\Project NOSQL\\Ticket-Project\\MongoProject\\MongoProject.csproj",
+        "projectUniqueName": "C:\\Users\\dinka\\Github\\Ticket-Project\\MongoProject\\MongoProject.csproj",
         "projectName": "MongoProject",
-        "projectPath": "C:\\Users\\Louise\\Desktop\\school\\INF2a\\Periode 1\\Project NOSQL\\Ticket-Project\\MongoProject\\MongoProject.csproj",
-        "packagesPath": "C:\\Users\\Louise\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Louise\\Desktop\\school\\INF2a\\Periode 1\\Project NOSQL\\Ticket-Project\\MongoProject\\obj\\",
+        "projectPath": "C:\\Users\\dinka\\Github\\Ticket-Project\\MongoProject\\MongoProject.csproj",
+        "packagesPath": "C:\\Users\\dinka\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dinka\\Github\\Ticket-Project\\MongoProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Louise\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dinka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
