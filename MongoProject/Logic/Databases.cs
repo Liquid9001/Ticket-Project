@@ -19,12 +19,7 @@ namespace Logic
 
         public List<Employee> GetEmployees()
         {
-            return dao.GetEmployees();
-        }
-
-        public List<Ticket> GetTickets()
-        {
-            return dao.GetTickets();
+            return dao.GetAllEmployees();
         }
     }
 }
