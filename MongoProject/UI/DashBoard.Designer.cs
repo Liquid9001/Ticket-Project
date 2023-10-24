@@ -142,6 +142,7 @@ namespace DemoApp
             incidentManagementButton.TabIndex = 5;
             incidentManagementButton.Text = "Incident Management";
             incidentManagementButton.UseVisualStyleBackColor = false;
+            incidentManagementButton.Click += incidentManagementButton_Click;
             // 
             // DashBoardButton
             // 
@@ -253,6 +254,7 @@ namespace DemoApp
             submitTicketButton.TabIndex = 17;
             submitTicketButton.Text = "SUBMIT TICKET";
             submitTicketButton.UseVisualStyleBackColor = false;
+            submitTicketButton.Click += submitTicketButton_Click_1;
             // 
             // cancelButton
             // 
@@ -425,6 +427,7 @@ namespace DemoApp
             userSearchBox.Name = "userSearchBox";
             userSearchBox.Size = new Size(311, 35);
             userSearchBox.TabIndex = 1;
+            userSearchBox.TextChanged += userSearchBox_TextChanged;
             // 
             // userOverviewLV
             // 
@@ -445,7 +448,7 @@ namespace DemoApp
             // email
             // 
             email.Text = "Email";
-            email.Width = 100;
+            email.Width = 200;
             // 
             // firstName
             // 
@@ -662,9 +665,9 @@ namespace DemoApp
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1605, 1283);
+            Controls.Add(addIncidentPanel);
             Controls.Add(ticketOverviewPanel);
             Controls.Add(userManagementPanel);
-            Controls.Add(addIncidentPanel);
             Controls.Add(DashboardPanel);
             Controls.Add(addUserPanel);
             Margin = new Padding(6, 7, 6, 7);

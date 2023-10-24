@@ -17,18 +17,26 @@ namespace DemoApp
         Employee loggedInEmployee;
         private Databases databases;
         private EmployeeLogic employeeLogic;
-        public DashBoard()
+        List<Employee> employees;
+        public DashBoard(Employee loggedInEmployee)
         {
+            this.loggedInEmployee = loggedInEmployee;
             InitializeComponent();
             databases = new Databases();
+            employeeLogic = new EmployeeLogic();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            HidePanels();
             DashboardPanel.Show();
+        }
+
+        private void HidePanels()
+        {
             addIncidentPanel.Hide();
             addUserPanel.Hide();
-            ticketOverviewPanel.Show();
+            ticketOverviewPanel.Hide();
             userManagementPanel.Hide();
         }
 
@@ -121,7 +129,7 @@ namespace DemoApp
         private void createUserCreateButton_Click(object sender, EventArgs e)
         {
 
-            string username = firstNameTextBox.Text;
+            string username = usernameTextBox.Text;
             string password = passwordTextBox.Text;
             bool isServiceDesk = isServiceDeskCheckBox.Checked;
             string firstName = firstNameTextBox.Text;
@@ -130,42 +138,84 @@ namespace DemoApp
             string phoneNumber = phoneNumberTextBox.Text;
             string location = locationTextBox.Text;
 
-            Employee employee = new Employee(username, password, isServiceDesk, firstName, lastName, emailAddress, phoneNumber, location);
-
-            employeeLogic.AddEmployee(employee);
+            employeeLogic.AddEmployee(username, password, isServiceDesk, firstName, lastName, emailAddress, phoneNumber, location);
 
             MessageBox.Show("User created");
-            addUserPanel.Hide();
+            HidePanels();
             userManagementPanel.Show();
+            PopulateEmployeeListView();
 
 
         }
 
         private void createUserCancelButton_Click(object sender, EventArgs e)
         {
-            addUserPanel.Hide();
+            HidePanels();
             userManagementPanel.Show();
         }
 
         private void addUserButton_Click(object sender, EventArgs e)
         {
-            userManagementPanel.Hide();
+            HidePanels();
             addUserPanel.Show();
         }
 
         private void userManagementButton_Click(object sender, EventArgs e)
         {
+            HidePanels();
             userManagementPanel.Show();
-            List<Employee> employees = databases.GetEmployees();
+            PopulateEmployeeListView();
+        }
+
+        private void PopulateEmployeeListView()
+        {
+            employees = databases.GetEmployees();
             userOverviewLV.Items.Clear();
             for (int i = 0; i < employees.Count; i++)
             {
-                ListViewItem item = new ListViewItem((i + 1).ToString());
-                item.SubItems.Add(employees[i].EmailAddress);
-                item.SubItems.Add(employees[i].FirstName);
-                item.SubItems.Add("30");
-                userOverviewLV.Items.Add(item);
+                FillListView(i);
             }
+        }
+
+        private void incidentManagementButton_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            ticketOverviewPanel.Show();
+        }
+
+        private void userSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            string search = userSearchBox.Text.ToUpper();
+
+            userOverviewLV.Items.Clear();
+            for (int i = 0; i < employees.Count; i++)
+            {
+                if (employees[i].EmailAddress.ToUpper().Contains(search) || employees[i].FirstName.ToUpper().Contains(search) || employees[i].LastName.ToUpper().Contains(search))
+                {
+                    FillListView(i);
+                }
+            }
+        }
+
+        private void FillListView(int i)
+        {
+            ListViewItem item = new ListViewItem((i + 1).ToString());
+            item.SubItems.Add(employees[i].EmailAddress);
+            item.SubItems.Add(employees[i].FirstName);
+            item.SubItems.Add(employees[i].LastName);
+            // CHANGE THIS TO THE AMOUNT OF TICKETS
+            item.SubItems.Add("30");
+            userOverviewLV.Items.Add(item);
+        }
+
+        private void submitTicketButton_Click_1(object sender, EventArgs e)
+        {
+            Employee employee = (Employee)userReportedInput.SelectedItem;
+            Ticket ticket = new Ticket(subjectInput.Text, (TicketType)incidentTypeInput.SelectedItem, descriptionInput.Text, TicketStatus.Open, employee.Id, DateTime.Now, GetDeadline(deadlineFollowUpInput.SelectedText), (TicketPriority)priorityInput.SelectedItem);
+            databases.AddTicket(ticket);
+            addIncidentPanel.Hide();
+            //popup
+            ticketOverviewPanel.Show();
         }
     }
 }

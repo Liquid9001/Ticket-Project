@@ -42,8 +42,8 @@ namespace MongoProject.UI
                 // dit is voor de waiter 
                 else if (_employee.username != null || _employee.password != null)
                 {
-                    DashBoard plattegrond = new DashBoard();
-                    plattegrond.Show();
+                    DashBoard dashboard = new DashBoard(_employee);
+                    dashboard.Show();
                     this.Hide();
 
                 }

@@ -18,12 +18,13 @@ namespace MongoProject.Model
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }
         public string Location { get; set; }
+        public string Salt { get; set; }
 
         public Employee()
         {
          
         }
-        public Employee(string username, string password, bool isServiceDesk, string FirstName, string LastName, string EmailAddress, string PhoneNumber, string Location)
+        public Employee(string username, string password, bool isServiceDesk, string FirstName, string LastName, string EmailAddress, string PhoneNumber, string Location, string Salt)
         {
             this.username = username;
             this.password = password;
@@ -33,6 +34,7 @@ namespace MongoProject.Model
             this.EmailAddress = EmailAddress;
             this.PhoneNumber = PhoneNumber;
             this.Location = Location;
+            this.Salt = Salt;
         }
     }
 }

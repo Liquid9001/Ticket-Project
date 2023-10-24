@@ -12,7 +12,10 @@ namespace Logic
             dao = new DAO();
         }
 
-        
+        public void AddTicket(Ticket ticket)
+        {
+            dao.AddTicket(ticket);
+        }
 
         public List<Employee> GetEmployees()
         {
