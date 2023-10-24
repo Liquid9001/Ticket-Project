@@ -37,6 +37,24 @@ namespace DAL
         }
 
         public void AddEmployee(Employee employee)
+<<<<<<< HEAD
+        {
+            IMongoCollection<Employee> collection = db.GetCollection<Employee>("Employees");
+
+            collection.InsertOne(employee);
+        }
+
+        public void AddTicket(Ticket ticket)
+        {
+<<<<<<< HEAD
+            IMongoCollection<Ticket> collection = db.GetCollection<Ticket>("Tickets");
+
+            collection.InsertOne(ticket);
+        }
+
+        /*public void AddEmployee(Employee employee)
+=======
+>>>>>>> master
         {
             IMongoCollection<Employee> collection = db.GetCollection<Employee>("Employees");
             
@@ -48,6 +66,54 @@ namespace DAL
             IMongoCollection<Ticket> collection = db.GetCollection<Ticket>("Tickets");
 
             collection.InsertOne(ticket);
+=======
+            collection = db.GetCollection<BsonDocument>("Tickets");
+            BsonDocument document = new BsonDocument
+            {
+                {"Title", ticket.Ticket_name },
+                {"TypeOfIncident", (int)ticket.TicketType },
+                {"Description", ticket.Ticket_description },
+                {"Status", (int)ticket.TicketStatus },
+                {"EmployeeID", ticket.EmployeeID },
+                {"CreatedAt", ticket.Ticket_created },
+                {"Deadline", ticket.Ticket_deadline },
+                {"TicketPriority", (int)ticket.TicketPriority }
+            };
+            collection.InsertOne(document);
+        }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public Employee GetEmployeeUsername(string username) 
+        {
+            IMongoCollection<Employee> collection = db.GetCollection<Employee>("Employees");
+            FilterDefinition<Employee> filter = Builders<Employee>.Filter.Eq("username", username);
+            Employee employee = collection.Find(filter).First();
+            return employee;
+>>>>>>> origin/Enes
         }
     }
 

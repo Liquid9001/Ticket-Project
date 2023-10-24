@@ -19,6 +19,10 @@ namespace MongoProject.Model
         public string PhoneNumber { get; set; }
         public string Location { get; set; }
 
+        public Employee()
+        {
+         
+        }
         public Employee(string username, string password, bool isServiceDesk, string FirstName, string LastName, string EmailAddress, string PhoneNumber, string Location)
         {
             this.username = username;
