@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dinka\\Desktop\\dink\\MongoProject\\MongoProject.csproj": {}
+    "C:\\Users\\dinka\\Desktop\\dink\\MongoProject\\MongoProject\\MongoProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dinka\\Desktop\\dink\\MongoProject\\MongoProject.csproj": {
+    "C:\\Users\\dinka\\Desktop\\dink\\MongoProject\\MongoProject\\MongoProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dinka\\Desktop\\dink\\MongoProject\\MongoProject.csproj",
+        "projectUniqueName": "C:\\Users\\dinka\\Desktop\\dink\\MongoProject\\MongoProject\\MongoProject.csproj",
         "projectName": "MongoProject",
-        "projectPath": "C:\\Users\\dinka\\Desktop\\dink\\MongoProject\\MongoProject.csproj",
+        "projectPath": "C:\\Users\\dinka\\Desktop\\dink\\MongoProject\\MongoProject\\MongoProject.csproj",
         "packagesPath": "C:\\Users\\dinka\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dinka\\Desktop\\dink\\MongoProject\\obj\\",
+        "outputPath": "C:\\Users\\dinka\\Desktop\\dink\\MongoProject\\MongoProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dinka\\AppData\\Roaming\\NuGet\\NuGet.Config",
