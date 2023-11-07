@@ -183,6 +183,7 @@
             Controls.Add(DashboardPanel);
             Name = "Login";
             Text = "Login";
+            Load += Login_load;
             DashboardPanel.ResumeLayout(false);
             DashboardPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)gardenGroupLogo).EndInit();
