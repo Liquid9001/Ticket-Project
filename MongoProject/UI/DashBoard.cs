@@ -223,9 +223,13 @@ namespace DemoApp
 
         private void LogoutButton_Click(object sender, EventArgs e)
         {
-            Success success = new Success(login);
-            success.Show();
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to logout", "Logout", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Success success = new Success(login);
+                success.Show();
+                this.Close();
+            }
         }
 
     }
