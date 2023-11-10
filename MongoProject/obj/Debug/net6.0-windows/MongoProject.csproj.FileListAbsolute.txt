@@ -100,3 +100,5 @@ C:\Users\enesb\Source\Repos\Ticket-Project\MongoProject\obj\Debug\net6.0-windows
 C:\Users\enesb\Source\Repos\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.pdb
 C:\Users\enesb\Source\Repos\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.genruntimeconfig.cache
 C:\Users\enesb\Source\Repos\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\ref\MongoProject.dll
+C:\Users\enesb\Source\Repos\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.Properties.Resources.resources
+C:\Users\enesb\Source\Repos\Ticket-Project\MongoProject\obj\Debug\net6.0-windows\MongoProject.UI.Success.resources
