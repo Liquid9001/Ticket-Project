@@ -28,10 +28,11 @@ namespace MongoProject.UI
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            RememberMeCheck();
+            
 
             try
             {
+                RememberMeCheck();
                 _employee.username = usernameTextBox.Text.ToString();
                 _employee.password = passwordTextBox.Text.ToString();
                 _employee = logic.ValidateUser(_employee);
@@ -42,10 +43,10 @@ namespace MongoProject.UI
                 // dit is voor de waiter 
                 else if (_employee.username != null || _employee.password != null)
                 {
-                    DashBoard plattegrond = new DashBoard();
-                    plattegrond.Show();
+                    DashBoard dashboard = new DashBoard(_employee, this);
+                    dashboard.Show();
                     this.Hide();
-
+                    ClearTextBox();
                 }
             }
             catch
@@ -55,6 +56,7 @@ namespace MongoProject.UI
         }
         private void Login_load(object sender, EventArgs e)
         {
+            //Properties.Settings.Default;
             if (Properties.Settings.Default.Username != string.Empty)
             {
                 usernameTextBox.Text = Properties.Settings.Default.Username;
@@ -68,14 +70,23 @@ namespace MongoProject.UI
                 Properties.Settings.Default.Username = usernameTextBox.Text;
                 Properties.Settings.Default.Password = passwordTextBox.Text;
                 Properties.Settings.Default.Save();
-                MessageBox.Show("saved user");
             }
-            if (!rememberMeCheckBox.Checked)
+            else
             {
                 Properties.Settings.Default.Username = string.Empty;
                 Properties.Settings.Default.Password = string.Empty;
                 Properties.Settings.Default.Save();
             }
+        }
+        private void ClearTextBox() 
+        {
+            if (!rememberMeCheckBox.Checked) 
+            {
+                usernameTextBox.Text = "";
+                passwordTextBox.Text = "";
+            }
+            
+
         }
     }
 }

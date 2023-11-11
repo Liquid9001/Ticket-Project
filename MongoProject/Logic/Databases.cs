@@ -12,9 +12,9 @@ namespace Logic
             dao = new DAO();
         }
 
-        public void AddEmployee(Employee employee)
+        public void AddTicket(Ticket ticket)
         {
-            dao.AddEmployee(employee);
+            dao.AddTicket(ticket);
         }
 
         public List<Employee> GetEmployees()

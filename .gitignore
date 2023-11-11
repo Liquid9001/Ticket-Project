@@ -76,3 +76,10 @@ MongoProject/bin/Debug/net6.0-windows/MongoProject.deps.json
 *.dll
 *.exe
 *.pdb
+*.v2
+.vs/MongoProject/v17/.suo
+*.bin
+*.cache
+*.editorconfig
+*.props
+*.cache
