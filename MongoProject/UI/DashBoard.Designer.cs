@@ -124,6 +124,7 @@ namespace DemoApp
             labelTypeOfIncident = new Label();
             labelSubject = new Label();
             labelModify = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)gardenGroupLogo).BeginInit();
             DashboardPanel.SuspendLayout();
             addIncidentPanel.SuspendLayout();
@@ -421,6 +422,7 @@ namespace DemoApp
             // ticketOverviewPanel
             // 
             ticketOverviewPanel.BackColor = Color.White;
+            ticketOverviewPanel.Controls.Add(button1);
             ticketOverviewPanel.Controls.Add(deleteIncidentButton);
             ticketOverviewPanel.Controls.Add(updateIncidentButton);
             ticketOverviewPanel.Controls.Add(checkBoxPriorityFilter);
@@ -441,10 +443,10 @@ namespace DemoApp
             deleteIncidentButton.FlatAppearance.MouseDownBackColor = Color.White;
             deleteIncidentButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             deleteIncidentButton.ForeColor = Color.White;
-            deleteIncidentButton.Location = new Point(415, 51);
+            deleteIncidentButton.Location = new Point(490, 70);
             deleteIncidentButton.Margin = new Padding(2);
             deleteIncidentButton.Name = "deleteIncidentButton";
-            deleteIncidentButton.Size = new Size(120, 26);
+            deleteIncidentButton.Size = new Size(129, 32);
             deleteIncidentButton.TabIndex = 22;
             deleteIncidentButton.Text = "REMOVE INCIDENT";
             deleteIncidentButton.UseVisualStyleBackColor = false;
@@ -457,10 +459,10 @@ namespace DemoApp
             updateIncidentButton.FlatAppearance.MouseDownBackColor = Color.White;
             updateIncidentButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             updateIncidentButton.ForeColor = Color.White;
-            updateIncidentButton.Location = new Point(538, 51);
+            updateIncidentButton.Location = new Point(623, 70);
             updateIncidentButton.Margin = new Padding(2);
             updateIncidentButton.Name = "updateIncidentButton";
-            updateIncidentButton.Size = new Size(120, 26);
+            updateIncidentButton.Size = new Size(129, 32);
             updateIncidentButton.TabIndex = 21;
             updateIncidentButton.Text = "UPDATE INCIDENT";
             updateIncidentButton.UseVisualStyleBackColor = false;
@@ -469,7 +471,7 @@ namespace DemoApp
             // checkBoxPriorityFilter
             // 
             checkBoxPriorityFilter.AutoSize = true;
-            checkBoxPriorityFilter.Location = new Point(482, 136);
+            checkBoxPriorityFilter.Location = new Point(756, 40);
             checkBoxPriorityFilter.Margin = new Padding(3, 2, 3, 2);
             checkBoxPriorityFilter.Name = "checkBoxPriorityFilter";
             checkBoxPriorityFilter.Size = new Size(129, 19);
@@ -1102,6 +1104,21 @@ namespace DemoApp
             labelModify.TabIndex = 7;
             labelModify.Text = "Modify incident ticket";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Purple;
+            button1.FlatAppearance.BorderColor = Color.Black;
+            button1.FlatAppearance.MouseDownBackColor = Color.White;
+            button1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(348, 70);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(129, 32);
+            button1.TabIndex = 23;
+            button1.Text = "RETIRE INCIDENT";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // DashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1233,6 +1250,7 @@ namespace DemoApp
         private ColumnHeader date;
         private ColumnHeader priority;
         private CheckBox checkBoxPriorityFilter;
+        private Button button1;
     }
 }
 
