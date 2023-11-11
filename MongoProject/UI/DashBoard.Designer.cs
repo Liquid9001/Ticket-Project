@@ -55,7 +55,9 @@ namespace DemoApp
             subjectIncidentLabel = new Label();
             newIncidentLabel = new Label();
             ticketOverviewPanel = new Panel();
+            updateIncidentButton = new Button();
             listViewTicketOverview = new ListView();
+            columnHeader5 = new ColumnHeader();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
@@ -92,13 +94,31 @@ namespace DemoApp
             lastNamelabel = new Label();
             addUserNameLabel = new Label();
             addUserLabel = new Label();
-            updateIncidentButton = new Button();
+            modifyIncidentPanel = new Panel();
+            labelTicket = new Label();
+            deadlineInputModify = new ComboBox();
+            priorityInputModify = new ComboBox();
+            reportedbyInputModify = new ComboBox();
+            typeinputModify = new ComboBox();
+            subjectInputModify = new TextBox();
+            modifyTicketButton = new Button();
+            cancelModifyButton = new Button();
+            descriptionModifyInput = new TextBox();
+            labelDescription = new Label();
+            labelDeadline = new Label();
+            labelPriority = new Label();
+            labelReportedBy = new Label();
+            labelTypeOfIncident = new Label();
+            labelSubject = new Label();
+            labelModify = new Label();
+            deleteIncidentButton = new Button();
             ((System.ComponentModel.ISupportInitialize)gardenGroupLogo).BeginInit();
             DashboardPanel.SuspendLayout();
             addIncidentPanel.SuspendLayout();
             ticketOverviewPanel.SuspendLayout();
             userManagementPanel.SuspendLayout();
             addUserPanel.SuspendLayout();
+            modifyIncidentPanel.SuspendLayout();
             SuspendLayout();
             // 
             // gardenGroupLogo
@@ -386,6 +406,7 @@ namespace DemoApp
             // ticketOverviewPanel
             // 
             ticketOverviewPanel.BackColor = Color.White;
+            ticketOverviewPanel.Controls.Add(deleteIncidentButton);
             ticketOverviewPanel.Controls.Add(updateIncidentButton);
             ticketOverviewPanel.Controls.Add(listViewTicketOverview);
             ticketOverviewPanel.Controls.Add(filterTextBoxInput);
@@ -397,9 +418,25 @@ namespace DemoApp
             ticketOverviewPanel.Size = new Size(922, 535);
             ticketOverviewPanel.TabIndex = 24;
             // 
+            // updateIncidentButton
+            // 
+            updateIncidentButton.BackColor = Color.DarkGreen;
+            updateIncidentButton.FlatAppearance.BorderColor = Color.Black;
+            updateIncidentButton.FlatAppearance.MouseDownBackColor = Color.White;
+            updateIncidentButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            updateIncidentButton.ForeColor = Color.White;
+            updateIncidentButton.Location = new Point(615, 68);
+            updateIncidentButton.Margin = new Padding(2);
+            updateIncidentButton.Name = "updateIncidentButton";
+            updateIncidentButton.Size = new Size(137, 34);
+            updateIncidentButton.TabIndex = 21;
+            updateIncidentButton.Text = "UPDATE INCIDENT";
+            updateIncidentButton.UseVisualStyleBackColor = false;
+            updateIncidentButton.Click += updateIncidentButton_Click;
+            // 
             // listViewTicketOverview
             // 
-            listViewTicketOverview.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            listViewTicketOverview.Columns.AddRange(new ColumnHeader[] { columnHeader5, columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
             listViewTicketOverview.FullRowSelect = true;
             listViewTicketOverview.GridLines = true;
             listViewTicketOverview.Location = new Point(37, 110);
@@ -410,6 +447,10 @@ namespace DemoApp
             listViewTicketOverview.UseCompatibleStateImageBehavior = false;
             listViewTicketOverview.View = View.Details;
             listViewTicketOverview.SelectedIndexChanged += listViewTicketOverview_SelectedIndexChanged;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "ID";
             // 
             // columnHeader1
             // 
@@ -755,21 +796,211 @@ namespace DemoApp
             addUserLabel.TabIndex = 7;
             addUserLabel.Text = "Add new user";
             // 
-            // updateIncidentButton
+            // modifyIncidentPanel
             // 
-            updateIncidentButton.BackColor = Color.DarkGreen;
-            updateIncidentButton.FlatAppearance.BorderColor = Color.Black;
-            updateIncidentButton.FlatAppearance.MouseDownBackColor = Color.White;
-            updateIncidentButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            updateIncidentButton.ForeColor = Color.White;
-            updateIncidentButton.Location = new Point(608, 68);
-            updateIncidentButton.Margin = new Padding(2);
-            updateIncidentButton.Name = "updateIncidentButton";
-            updateIncidentButton.Size = new Size(137, 34);
-            updateIncidentButton.TabIndex = 21;
-            updateIncidentButton.Text = "UPDATE INCIDENT";
-            updateIncidentButton.UseVisualStyleBackColor = false;
-            updateIncidentButton.Click += updateIncidentButton_Click;
+            modifyIncidentPanel.BackColor = Color.White;
+            modifyIncidentPanel.Controls.Add(labelTicket);
+            modifyIncidentPanel.Controls.Add(deadlineInputModify);
+            modifyIncidentPanel.Controls.Add(priorityInputModify);
+            modifyIncidentPanel.Controls.Add(reportedbyInputModify);
+            modifyIncidentPanel.Controls.Add(typeinputModify);
+            modifyIncidentPanel.Controls.Add(subjectInputModify);
+            modifyIncidentPanel.Controls.Add(modifyTicketButton);
+            modifyIncidentPanel.Controls.Add(cancelModifyButton);
+            modifyIncidentPanel.Controls.Add(descriptionModifyInput);
+            modifyIncidentPanel.Controls.Add(labelDescription);
+            modifyIncidentPanel.Controls.Add(labelDeadline);
+            modifyIncidentPanel.Controls.Add(labelPriority);
+            modifyIncidentPanel.Controls.Add(labelReportedBy);
+            modifyIncidentPanel.Controls.Add(labelTypeOfIncident);
+            modifyIncidentPanel.Controls.Add(labelSubject);
+            modifyIncidentPanel.Controls.Add(labelModify);
+            modifyIncidentPanel.Location = new Point(8, 101);
+            modifyIncidentPanel.Margin = new Padding(2);
+            modifyIncidentPanel.Name = "modifyIncidentPanel";
+            modifyIncidentPanel.Size = new Size(922, 535);
+            modifyIncidentPanel.TabIndex = 23;
+            // 
+            // labelTicket
+            // 
+            labelTicket.AutoSize = true;
+            labelTicket.Location = new Point(713, 198);
+            labelTicket.Name = "labelTicket";
+            labelTicket.Size = new Size(0, 15);
+            labelTicket.TabIndex = 23;
+            // 
+            // deadlineInputModify
+            // 
+            deadlineInputModify.FormattingEnabled = true;
+            deadlineInputModify.Location = new Point(211, 238);
+            deadlineInputModify.Margin = new Padding(2);
+            deadlineInputModify.Name = "deadlineInputModify";
+            deadlineInputModify.Size = new Size(271, 23);
+            deadlineInputModify.TabIndex = 22;
+            // 
+            // priorityInputModify
+            // 
+            priorityInputModify.FormattingEnabled = true;
+            priorityInputModify.Location = new Point(211, 196);
+            priorityInputModify.Margin = new Padding(2);
+            priorityInputModify.Name = "priorityInputModify";
+            priorityInputModify.Size = new Size(271, 23);
+            priorityInputModify.TabIndex = 21;
+            // 
+            // reportedbyInputModify
+            // 
+            reportedbyInputModify.FormattingEnabled = true;
+            reportedbyInputModify.Location = new Point(211, 155);
+            reportedbyInputModify.Margin = new Padding(2);
+            reportedbyInputModify.Name = "reportedbyInputModify";
+            reportedbyInputModify.Size = new Size(271, 23);
+            reportedbyInputModify.TabIndex = 20;
+            reportedbyInputModify.Text = " Select user";
+            // 
+            // typeinputModify
+            // 
+            typeinputModify.FormattingEnabled = true;
+            typeinputModify.Location = new Point(211, 111);
+            typeinputModify.Margin = new Padding(2);
+            typeinputModify.Name = "typeinputModify";
+            typeinputModify.Size = new Size(271, 23);
+            typeinputModify.TabIndex = 19;
+            typeinputModify.Text = " Select type";
+            // 
+            // subjectInputModify
+            // 
+            subjectInputModify.Location = new Point(211, 71);
+            subjectInputModify.Margin = new Padding(2);
+            subjectInputModify.Name = "subjectInputModify";
+            subjectInputModify.Size = new Size(271, 23);
+            subjectInputModify.TabIndex = 18;
+            // 
+            // modifyTicketButton
+            // 
+            modifyTicketButton.BackColor = Color.DeepSkyBlue;
+            modifyTicketButton.FlatAppearance.BorderColor = Color.Black;
+            modifyTicketButton.FlatAppearance.MouseDownBackColor = Color.White;
+            modifyTicketButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            modifyTicketButton.ForeColor = Color.White;
+            modifyTicketButton.Location = new Point(350, 436);
+            modifyTicketButton.Margin = new Padding(2);
+            modifyTicketButton.Name = "modifyTicketButton";
+            modifyTicketButton.Size = new Size(130, 34);
+            modifyTicketButton.TabIndex = 17;
+            modifyTicketButton.Text = "MODIFY TICKET";
+            modifyTicketButton.UseVisualStyleBackColor = false;
+            modifyTicketButton.Click += modifyTicketButton_Click;
+            // 
+            // cancelModifyButton
+            // 
+            cancelModifyButton.BackColor = Color.White;
+            cancelModifyButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            cancelModifyButton.Location = new Point(211, 436);
+            cancelModifyButton.Margin = new Padding(2);
+            cancelModifyButton.Name = "cancelModifyButton";
+            cancelModifyButton.Size = new Size(109, 34);
+            cancelModifyButton.TabIndex = 16;
+            cancelModifyButton.Text = "CANCEL";
+            cancelModifyButton.UseVisualStyleBackColor = false;
+            cancelModifyButton.Click += cancelModifyButton_Click;
+            // 
+            // descriptionModifyInput
+            // 
+            descriptionModifyInput.Location = new Point(211, 288);
+            descriptionModifyInput.Margin = new Padding(2);
+            descriptionModifyInput.MinimumSize = new Size(4, 96);
+            descriptionModifyInput.Multiline = true;
+            descriptionModifyInput.Name = "descriptionModifyInput";
+            descriptionModifyInput.Size = new Size(271, 122);
+            descriptionModifyInput.TabIndex = 15;
+            // 
+            // labelDescription
+            // 
+            labelDescription.AutoSize = true;
+            labelDescription.Location = new Point(39, 288);
+            labelDescription.Margin = new Padding(2, 0, 2, 0);
+            labelDescription.Name = "labelDescription";
+            labelDescription.Size = new Size(70, 15);
+            labelDescription.TabIndex = 14;
+            labelDescription.Text = "Description:";
+            // 
+            // labelDeadline
+            // 
+            labelDeadline.AutoSize = true;
+            labelDeadline.Location = new Point(37, 238);
+            labelDeadline.Margin = new Padding(2, 0, 2, 0);
+            labelDeadline.Name = "labelDeadline";
+            labelDeadline.Size = new Size(111, 15);
+            labelDeadline.TabIndex = 13;
+            labelDeadline.Text = "Deadline/follow up:";
+            // 
+            // labelPriority
+            // 
+            labelPriority.AutoSize = true;
+            labelPriority.Location = new Point(38, 196);
+            labelPriority.Margin = new Padding(2, 0, 2, 0);
+            labelPriority.Name = "labelPriority";
+            labelPriority.Size = new Size(48, 15);
+            labelPriority.TabIndex = 12;
+            labelPriority.Text = "Priority:";
+            // 
+            // labelReportedBy
+            // 
+            labelReportedBy.AutoSize = true;
+            labelReportedBy.Location = new Point(38, 155);
+            labelReportedBy.Margin = new Padding(2, 0, 2, 0);
+            labelReportedBy.Name = "labelReportedBy";
+            labelReportedBy.Size = new Size(99, 15);
+            labelReportedBy.TabIndex = 11;
+            labelReportedBy.Text = "Reported by user:";
+            // 
+            // labelTypeOfIncident
+            // 
+            labelTypeOfIncident.AutoSize = true;
+            labelTypeOfIncident.Location = new Point(38, 111);
+            labelTypeOfIncident.Margin = new Padding(2, 0, 2, 0);
+            labelTypeOfIncident.Name = "labelTypeOfIncident";
+            labelTypeOfIncident.Size = new Size(94, 15);
+            labelTypeOfIncident.TabIndex = 10;
+            labelTypeOfIncident.Text = "Type of incident:";
+            // 
+            // labelSubject
+            // 
+            labelSubject.AutoSize = true;
+            labelSubject.Location = new Point(38, 71);
+            labelSubject.Margin = new Padding(2, 0, 2, 0);
+            labelSubject.Name = "labelSubject";
+            labelSubject.Size = new Size(106, 15);
+            labelSubject.TabIndex = 9;
+            labelSubject.Text = "Subject of incident";
+            // 
+            // labelModify
+            // 
+            labelModify.AutoSize = true;
+            labelModify.BackColor = Color.Transparent;
+            labelModify.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
+            labelModify.Location = new Point(9, 6);
+            labelModify.Margin = new Padding(2, 0, 2, 0);
+            labelModify.Name = "labelModify";
+            labelModify.Size = new Size(302, 37);
+            labelModify.TabIndex = 7;
+            labelModify.Text = "Modify incident ticket";
+            // 
+            // deleteIncidentButton
+            // 
+            deleteIncidentButton.BackColor = Color.Crimson;
+            deleteIncidentButton.FlatAppearance.BorderColor = Color.Black;
+            deleteIncidentButton.FlatAppearance.MouseDownBackColor = Color.White;
+            deleteIncidentButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            deleteIncidentButton.ForeColor = Color.White;
+            deleteIncidentButton.Location = new Point(474, 68);
+            deleteIncidentButton.Margin = new Padding(2);
+            deleteIncidentButton.Name = "deleteIncidentButton";
+            deleteIncidentButton.Size = new Size(137, 34);
+            deleteIncidentButton.TabIndex = 22;
+            deleteIncidentButton.Text = "REMOVE INCIDENT";
+            deleteIncidentButton.UseVisualStyleBackColor = false;
+            deleteIncidentButton.Click += deleteIncidentButton_Click;
             // 
             // DashBoard
             // 
@@ -777,8 +1008,9 @@ namespace DemoApp
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(936, 641);
             Controls.Add(ticketOverviewPanel);
-            Controls.Add(userManagementPanel);
+            Controls.Add(modifyIncidentPanel);
             Controls.Add(addIncidentPanel);
+            Controls.Add(userManagementPanel);
             Controls.Add(DashboardPanel);
             Controls.Add(addUserPanel);
             Margin = new Padding(4);
@@ -796,6 +1028,8 @@ namespace DemoApp
             userManagementPanel.PerformLayout();
             addUserPanel.ResumeLayout(false);
             addUserPanel.PerformLayout();
+            modifyIncidentPanel.ResumeLayout(false);
+            modifyIncidentPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -864,6 +1098,25 @@ namespace DemoApp
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
         private Button updateIncidentButton;
+        private ColumnHeader columnHeader5;
+        private Panel modifyIncidentPanel;
+        private ComboBox deadlineInputModify;
+        private ComboBox priorityInputModify;
+        private ComboBox reportedbyInputModify;
+        private ComboBox typeinputModify;
+        private TextBox subjectInputModify;
+        private Button modifyTicketButton;
+        private Button cancelModifyButton;
+        private TextBox descriptionModifyInput;
+        private Label labelDescription;
+        private Label labelDeadline;
+        private Label labelPriority;
+        private Label labelReportedBy;
+        private Label labelTypeOfIncident;
+        private Label labelSubject;
+        private Label labelModify;
+        private Label labelTicket;
+        private Button deleteIncidentButton;
     }
 }
 

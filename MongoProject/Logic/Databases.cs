@@ -49,5 +49,15 @@ namespace Logic
             return tickets.Count;
         }
 
+        public void UpdateTicket(Ticket ticket)
+        {
+            dao.UpdateTicket(ticket);
+        }
+
+        public void DeleteTicket(Ticket ticket)
+        {
+            dao.DeleteTicket(ticket);
+        }
+
     }
 }

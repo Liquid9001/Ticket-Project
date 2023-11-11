@@ -82,6 +82,20 @@ namespace DAL
             return ticket;
         }
 
+        public void UpdateTicket(Ticket ticket)
+        {
+            IMongoCollection<Ticket> ticketCollection = db.GetCollection<Ticket>("Tickets");
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticket.Id);
+            ticketCollection.ReplaceOne(filter, ticket);
+        }
+
+        public void DeleteTicket(Ticket ticket)
+        {
+            IMongoCollection<Ticket> ticketCollection = db.GetCollection<Ticket>("Tickets");
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticket.Id);
+            ticketCollection.DeleteOne(filter);
+        }
+
     }
 
 
