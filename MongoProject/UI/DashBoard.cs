@@ -206,8 +206,7 @@ namespace DemoApp
             item.SubItems.Add(employees[i].EmailAddress);
             item.SubItems.Add(employees[i].FirstName);
             item.SubItems.Add(employees[i].LastName);
-            // CHANGE THIS TO THE AMOUNT OF TICKETS
-            item.SubItems.Add("30");
+            item.SubItems.Add(databases.GetTicketCount(employees[i]).ToString());
             userOverviewLV.Items.Add(item);
         }
 

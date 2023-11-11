@@ -1,12 +1,14 @@
 ﻿using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace MongoProject.Model
 {
     public class Ticket
     {
-        public int Ticket_id { get; set; }
+        public ObjectId Id { get; set; }
         public string Title { get; set; }
         public TicketType TypeOfIncident { get; set; }
         public string Description { get; set; }
@@ -14,7 +16,6 @@ namespace MongoProject.Model
         public ObjectId EmployeeID { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime Deadline { get; set; }
-        public List<Comment> Comments { get; set; }
         public TicketPriority Priority { get; set; }
 
         public Ticket(string title, TicketType typeOfIncident, string description, TicketStatus status, ObjectId employeeID, DateTime createdAt, DateTime deadline, TicketPriority priority)
@@ -28,23 +29,5 @@ namespace MongoProject.Model
             Deadline = deadline;
             Priority = priority;
         }
-    }
-
-    public class Comment
-    {
-        public string CommentText { get; set; }
-        public CommentedBy CommentedBy { get; set; }
-        public DateTime CommentDate { get; set; }
-    }
-
-    public class CommentedBy
-    {
-        public UserId UserID { get; set; }
-    }
-
-    public class UserId
-    {
-        public ObjectId Ref { get; set; }
-        public ObjectId ID { get; set; }
     }
 }
