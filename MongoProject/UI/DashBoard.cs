@@ -36,7 +36,6 @@ namespace DemoApp
         {
             HidePanels();
             DashboardPanel.Show();
-            panelDashboard.Show();
         }
 
         private void HidePanels()
@@ -47,11 +46,6 @@ namespace DemoApp
             ticketOverviewPanel.Hide();
             userManagementPanel.Hide();
             panelDashboard.Hide();
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         //create incident button is clicked
@@ -79,10 +73,10 @@ namespace DemoApp
 
             //initiate combobox 'reported user'
             List<Employee> employees = databases.GetEmployees();
-            userReportedInput.DataSource = employees;
             userReportedInput.DisplayMember = "FirstName";
             if (loggedInEmployee.isServiceDesk == true)
             {
+                userReportedInput.DataSource = employees;
                 userReportedInput.Text = "Select user";
             }
             else
@@ -92,21 +86,6 @@ namespace DemoApp
             addIncidentPanel.Show();
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            addIncidentPanel.Hide();
-            ticketOverviewPanel.Show();
-        }
-
-        private void submitTicketButton_Click(object sender, EventArgs e)
-        {
-            Employee employee = (Employee)userReportedInput.SelectedItem;
-            Ticket ticket = new Ticket(subjectInput.Text, (TicketType)incidentTypeInput.SelectedItem, descriptionInput.Text, TicketStatus.Open, employee.Id, DateTime.Now, GetDeadline(deadlineFollowUpInput.SelectedText), (TicketPriority)priorityInput.SelectedItem);
-            addIncidentPanel.Hide();
-            //popup
-            ticketOverviewPanel.Show();
-
-        }
 
         private DateTime GetDeadline(string index)
         {
@@ -191,10 +170,6 @@ namespace DemoApp
             listviewTickets();
         }
 
-        private void userSearchBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void userSearchBox_Enter(object sender, EventArgs e)
         {
             if (userSearchBox.Text == "Zoeken")
@@ -280,19 +255,11 @@ namespace DemoApp
             foreach (Ticket ticket in tickets)
             {
                 Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
-                FillListViewTickets(i, employee);
+                FillListViewTickets(i, employee, ticket);
                 i++;
             }
 
 
-        }
-
-        private void FillListViewTickets(int i, Employee employee)
-        {
-
-
-            ListViewItem item = new ListViewItem((i).ToString());
-            item.SubItems.Add(i.ToString());
         }
 
         private void FillListViewTickets(int i, Employee employee, Ticket ticket)
@@ -308,14 +275,12 @@ namespace DemoApp
 
         private void updateIncidentButton_Click(object sender, EventArgs e)
         {
-            HidePanels();
-            ticketOverviewPanel.Show();
 
             if (listViewTicketOverview.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
                 int id = int.Parse(selectedItem.SubItems[0].Text);
-                Ticket ticket = tickets[id];
+                Ticket ticket = tickets[id - 1];
                 OpenModifyTicket(ticket);
             }
         }
@@ -350,7 +315,7 @@ namespace DemoApp
                 {
                     openTickets++;
                 }
-                if (t.Status == TicketStatus.Open & (t.Deadline < (DateTime.Today)))
+                if (t.Status == TicketStatus.Open & (t.Deadline < DateTime.Today))
                 {
                     urgentTickets++;
                 }
@@ -390,7 +355,8 @@ namespace DemoApp
 
         private void ShowListButton_Click(object sender, EventArgs e)
         {
-            
+            HidePanels();
+            ticketOverviewPanel.Show();
         }
         private void deleteIncidentButton_Click(object sender, EventArgs e)
         {
@@ -402,7 +368,7 @@ namespace DemoApp
             {
                 ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
                 int id = int.Parse(selectedItem.SubItems[0].Text);
-                Ticket ticket = tickets[id];
+                Ticket ticket = tickets[id - 1];
                 databases.DeleteTicket(ticket);
                 MessageBox.Show("Ticket deleted!");
                 listviewTickets();
@@ -422,7 +388,7 @@ namespace DemoApp
             {
                 ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
                 int id = int.Parse(selectedItem.SubItems[0].Text);
-                Ticket ticket = tickets[id];
+                Ticket ticket = tickets[id - 1];
                 databases.RetireTicket(ticket);
                 MessageBox.Show("Ticket deleted!");
                 listviewTickets();
@@ -535,6 +501,10 @@ namespace DemoApp
 
         }
 
-
+        private void cancelButton_Click_1(object sender, EventArgs e)
+        {
+            addIncidentPanel.Hide();
+            ticketOverviewPanel.Show();
+        }
     }
 }
