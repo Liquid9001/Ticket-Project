@@ -250,13 +250,15 @@ namespace DemoApp
         }
         private void listViewTicketOverview_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
 
         }
 
         private void FillListViewTickets(int i, Employee employee)
         {
+            
             ListViewItem item = new ListViewItem((i).ToString());
+
             item.SubItems.Add(employee.EmailAddress);
             item.SubItems.Add(employee.username);
             item.SubItems.Add(tickets[i].CreatedAt.ToString("dd/MM/yyyy HH:mm"));
@@ -268,6 +270,7 @@ namespace DemoApp
         private Employee GetEmployeeById(ObjectId employeeId)
         {
             Employee employeeById = new Employee();
+            employees = databases.GetEmployees();
             foreach (Employee employee in employees)
             {
                 if (employee.Id == employeeId)

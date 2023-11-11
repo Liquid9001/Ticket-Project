@@ -392,17 +392,17 @@ namespace DemoApp
             // EmailAddress
             // 
             EmailAddress.Text = "Email address";
-            EmailAddress.Width = 350;
+            EmailAddress.Width = 250;
             // 
             // Username
             // 
             Username.Text = "Username";
-            Username.Width = 200;
+            Username.Width = 150;
             // 
             // date
             // 
             date.Text = "Date";
-            date.Width = 270;
+            date.Width = 150;
             // 
             // priority
             // 
