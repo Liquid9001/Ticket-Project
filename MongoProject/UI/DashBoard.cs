@@ -193,7 +193,7 @@ namespace DemoApp
 
         private void userSearchBox_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
         private void userSearchBox_Enter(object sender, EventArgs e)
         {
@@ -291,6 +291,9 @@ namespace DemoApp
             listViewTicketOverview.Items.Add(item);
         }
 
-        
+        private void updateIncidentButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

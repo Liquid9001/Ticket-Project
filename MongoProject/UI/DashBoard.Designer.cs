@@ -92,6 +92,7 @@ namespace DemoApp
             lastNamelabel = new Label();
             addUserNameLabel = new Label();
             addUserLabel = new Label();
+            updateIncidentButton = new Button();
             ((System.ComponentModel.ISupportInitialize)gardenGroupLogo).BeginInit();
             DashboardPanel.SuspendLayout();
             addIncidentPanel.SuspendLayout();
@@ -385,6 +386,7 @@ namespace DemoApp
             // ticketOverviewPanel
             // 
             ticketOverviewPanel.BackColor = Color.White;
+            ticketOverviewPanel.Controls.Add(updateIncidentButton);
             ticketOverviewPanel.Controls.Add(listViewTicketOverview);
             ticketOverviewPanel.Controls.Add(filterTextBoxInput);
             ticketOverviewPanel.Controls.Add(createIncidentButton);
@@ -753,14 +755,30 @@ namespace DemoApp
             addUserLabel.TabIndex = 7;
             addUserLabel.Text = "Add new user";
             // 
+            // updateIncidentButton
+            // 
+            updateIncidentButton.BackColor = Color.DarkGreen;
+            updateIncidentButton.FlatAppearance.BorderColor = Color.Black;
+            updateIncidentButton.FlatAppearance.MouseDownBackColor = Color.White;
+            updateIncidentButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            updateIncidentButton.ForeColor = Color.White;
+            updateIncidentButton.Location = new Point(608, 68);
+            updateIncidentButton.Margin = new Padding(2);
+            updateIncidentButton.Name = "updateIncidentButton";
+            updateIncidentButton.Size = new Size(137, 34);
+            updateIncidentButton.TabIndex = 21;
+            updateIncidentButton.Text = "UPDATE INCIDENT";
+            updateIncidentButton.UseVisualStyleBackColor = false;
+            updateIncidentButton.Click += updateIncidentButton_Click;
+            // 
             // DashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(936, 641);
+            Controls.Add(ticketOverviewPanel);
             Controls.Add(userManagementPanel);
             Controls.Add(addIncidentPanel);
-            Controls.Add(ticketOverviewPanel);
             Controls.Add(DashboardPanel);
             Controls.Add(addUserPanel);
             Margin = new Padding(4);
@@ -845,6 +863,7 @@ namespace DemoApp
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
+        private Button updateIncidentButton;
     }
 }
 
