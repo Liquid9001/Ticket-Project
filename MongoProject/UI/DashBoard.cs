@@ -40,6 +40,7 @@ namespace DemoApp
 
         private void HidePanels()
         {
+            modifyIncidentPanel.Hide();
             addIncidentPanel.Hide();
             addUserPanel.Hide();
             ticketOverviewPanel.Hide();
@@ -263,6 +264,10 @@ namespace DemoApp
         //listview ticketoverview
         private void listviewTickets()
         {
+            if (!loggedInEmployee.isServiceDesk)
+            {
+                modifyTicketButton.Hide();
+            }
             int i = 0;
             tickets = databases.GetTickets();
             listViewTicketOverview.Items.Clear();
@@ -281,9 +286,14 @@ namespace DemoApp
 
         private void FillListViewTickets(int i, Employee employee)
         {
+<<<<<<< HEAD
 
             ListViewItem item = new ListViewItem((i).ToString());
+=======
+>>>>>>> dink2
 
+            ListViewItem item = new ListViewItem((i).ToString());
+            item.SubItems.Add(i.ToString());
             item.SubItems.Add(employee.EmailAddress);
             item.SubItems.Add(employee.username);
             item.SubItems.Add(tickets[i].CreatedAt.ToString("dd/MM/yyyy HH:mm"));
@@ -294,6 +304,7 @@ namespace DemoApp
 
         private void updateIncidentButton_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
 
         }
 
@@ -370,5 +381,96 @@ namespace DemoApp
             HidePanels();
             ticketOverviewPanel.Show();
         }
+=======
+            if (listViewTicketOverview.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
+                int id = int.Parse(selectedItem.SubItems[0].Text);
+                Ticket ticket = tickets[id];
+                OpenModifyTicket(ticket);
+            }
+        }
+        private void deleteIncidentButton_Click(object sender, EventArgs e)
+        {
+            // Display a confirmation dialog
+            DialogResult result = MessageBox.Show("Are you sure you want to perform this action?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Check the user's choice
+            if (result == DialogResult.Yes)
+            {
+                ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
+                int id = int.Parse(selectedItem.SubItems[0].Text);
+                Ticket ticket = tickets[id];
+                databases.DeleteTicket(ticket);
+                MessageBox.Show("Ticket deleted!");
+                listviewTickets();
+            }
+            else
+            {
+                MessageBox.Show("Ticket not deleted!");
+            }
+        }
+
+        private void OpenModifyTicket(Ticket ticket)
+        {
+            HidePanels();
+            Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
+
+            labelTicket.Tag = ticket;
+
+            reportedbyInputModify.Text = ticket.EmployeeID.ToString();
+
+
+            List<string> TicketDeadline = new List<string>();
+            TicketDeadline.Add("7 days");
+            TicketDeadline.Add("14 days");
+            TicketDeadline.Add("28 days");
+            TicketDeadline.Add("6 months");
+
+            //initiate combobox 'type of incident'
+            typeinputModify.DataSource = Enum.GetValues(typeof(TicketType));
+            typeinputModify.SelectedItem = ticket.TypeOfIncident;
+
+            //initiate combobox 'priority'
+            priorityInputModify.DataSource = Enum.GetValues(typeof(TicketPriority));
+            priorityInputModify.SelectedItem = ticket.Priority;
+
+            //initiate combobox 'Deadline/Follow up'
+            deadlineInputModify.DataSource = TicketDeadline;
+            deadlineInputModify.SelectedItem = ticket.Deadline;
+
+            //initiate combobox 'reported user'
+            List<Employee> employees = databases.GetEmployees();
+            reportedbyInputModify.DataSource = employees;
+            reportedbyInputModify.SelectedItem = employee;
+            reportedbyInputModify.DisplayMember = "FirstName";
+
+
+            subjectInputModify.Text = ticket.Title;
+            descriptionModifyInput.Text = ticket.Description;
+
+            modifyIncidentPanel.Show();
+        }
+
+
+
+        private void modifyTicketButton_Click(object sender, EventArgs e)
+        {
+            Ticket oldTicket = (Ticket)labelTicket.Tag;
+            Ticket ticket = new Ticket(oldTicket.Id, subjectInputModify.Text, (TicketType)typeinputModify.SelectedItem, descriptionModifyInput.Text, TicketStatus.Open, oldTicket.EmployeeID, oldTicket.CreatedAt, GetDeadline(deadlineInputModify.SelectedText), (TicketPriority)priorityInputModify.SelectedItem);
+            databases.UpdateTicket(ticket);
+            modifyIncidentPanel.Hide();
+            ticketOverviewPanel.Show();
+        }
+
+        private void cancelModifyButton_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            listviewTickets();
+            ticketOverviewPanel.Show();
+        }
+
+        
+>>>>>>> dink2
     }
 }

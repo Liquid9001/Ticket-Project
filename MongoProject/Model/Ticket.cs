@@ -28,5 +28,18 @@ namespace MongoProject.Model
             Deadline = deadline;
             Priority = priority;
         }
+
+        public Ticket(ObjectId Id, string title, TicketType typeOfIncident, string description, TicketStatus status, ObjectId employeeID, DateTime createdAt, DateTime deadline, TicketPriority priority)
+        {
+            this.Id = Id;
+            Title = title;
+            TypeOfIncident = typeOfIncident;
+            Description = description;
+            Status = status;
+            EmployeeID = employeeID;
+            CreatedAt = createdAt;
+            Deadline = deadline;
+            Priority = priority;
+        }
     }
 }
