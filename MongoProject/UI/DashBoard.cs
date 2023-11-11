@@ -308,6 +308,16 @@ namespace DemoApp
 
         private void updateIncidentButton_Click(object sender, EventArgs e)
         {
+            HidePanels();
+            ticketOverviewPanel.Show();
+
+            if (listViewTicketOverview.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
+                int id = int.Parse(selectedItem.SubItems[0].Text);
+                Ticket ticket = tickets[id];
+                OpenModifyTicket(ticket);
+            }
         }
 
         private void DashBoardButton_Click(object sender, EventArgs e)
@@ -380,23 +390,14 @@ namespace DemoApp
 
         private void ShowListButton_Click(object sender, EventArgs e)
         {
-            HidePanels();
-            ticketOverviewPanel.Show();
-
-            if (listViewTicketOverview.SelectedItems.Count > 0)
-            {
-                ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
-                int id = int.Parse(selectedItem.SubItems[0].Text);
-                Ticket ticket = tickets[id];
-                OpenModifyTicket(ticket);
-            }
+            
         }
         private void deleteIncidentButton_Click(object sender, EventArgs e)
         {
-            
+
             DialogResult result = MessageBox.Show("Are you sure you want to PERMANENTLY DELETE this ticket?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            
+
             if (result == DialogResult.Yes)
             {
                 ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
@@ -413,10 +414,10 @@ namespace DemoApp
         }
         private void retireIncidentButton_Click(object sender, EventArgs e)
         {
-            
+
             DialogResult result = MessageBox.Show("Are you sure you want to retire this ticket?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            
+
             if (result == DialogResult.Yes)
             {
                 ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
@@ -534,6 +535,6 @@ namespace DemoApp
 
         }
 
-        
+
     }
 }

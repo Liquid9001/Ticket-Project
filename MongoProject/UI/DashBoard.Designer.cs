@@ -30,12 +30,12 @@ namespace DemoApp
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             gardenGroupLogo = new PictureBox();
             DashboardPanel = new Panel();
             LogoutButton = new Button();
@@ -511,22 +511,27 @@ namespace DemoApp
             // 
             // columnHeader1
             // 
+            columnHeader1.DisplayIndex = 1;
             columnHeader1.Text = "Email";
             // 
             // columnHeader2
             // 
+            columnHeader2.DisplayIndex = 2;
             columnHeader2.Text = "Username";
             // 
             // columnHeader3
             // 
+            columnHeader3.DisplayIndex = 3;
             columnHeader3.Text = "Created";
             // 
             // columnHeader4
             // 
+            columnHeader4.DisplayIndex = 4;
             columnHeader4.Text = "Priority";
             // 
             // columnHeader5
             // 
+            columnHeader5.DisplayIndex = 0;
             columnHeader5.Text = "ID";
             // 
             // filterTextBoxInput
@@ -896,36 +901,36 @@ namespace DemoApp
             // 
             // ClosedTicketsChart
             // 
-            chartArea3.Name = "ChartArea1";
-            ClosedTicketsChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            ClosedTicketsChart.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            ClosedTicketsChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            ClosedTicketsChart.Legends.Add(legend1);
             ClosedTicketsChart.Location = new Point(519, 158);
             ClosedTicketsChart.Margin = new Padding(3, 2, 3, 2);
             ClosedTicketsChart.Name = "ClosedTicketsChart";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series3.Legend = "Legend1";
-            series3.Name = "Series2";
-            ClosedTicketsChart.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.Name = "Series2";
+            ClosedTicketsChart.Series.Add(series1);
             ClosedTicketsChart.Size = new Size(371, 339);
             ClosedTicketsChart.TabIndex = 1;
             ClosedTicketsChart.Text = "chart2";
             // 
             // OpenTicketsChart
             // 
-            chartArea4.Name = "ChartArea1";
-            OpenTicketsChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            OpenTicketsChart.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            OpenTicketsChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            OpenTicketsChart.Legends.Add(legend2);
             OpenTicketsChart.Location = new Point(65, 158);
             OpenTicketsChart.Margin = new Padding(3, 2, 3, 2);
             OpenTicketsChart.Name = "OpenTicketsChart";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            OpenTicketsChart.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            OpenTicketsChart.Series.Add(series2);
             OpenTicketsChart.Size = new Size(371, 339);
             OpenTicketsChart.TabIndex = 0;
             OpenTicketsChart.Text = "chart1";
