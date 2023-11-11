@@ -22,6 +22,7 @@ namespace Logic
             return dao.GetAllEmployees();
         }
 
+<<<<<<< HEAD
         public List<Ticket> GetTicketsByEmployeeId(Employee employee)
         {
             return dao.GetTicketsByEmployeeId(employee.Id);
@@ -31,6 +32,11 @@ namespace Logic
         {
             List<Ticket> tickets = GetTicketsByEmployeeId(employee);
             return tickets.Count;
+=======
+        public List<Ticket> GetTickets()
+        {
+            return dao.GetAllTickets();
+>>>>>>> Louise
         }
     }
 }

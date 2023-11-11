@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Dink\\Documents\\GitHub\\Ticket-Project\\MongoProject\\MongoProject.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dink\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\Louise\\source\\repos\\Ticket-Project_1\\MongoProject\\MongoProject.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Louise\\source\\repos\\Ticket-Project_1\\MongoProject\\MongoProject.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Louise\\source\\repos\\Ticket-Project_1\\MongoProject\\MongoProject.csproj",
+        "projectName": "MongoProject",
+        "projectPath": "C:\\Users\\Louise\\source\\repos\\Ticket-Project_1\\MongoProject\\MongoProject.csproj",
+        "packagesPath": "C:\\Users\\Louise\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Louise\\source\\repos\\Ticket-Project_1\\MongoProject\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Louise\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Louise
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +85,11 @@
               "privateAssets": "none"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+>>>>>>> Louise
         }
       }
     }
