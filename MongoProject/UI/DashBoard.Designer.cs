@@ -55,6 +55,7 @@ namespace DemoApp
             subjectIncidentLabel = new Label();
             newIncidentLabel = new Label();
             ticketOverviewPanel = new Panel();
+            checkBoxPriorityFilter = new CheckBox();
             listViewTicketOverview = new ListView();
             id = new ColumnHeader();
             EmailAddress = new ColumnHeader();
@@ -258,7 +259,6 @@ namespace DemoApp
             subjectInput.Name = "subjectInput";
             subjectInput.Size = new Size(500, 39);
             subjectInput.TabIndex = 18;
-            subjectInput.TextChanged += subjectInput_TextChanged;
             // 
             // submitTicketButton
             // 
@@ -363,6 +363,7 @@ namespace DemoApp
             // ticketOverviewPanel
             // 
             ticketOverviewPanel.BackColor = Color.White;
+            ticketOverviewPanel.Controls.Add(checkBoxPriorityFilter);
             ticketOverviewPanel.Controls.Add(listViewTicketOverview);
             ticketOverviewPanel.Controls.Add(filterTextBoxInput);
             ticketOverviewPanel.Controls.Add(createIncidentButton);
@@ -371,6 +372,17 @@ namespace DemoApp
             ticketOverviewPanel.Name = "ticketOverviewPanel";
             ticketOverviewPanel.Size = new Size(1713, 1141);
             ticketOverviewPanel.TabIndex = 24;
+            // 
+            // checkBoxPriorityFilter
+            // 
+            checkBoxPriorityFilter.AutoSize = true;
+            checkBoxPriorityFilter.Location = new Point(551, 182);
+            checkBoxPriorityFilter.Name = "checkBoxPriorityFilter";
+            checkBoxPriorityFilter.Size = new Size(251, 36);
+            checkBoxPriorityFilter.TabIndex = 21;
+            checkBoxPriorityFilter.Text = "Priority (high - low)";
+            checkBoxPriorityFilter.UseVisualStyleBackColor = true;
+            checkBoxPriorityFilter.CheckedChanged += checkBoxPriorityFilter_CheckedChanged;
             // 
             // listViewTicketOverview
             // 
@@ -383,7 +395,6 @@ namespace DemoApp
             listViewTicketOverview.TabIndex = 20;
             listViewTicketOverview.UseCompatibleStateImageBehavior = false;
             listViewTicketOverview.View = View.Details;
-            listViewTicketOverview.SelectedIndexChanged += listViewTicketOverview_SelectedIndexChanged;
             // 
             // id
             // 
@@ -418,7 +429,8 @@ namespace DemoApp
             filterTextBoxInput.Name = "filterTextBoxInput";
             filterTextBoxInput.Size = new Size(467, 73);
             filterTextBoxInput.TabIndex = 19;
-            filterTextBoxInput.Text = " Filter by email";
+            filterTextBoxInput.Text = " Filter by email or username";
+            filterTextBoxInput.TextChanged += filterTextBoxInput_TextChanged;
             // 
             // createIncidentButton
             // 
@@ -799,6 +811,7 @@ namespace DemoApp
         private ColumnHeader Username;
         private ColumnHeader date;
         private ColumnHeader priority;
+        private CheckBox checkBoxPriorityFilter;
     }
 }
 

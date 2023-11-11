@@ -62,5 +62,6 @@ namespace MongoProject.Logic
             return new string(Enumerable.Repeat(chars, length)
             .Select(s => s[rnd.Next(s.Length)]).ToArray());
         }
+
     }
 }
