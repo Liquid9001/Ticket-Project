@@ -58,6 +58,14 @@ namespace DAL
             return employee;
         }
 
+        public Employee GetEmployeeById(ObjectId id)
+        {
+            IMongoCollection<Employee> collection = db.GetCollection<Employee>("Employees");
+            FilterDefinition<Employee> filter = Builders<Employee>.Filter.Eq("_id", id);
+            Employee employee = collection.Find(filter).First();
+            return employee;
+        }
+
         public List<Ticket> GetTicketsByEmployeeId(ObjectId employeeId)
         {
             IMongoCollection<Ticket> ticketCollection = db.GetCollection<Ticket>("Tickets");
@@ -66,6 +74,13 @@ namespace DAL
             return tickets;
         }
 
+        public Ticket GetTicketByID(ObjectId ticketID)
+        {
+            IMongoCollection<Ticket> ticketCollection = db.GetCollection<Ticket>("Tickets");
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticketID);
+            Ticket ticket = ticketCollection.Find(filter).First();
+            return ticket;
+        }
 
     }
 

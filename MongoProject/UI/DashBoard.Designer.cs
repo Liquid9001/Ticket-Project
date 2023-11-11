@@ -56,6 +56,10 @@ namespace DemoApp
             newIncidentLabel = new Label();
             ticketOverviewPanel = new Panel();
             listViewTicketOverview = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
             filterTextBoxInput = new TextBox();
             createIncidentButton = new Button();
             overviewTicketLabel = new Label();
@@ -393,6 +397,7 @@ namespace DemoApp
             // 
             // listViewTicketOverview
             // 
+            listViewTicketOverview.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
             listViewTicketOverview.FullRowSelect = true;
             listViewTicketOverview.GridLines = true;
             listViewTicketOverview.Location = new Point(37, 110);
@@ -401,6 +406,24 @@ namespace DemoApp
             listViewTicketOverview.Size = new Size(851, 407);
             listViewTicketOverview.TabIndex = 20;
             listViewTicketOverview.UseCompatibleStateImageBehavior = false;
+            listViewTicketOverview.View = View.Details;
+            listViewTicketOverview.SelectedIndexChanged += listViewTicketOverview_SelectedIndexChanged;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Email";
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Username";
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Created";
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Priority";
             // 
             // filterTextBoxInput
             // 
@@ -474,6 +497,7 @@ namespace DemoApp
             userSearchBox.TabIndex = 1;
             userSearchBox.TextChanged += userSearchBox_TextChanged;
             userSearchBox.Enter += userSearchBox_Enter;
+            userSearchBox.KeyDown += userSearchBox_KeyDown;
             userSearchBox.Leave += userSearchBox_Leave;
             // 
             // userOverviewLV
@@ -735,8 +759,8 @@ namespace DemoApp
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(936, 641);
             Controls.Add(userManagementPanel);
-            Controls.Add(ticketOverviewPanel);
             Controls.Add(addIncidentPanel);
+            Controls.Add(ticketOverviewPanel);
             Controls.Add(DashboardPanel);
             Controls.Add(addUserPanel);
             Margin = new Padding(4);
@@ -817,6 +841,10 @@ namespace DemoApp
         private Label serviceDeskLabel;
         private CheckBox isServiceDeskCheckBox;
         private Button LogoutButton;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
     }
 }
 
