@@ -66,7 +66,6 @@ namespace MongoProject.UI
 
         private void Login_load(object sender, EventArgs e)
         {
-            //Properties.Settings.Default;
             if (Properties.Settings.Default.Username != string.Empty)
             {
                 usernameTextBox.Text = Properties.Settings.Default.Username;
