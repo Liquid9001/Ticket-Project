@@ -20,6 +20,7 @@ namespace DemoApp
         private Databases databases;
         private EmployeeLogic employeeLogic;
         List<Employee> employees;
+        List<Ticket> tickets;
         Login login;
         public DashBoard(Employee loggedInEmployee, Login login)
         {
@@ -187,27 +188,11 @@ namespace DemoApp
         {
             HidePanels();
             ticketOverviewPanel.Show();
+            listviewTickets();
         }
 
         private void userSearchBox_TextChanged(object sender, EventArgs e)
         {
-            if (userSearchBox.Text == "Zoeken")
-            {
-                
-            }
-            else
-            {
-                string search = userSearchBox.Text.ToUpper();
-
-                userOverviewLV.Items.Clear();
-                for (int i = 0; i < employees.Count; i++)
-                {
-                    if (employees[i].EmailAddress.ToUpper().Contains(search) || employees[i].FirstName.ToUpper().Contains(search) || employees[i].LastName.ToUpper().Contains(search))
-                    {
-                        FillListView(i);
-                    }
-                }
-            }
             
         }
         private void userSearchBox_Enter(object sender, EventArgs e)
@@ -223,6 +208,23 @@ namespace DemoApp
             if (userSearchBox.Text == "")
             {
                 userSearchBox.Text = "Zoeken";
+            }
+        }
+
+        private void userSearchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                string search = userSearchBox.Text.ToUpper();
+
+                userOverviewLV.Items.Clear();
+                for (int i = 0; i < employees.Count; i++)
+                {
+                    if (employees[i].EmailAddress.ToUpper().Contains(search) || employees[i].FirstName.ToUpper().Contains(search) || employees[i].LastName.ToUpper().Contains(search))
+                    {
+                        FillListView(i);
+                    }
+                }
             }
         }
 
@@ -257,9 +259,6 @@ namespace DemoApp
             }
         }
 
-<<<<<<< HEAD
-        
-=======
         //listview ticketoverview
         private void listviewTickets()
         {
@@ -268,9 +267,9 @@ namespace DemoApp
             listViewTicketOverview.Items.Clear();
             foreach (Ticket ticket in tickets)
             {
-                i++;
-                Employee employee = GetEmployeeById(ticket.EmployeeID);
+                Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
                 FillListViewTickets(i, employee);
+                i++;
             }
         }
         private void listViewTicketOverview_SelectedIndexChanged(object sender, EventArgs e)
@@ -281,7 +280,7 @@ namespace DemoApp
 
         private void FillListViewTickets(int i, Employee employee)
         {
-            
+
             ListViewItem item = new ListViewItem((i).ToString());
 
             item.SubItems.Add(employee.EmailAddress);
@@ -292,19 +291,6 @@ namespace DemoApp
             listViewTicketOverview.Items.Add(item);
         }
 
-        private Employee GetEmployeeById(ObjectId employeeId)
-        {
-            Employee employeeById = new Employee();
-            employees = databases.GetEmployees();
-            foreach (Employee employee in employees)
-            {
-                if (employee.Id == employeeId)
-                {
-                    employeeById = employee;
-                }
-            }
-            return employeeById;
-        }
->>>>>>> Louise
+        
     }
 }

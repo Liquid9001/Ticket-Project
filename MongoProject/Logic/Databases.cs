@@ -1,4 +1,5 @@
 ﻿using DAL;
+using MongoDB.Bson;
 using MongoProject.Model;
 using System.Collections.Generic;
 
@@ -22,6 +23,21 @@ namespace Logic
             return dao.GetAllEmployees();
         }
 
+        public List<Ticket> GetTickets()
+        {
+            return dao.GetAllTickets();
+        }
+
+        public Ticket GetTicketById(ObjectId id)
+        {
+            return dao.GetTicketByID(id);
+        }
+
+        public Employee GetEmployeeById(ObjectId id)
+        {
+            return dao.GetEmployeeById(id);
+        }
+
         public List<Ticket> GetTicketsByEmployeeId(Employee employee)
         {
             return dao.GetTicketsByEmployeeId(employee.Id);
@@ -32,15 +48,6 @@ namespace Logic
             List<Ticket> tickets = GetTicketsByEmployeeId(employee);
             return tickets.Count;
         }
-        public List<Ticket> GetTicketsByEmployeeId(Employee employee)
-        {
-            return dao.GetTicketsByEmployeeId(employee.Id);
-        }
 
-        public int GetTicketCount(Employee employee)
-        {
-            List<Ticket> tickets = GetTicketsByEmployeeId(employee);
-            return tickets.Count;
-        }
     }
 }
