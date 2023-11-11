@@ -220,7 +220,14 @@ namespace DemoApp
             Ticket ticket = new Ticket(subjectInput.Text, (TicketType)incidentTypeInput.SelectedItem, descriptionInput.Text, TicketStatus.Open, employee.Id, DateTime.Now, GetDeadline(deadlineFollowUpInput.SelectedText), (TicketPriority)priorityInput.SelectedItem);
             databases.AddTicket(ticket);
             addIncidentPanel.Hide();
-            //popup
+
+
+            DialogResult dialogResult = MessageBox.Show("Your ticket has been added!", "OK", MessageBoxButtons.OK);
+            if (dialogResult == DialogResult.OK)
+            {
+                ticketOverviewPanel.Show();
+            }
+
             ticketOverviewPanel.Show();
         }
 
@@ -243,9 +250,9 @@ namespace DemoApp
             listViewTicketOverview.Items.Clear();
             foreach (Ticket ticket in tickets)
             {
-                i++;
                 Employee employee = GetEmployeeById(ticket.EmployeeID);
                 FillListViewTickets(i, employee);
+                i++;
             }
         }
         private void listViewTicketOverview_SelectedIndexChanged(object sender, EventArgs e)
@@ -256,9 +263,7 @@ namespace DemoApp
 
         private void FillListViewTickets(int i, Employee employee)
         {
-            
-            ListViewItem item = new ListViewItem((i).ToString());
-
+            ListViewItem item = new ListViewItem((i + 1).ToString());
             item.SubItems.Add(employee.EmailAddress);
             item.SubItems.Add(employee.username);
             item.SubItems.Add(tickets[i].CreatedAt.ToString("dd/MM/yyyy HH:mm"));
