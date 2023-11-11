@@ -8,6 +8,7 @@ using Model;
 using MongoProject.Model;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoProject.Logic;
+using MongoProject.UI;
 
 namespace DemoApp
 {
@@ -18,12 +19,14 @@ namespace DemoApp
         private Databases databases;
         private EmployeeLogic employeeLogic;
         List<Employee> employees;
-        public DashBoard(Employee loggedInEmployee)
+        Login login;
+        public DashBoard(Employee loggedInEmployee, Login login)
         {
             this.loggedInEmployee = loggedInEmployee;
             InitializeComponent();
             databases = new Databases();
             employeeLogic = new EmployeeLogic();
+            this.login = login;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -217,5 +220,17 @@ namespace DemoApp
             //popup
             ticketOverviewPanel.Show();
         }
+
+        private void LogoutButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to logout", "Logout", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Success success = new Success(login);
+                success.Show();
+                this.Close();
+            }
+        }
+
     }
 }
