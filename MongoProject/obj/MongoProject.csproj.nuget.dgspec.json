@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\MongoProject.csproj": {}
+    "C:\\Users\\Louise\\source\\repos\\Ticket-Project_1\\MongoProject\\MongoProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\MongoProject.csproj": {
+    "C:\\Users\\Louise\\source\\repos\\Ticket-Project_1\\MongoProject\\MongoProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\MongoProject.csproj",
+        "projectUniqueName": "C:\\Users\\Louise\\source\\repos\\Ticket-Project_1\\MongoProject\\MongoProject.csproj",
         "projectName": "MongoProject",
-        "projectPath": "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\MongoProject.csproj",
-        "packagesPath": "C:\\Users\\enesb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\obj\\",
+        "projectPath": "C:\\Users\\Louise\\source\\repos\\Ticket-Project_1\\MongoProject\\MongoProject.csproj",
+        "packagesPath": "C:\\Users\\Louise\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Louise\\source\\repos\\Ticket-Project_1\\MongoProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\enesb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Louise\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

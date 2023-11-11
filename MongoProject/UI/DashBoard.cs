@@ -19,6 +19,7 @@ namespace DemoApp
         private Databases databases;
         private EmployeeLogic employeeLogic;
         List<Employee> employees;
+        List<Ticket> tickets;
         Login login;
         public DashBoard(Employee loggedInEmployee, Login login)
         {
@@ -96,6 +97,7 @@ namespace DemoApp
         {
             Employee employee = (Employee)userReportedInput.SelectedItem;
             Ticket ticket = new Ticket(subjectInput.Text, (TicketType)incidentTypeInput.SelectedItem, descriptionInput.Text, TicketStatus.Open, employee.Id, DateTime.Now, GetDeadline(deadlineFollowUpInput.SelectedText), (TicketPriority)priorityInput.SelectedItem);
+            databases.AddTicket(ticket);
             addIncidentPanel.Hide();
             //popup
             ticketOverviewPanel.Show();
@@ -184,6 +186,7 @@ namespace DemoApp
         {
             HidePanels();
             ticketOverviewPanel.Show();
+            listviewTickets();
         }
 
         private void userSearchBox_TextChanged(object sender, EventArgs e)
@@ -232,5 +235,47 @@ namespace DemoApp
             }
         }
 
+        //listview ticketoverview
+        private void listviewTickets()
+        {
+            int i = 0;
+            tickets = databases.GetTickets();
+            listViewTicketOverview.Items.Clear();
+            foreach (Ticket ticket in tickets)
+            {
+                i++;
+                Employee employee = GetEmployeeById(ticket.EmployeeID);
+                FillListViewTickets(i, employee);
+            }
+        }
+        private void listViewTicketOverview_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void FillListViewTickets(int i, Employee employee)
+        {
+            ListViewItem item = new ListViewItem((i).ToString());
+            item.SubItems.Add(employee.EmailAddress);
+            item.SubItems.Add(employee.username);
+            item.SubItems.Add(tickets[i].CreatedAt.ToString("dd/MM/yyyy HH:mm"));
+            item.SubItems.Add(tickets[i].Priority.ToString());
+
+            listViewTicketOverview.Items.Add(item);
+        }
+
+        private Employee GetEmployeeById(ObjectId employeeId)
+        {
+            Employee employeeById = new Employee();
+            foreach (Employee employee in employees)
+            {
+                if (employee.Id == employeeId)
+                {
+                    employeeById = employee;
+                }
+            }
+            return employeeById;
+        }
     }
 }

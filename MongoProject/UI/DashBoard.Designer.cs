@@ -56,6 +56,11 @@ namespace DemoApp
             newIncidentLabel = new Label();
             ticketOverviewPanel = new Panel();
             listViewTicketOverview = new ListView();
+            id = new ColumnHeader();
+            EmailAddress = new ColumnHeader();
+            Username = new ColumnHeader();
+            date = new ColumnHeader();
+            priority = new ColumnHeader();
             filterTextBoxInput = new TextBox();
             createIncidentButton = new Button();
             overviewTicketLabel = new Label();
@@ -99,10 +104,9 @@ namespace DemoApp
             // gardenGroupLogo
             // 
             gardenGroupLogo.Image = (Image)resources.GetObject("gardenGroupLogo.Image");
-            gardenGroupLogo.Location = new Point(2, -1);
-            gardenGroupLogo.Margin = new Padding(2);
+            gardenGroupLogo.Location = new Point(3, -2);
             gardenGroupLogo.Name = "gardenGroupLogo";
-            gardenGroupLogo.Size = new Size(252, 85);
+            gardenGroupLogo.Size = new Size(410, 136);
             gardenGroupLogo.SizeMode = PictureBoxSizeMode.CenterImage;
             gardenGroupLogo.TabIndex = 1;
             gardenGroupLogo.TabStop = false;
@@ -118,18 +122,18 @@ namespace DemoApp
             DashboardPanel.Controls.Add(licensedToLabel);
             DashboardPanel.Controls.Add(noDeskLabel);
             DashboardPanel.Controls.Add(gardenGroupLogo);
-            DashboardPanel.Location = new Point(9, 7);
-            DashboardPanel.Margin = new Padding(2);
+            DashboardPanel.Location = new Point(15, 11);
             DashboardPanel.Name = "DashboardPanel";
-            DashboardPanel.Size = new Size(1055, 125);
+            DashboardPanel.Size = new Size(1713, 199);
             DashboardPanel.TabIndex = 1;
             // 
             // LogoutButton
             // 
             LogoutButton.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            LogoutButton.Location = new Point(954, 86);
+            LogoutButton.Location = new Point(1550, 138);
+            LogoutButton.Margin = new Padding(5);
             LogoutButton.Name = "LogoutButton";
-            LogoutButton.Size = new Size(100, 34);
+            LogoutButton.Size = new Size(162, 54);
             LogoutButton.TabIndex = 7;
             LogoutButton.Text = "Logout";
             LogoutButton.UseVisualStyleBackColor = true;
@@ -139,10 +143,9 @@ namespace DemoApp
             // 
             userManagementButton.BackColor = Color.White;
             userManagementButton.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            userManagementButton.Location = new Point(639, 86);
-            userManagementButton.Margin = new Padding(2);
+            userManagementButton.Location = new Point(1038, 138);
             userManagementButton.Name = "userManagementButton";
-            userManagementButton.Size = new Size(316, 35);
+            userManagementButton.Size = new Size(514, 56);
             userManagementButton.TabIndex = 6;
             userManagementButton.Text = "User Management";
             userManagementButton.UseVisualStyleBackColor = false;
@@ -152,10 +155,9 @@ namespace DemoApp
             // 
             incidentManagementButton.BackColor = Color.White;
             incidentManagementButton.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            incidentManagementButton.Location = new Point(319, 86);
-            incidentManagementButton.Margin = new Padding(2);
+            incidentManagementButton.Location = new Point(518, 138);
             incidentManagementButton.Name = "incidentManagementButton";
-            incidentManagementButton.Size = new Size(316, 35);
+            incidentManagementButton.Size = new Size(514, 56);
             incidentManagementButton.TabIndex = 5;
             incidentManagementButton.Text = "Incident Management";
             incidentManagementButton.UseVisualStyleBackColor = false;
@@ -165,10 +167,9 @@ namespace DemoApp
             // 
             DashBoardButton.BackColor = Color.White;
             DashBoardButton.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            DashBoardButton.Location = new Point(-1, 86);
-            DashBoardButton.Margin = new Padding(2);
+            DashBoardButton.Location = new Point(-2, 138);
             DashBoardButton.Name = "DashBoardButton";
-            DashBoardButton.Size = new Size(316, 35);
+            DashBoardButton.Size = new Size(514, 56);
             DashBoardButton.TabIndex = 4;
             DashBoardButton.Text = "Dashboard";
             DashBoardButton.UseVisualStyleBackColor = false;
@@ -177,10 +178,9 @@ namespace DemoApp
             // 
             licensedToLabel.AutoSize = true;
             licensedToLabel.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            licensedToLabel.Location = new Point(702, 45);
-            licensedToLabel.Margin = new Padding(2, 0, 2, 0);
+            licensedToLabel.Location = new Point(1141, 72);
             licensedToLabel.Name = "licensedToLabel";
-            licensedToLabel.Size = new Size(367, 32);
+            licensedToLabel.Size = new Size(557, 50);
             licensedToLabel.TabIndex = 3;
             licensedToLabel.Text = "Licensed to: The Garden Group";
             // 
@@ -189,10 +189,9 @@ namespace DemoApp
             noDeskLabel.AutoSize = true;
             noDeskLabel.BackColor = Color.Transparent;
             noDeskLabel.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
-            noDeskLabel.Location = new Point(907, 0);
-            noDeskLabel.Margin = new Padding(2, 0, 2, 0);
+            noDeskLabel.Location = new Point(1474, 0);
             noDeskLabel.Name = "noDeskLabel";
-            noDeskLabel.Size = new Size(145, 46);
+            noDeskLabel.Size = new Size(225, 71);
             noDeskLabel.TabIndex = 2;
             noDeskLabel.Text = "NoDesk";
             // 
@@ -214,56 +213,50 @@ namespace DemoApp
             addIncidentPanel.Controls.Add(incidentTypeLabel);
             addIncidentPanel.Controls.Add(subjectIncidentLabel);
             addIncidentPanel.Controls.Add(newIncidentLabel);
-            addIncidentPanel.Location = new Point(9, 135);
-            addIncidentPanel.Margin = new Padding(2);
+            addIncidentPanel.Location = new Point(15, 216);
             addIncidentPanel.Name = "addIncidentPanel";
-            addIncidentPanel.Size = new Size(1054, 713);
+            addIncidentPanel.Size = new Size(1713, 1141);
             addIncidentPanel.TabIndex = 2;
             // 
             // deadlineFollowUpInput
             // 
             deadlineFollowUpInput.FormattingEnabled = true;
-            deadlineFollowUpInput.Location = new Point(241, 317);
-            deadlineFollowUpInput.Margin = new Padding(2);
+            deadlineFollowUpInput.Location = new Point(392, 507);
             deadlineFollowUpInput.Name = "deadlineFollowUpInput";
-            deadlineFollowUpInput.Size = new Size(309, 28);
+            deadlineFollowUpInput.Size = new Size(500, 40);
             deadlineFollowUpInput.TabIndex = 22;
             // 
             // priorityInput
             // 
             priorityInput.FormattingEnabled = true;
-            priorityInput.Location = new Point(241, 262);
-            priorityInput.Margin = new Padding(2);
+            priorityInput.Location = new Point(392, 419);
             priorityInput.Name = "priorityInput";
-            priorityInput.Size = new Size(309, 28);
+            priorityInput.Size = new Size(500, 40);
             priorityInput.TabIndex = 21;
             // 
             // userReportedInput
             // 
             userReportedInput.FormattingEnabled = true;
-            userReportedInput.Location = new Point(241, 207);
-            userReportedInput.Margin = new Padding(2);
+            userReportedInput.Location = new Point(392, 331);
             userReportedInput.Name = "userReportedInput";
-            userReportedInput.Size = new Size(309, 28);
+            userReportedInput.Size = new Size(500, 40);
             userReportedInput.TabIndex = 20;
             userReportedInput.Text = " Select user";
             // 
             // incidentTypeInput
             // 
             incidentTypeInput.FormattingEnabled = true;
-            incidentTypeInput.Location = new Point(241, 148);
-            incidentTypeInput.Margin = new Padding(2);
+            incidentTypeInput.Location = new Point(392, 237);
             incidentTypeInput.Name = "incidentTypeInput";
-            incidentTypeInput.Size = new Size(309, 28);
+            incidentTypeInput.Size = new Size(500, 40);
             incidentTypeInput.TabIndex = 19;
             incidentTypeInput.Text = " Select type";
             // 
             // subjectInput
             // 
-            subjectInput.Location = new Point(241, 95);
-            subjectInput.Margin = new Padding(2);
+            subjectInput.Location = new Point(392, 152);
             subjectInput.Name = "subjectInput";
-            subjectInput.Size = new Size(309, 27);
+            subjectInput.Size = new Size(500, 39);
             subjectInput.TabIndex = 18;
             subjectInput.TextChanged += subjectInput_TextChanged;
             // 
@@ -274,10 +267,9 @@ namespace DemoApp
             submitTicketButton.FlatAppearance.MouseDownBackColor = Color.White;
             submitTicketButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             submitTicketButton.ForeColor = Color.White;
-            submitTicketButton.Location = new Point(400, 581);
-            submitTicketButton.Margin = new Padding(2);
+            submitTicketButton.Location = new Point(650, 930);
             submitTicketButton.Name = "submitTicketButton";
-            submitTicketButton.Size = new Size(148, 45);
+            submitTicketButton.Size = new Size(240, 72);
             submitTicketButton.TabIndex = 17;
             submitTicketButton.Text = "SUBMIT TICKET";
             submitTicketButton.UseVisualStyleBackColor = false;
@@ -287,81 +279,73 @@ namespace DemoApp
             // 
             cancelButton.BackColor = Color.White;
             cancelButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            cancelButton.Location = new Point(241, 581);
-            cancelButton.Margin = new Padding(2);
+            cancelButton.Location = new Point(392, 930);
             cancelButton.Name = "cancelButton";
-            cancelButton.Size = new Size(125, 45);
+            cancelButton.Size = new Size(203, 72);
             cancelButton.TabIndex = 16;
             cancelButton.Text = "CANCEL";
             cancelButton.UseVisualStyleBackColor = false;
             // 
             // descriptionInput
             // 
-            descriptionInput.Location = new Point(241, 384);
-            descriptionInput.Margin = new Padding(2);
-            descriptionInput.MinimumSize = new Size(4, 127);
+            descriptionInput.Location = new Point(392, 614);
+            descriptionInput.MinimumSize = new Size(4, 201);
             descriptionInput.Multiline = true;
             descriptionInput.Name = "descriptionInput";
-            descriptionInput.Size = new Size(309, 162);
+            descriptionInput.Size = new Size(500, 257);
             descriptionInput.TabIndex = 15;
             // 
             // descriptionLabel
             // 
             descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new Point(45, 384);
-            descriptionLabel.Margin = new Padding(2, 0, 2, 0);
+            descriptionLabel.Location = new Point(73, 614);
             descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new Size(88, 20);
+            descriptionLabel.Size = new Size(140, 32);
             descriptionLabel.TabIndex = 14;
             descriptionLabel.Text = "Description:";
             // 
             // deadlineFollowUpLabel
             // 
             deadlineFollowUpLabel.AutoSize = true;
-            deadlineFollowUpLabel.Location = new Point(42, 317);
-            deadlineFollowUpLabel.Margin = new Padding(2, 0, 2, 0);
+            deadlineFollowUpLabel.Location = new Point(68, 507);
             deadlineFollowUpLabel.Name = "deadlineFollowUpLabel";
-            deadlineFollowUpLabel.Size = new Size(141, 20);
+            deadlineFollowUpLabel.Size = new Size(223, 32);
             deadlineFollowUpLabel.TabIndex = 13;
             deadlineFollowUpLabel.Text = "Deadline/follow up:";
             // 
             // priorityLabel
             // 
             priorityLabel.AutoSize = true;
-            priorityLabel.Location = new Point(44, 262);
-            priorityLabel.Margin = new Padding(2, 0, 2, 0);
+            priorityLabel.Location = new Point(72, 419);
             priorityLabel.Name = "priorityLabel";
-            priorityLabel.Size = new Size(59, 20);
+            priorityLabel.Size = new Size(94, 32);
             priorityLabel.TabIndex = 12;
             priorityLabel.Text = "Priority:";
             // 
             // userReportedLabel
             // 
             userReportedLabel.AutoSize = true;
-            userReportedLabel.Location = new Point(44, 207);
-            userReportedLabel.Margin = new Padding(2, 0, 2, 0);
+            userReportedLabel.Location = new Point(72, 331);
             userReportedLabel.Name = "userReportedLabel";
-            userReportedLabel.Size = new Size(125, 20);
+            userReportedLabel.Size = new Size(201, 32);
             userReportedLabel.TabIndex = 11;
             userReportedLabel.Text = "Reported by user:";
             // 
             // incidentTypeLabel
             // 
             incidentTypeLabel.AutoSize = true;
-            incidentTypeLabel.Location = new Point(44, 148);
-            incidentTypeLabel.Margin = new Padding(2, 0, 2, 0);
+            incidentTypeLabel.Location = new Point(72, 237);
             incidentTypeLabel.Name = "incidentTypeLabel";
-            incidentTypeLabel.Size = new Size(118, 20);
+            incidentTypeLabel.Size = new Size(192, 32);
             incidentTypeLabel.TabIndex = 10;
             incidentTypeLabel.Text = "Type of incident:";
             // 
             // subjectIncidentLabel
             // 
             subjectIncidentLabel.AutoSize = true;
-            subjectIncidentLabel.Location = new Point(44, 95);
-            subjectIncidentLabel.Margin = new Padding(2, 0, 2, 0);
+            subjectIncidentLabel.Location = new Point(72, 152);
             subjectIncidentLabel.Name = "subjectIncidentLabel";
-            subjectIncidentLabel.Size = new Size(133, 20);
+            subjectIncidentLabel.Size = new Size(215, 32);
             subjectIncidentLabel.TabIndex = 9;
             subjectIncidentLabel.Text = "Subject of incident";
             // 
@@ -370,10 +354,9 @@ namespace DemoApp
             newIncidentLabel.AutoSize = true;
             newIncidentLabel.BackColor = Color.Transparent;
             newIncidentLabel.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
-            newIncidentLabel.Location = new Point(10, 8);
-            newIncidentLabel.Margin = new Padding(2, 0, 2, 0);
+            newIncidentLabel.Location = new Point(16, 13);
             newIncidentLabel.Name = "newIncidentLabel";
-            newIncidentLabel.Size = new Size(434, 46);
+            newIncidentLabel.Size = new Size(682, 71);
             newIncidentLabel.TabIndex = 7;
             newIncidentLabel.Text = "Create new incident ticket";
             // 
@@ -384,32 +367,56 @@ namespace DemoApp
             ticketOverviewPanel.Controls.Add(filterTextBoxInput);
             ticketOverviewPanel.Controls.Add(createIncidentButton);
             ticketOverviewPanel.Controls.Add(overviewTicketLabel);
-            ticketOverviewPanel.Location = new Point(9, 135);
-            ticketOverviewPanel.Margin = new Padding(2);
+            ticketOverviewPanel.Location = new Point(15, 216);
             ticketOverviewPanel.Name = "ticketOverviewPanel";
-            ticketOverviewPanel.Size = new Size(1054, 713);
+            ticketOverviewPanel.Size = new Size(1713, 1141);
             ticketOverviewPanel.TabIndex = 24;
             // 
             // listViewTicketOverview
             // 
+            listViewTicketOverview.Columns.AddRange(new ColumnHeader[] { id, EmailAddress, Username, date, priority });
             listViewTicketOverview.FullRowSelect = true;
             listViewTicketOverview.GridLines = true;
-            listViewTicketOverview.Location = new Point(42, 147);
-            listViewTicketOverview.Margin = new Padding(2);
+            listViewTicketOverview.Location = new Point(68, 235);
             listViewTicketOverview.Name = "listViewTicketOverview";
-            listViewTicketOverview.Size = new Size(972, 541);
+            listViewTicketOverview.Size = new Size(1577, 863);
             listViewTicketOverview.TabIndex = 20;
             listViewTicketOverview.UseCompatibleStateImageBehavior = false;
+            listViewTicketOverview.View = View.Details;
+            listViewTicketOverview.SelectedIndexChanged += listViewTicketOverview_SelectedIndexChanged;
+            // 
+            // id
+            // 
+            id.Text = "ID";
+            // 
+            // EmailAddress
+            // 
+            EmailAddress.Text = "Email address";
+            EmailAddress.Width = 350;
+            // 
+            // Username
+            // 
+            Username.Text = "Username";
+            Username.Width = 200;
+            // 
+            // date
+            // 
+            date.Text = "Date";
+            date.Width = 270;
+            // 
+            // priority
+            // 
+            priority.Text = "Priority";
+            priority.Width = 70;
             // 
             // filterTextBoxInput
             // 
             filterTextBoxInput.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             filterTextBoxInput.ForeColor = Color.Silver;
-            filterTextBoxInput.Location = new Point(42, 91);
-            filterTextBoxInput.Margin = new Padding(2);
+            filterTextBoxInput.Location = new Point(68, 146);
             filterTextBoxInput.Multiline = true;
             filterTextBoxInput.Name = "filterTextBoxInput";
-            filterTextBoxInput.Size = new Size(289, 47);
+            filterTextBoxInput.Size = new Size(467, 73);
             filterTextBoxInput.TabIndex = 19;
             filterTextBoxInput.Text = " Filter by email";
             // 
@@ -420,10 +427,9 @@ namespace DemoApp
             createIncidentButton.FlatAppearance.MouseDownBackColor = Color.White;
             createIncidentButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             createIncidentButton.ForeColor = Color.White;
-            createIncidentButton.Location = new Point(864, 91);
-            createIncidentButton.Margin = new Padding(2);
+            createIncidentButton.Location = new Point(1404, 146);
             createIncidentButton.Name = "createIncidentButton";
-            createIncidentButton.Size = new Size(148, 45);
+            createIncidentButton.Size = new Size(240, 72);
             createIncidentButton.TabIndex = 18;
             createIncidentButton.Text = "CREATE INCIDENT";
             createIncidentButton.UseVisualStyleBackColor = false;
@@ -434,10 +440,9 @@ namespace DemoApp
             overviewTicketLabel.AutoSize = true;
             overviewTicketLabel.BackColor = Color.Transparent;
             overviewTicketLabel.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
-            overviewTicketLabel.Location = new Point(10, 8);
-            overviewTicketLabel.Margin = new Padding(2, 0, 2, 0);
+            overviewTicketLabel.Location = new Point(16, 13);
             overviewTicketLabel.Name = "overviewTicketLabel";
-            overviewTicketLabel.Size = new Size(290, 46);
+            overviewTicketLabel.Size = new Size(453, 71);
             overviewTicketLabel.TabIndex = 8;
             overviewTicketLabel.Text = "Overview Tickets";
             // 
@@ -447,18 +452,16 @@ namespace DemoApp
             userManagementPanel.Controls.Add(addUserButton);
             userManagementPanel.Controls.Add(userSearchBox);
             userManagementPanel.Controls.Add(userOverviewLV);
-            userManagementPanel.Location = new Point(9, 135);
-            userManagementPanel.Margin = new Padding(2);
+            userManagementPanel.Location = new Point(15, 216);
             userManagementPanel.Name = "userManagementPanel";
-            userManagementPanel.Size = new Size(1054, 713);
+            userManagementPanel.Size = new Size(1713, 1141);
             userManagementPanel.TabIndex = 23;
             // 
             // addUserButton
             // 
-            addUserButton.Location = new Point(776, 30);
-            addUserButton.Margin = new Padding(2);
+            addUserButton.Location = new Point(1261, 48);
             addUserButton.Name = "addUserButton";
-            addUserButton.Size = new Size(120, 27);
+            addUserButton.Size = new Size(195, 43);
             addUserButton.TabIndex = 2;
             addUserButton.Text = "Add User";
             addUserButton.UseVisualStyleBackColor = true;
@@ -466,10 +469,9 @@ namespace DemoApp
             // 
             // userSearchBox
             // 
-            userSearchBox.Location = new Point(142, 33);
-            userSearchBox.Margin = new Padding(2);
+            userSearchBox.Location = new Point(231, 53);
             userSearchBox.Name = "userSearchBox";
-            userSearchBox.Size = new Size(209, 27);
+            userSearchBox.Size = new Size(337, 39);
             userSearchBox.TabIndex = 1;
             userSearchBox.TextChanged += userSearchBox_TextChanged;
             // 
@@ -477,10 +479,9 @@ namespace DemoApp
             // 
             userOverviewLV.Columns.AddRange(new ColumnHeader[] { number, email, firstName, lastName, numberOfTickets });
             userOverviewLV.FullRowSelect = true;
-            userOverviewLV.Location = new Point(142, 95);
-            userOverviewLV.Margin = new Padding(2);
+            userOverviewLV.Location = new Point(231, 152);
             userOverviewLV.Name = "userOverviewLV";
-            userOverviewLV.Size = new Size(755, 593);
+            userOverviewLV.Size = new Size(1224, 946);
             userOverviewLV.TabIndex = 0;
             userOverviewLV.UseCompatibleStateImageBehavior = false;
             userOverviewLV.View = View.Details;
@@ -532,96 +533,85 @@ namespace DemoApp
             addUserPanel.Controls.Add(lastNamelabel);
             addUserPanel.Controls.Add(addUserNameLabel);
             addUserPanel.Controls.Add(addUserLabel);
-            addUserPanel.Location = new Point(7, 133);
-            addUserPanel.Margin = new Padding(2);
+            addUserPanel.Location = new Point(11, 213);
             addUserPanel.Name = "addUserPanel";
-            addUserPanel.Size = new Size(1054, 713);
+            addUserPanel.Size = new Size(1713, 1141);
             addUserPanel.TabIndex = 25;
             // 
             // serviceDeskLabel
             // 
             serviceDeskLabel.AutoSize = true;
-            serviceDeskLabel.Location = new Point(44, 507);
-            serviceDeskLabel.Margin = new Padding(2, 0, 2, 0);
+            serviceDeskLabel.Location = new Point(72, 811);
             serviceDeskLabel.Name = "serviceDeskLabel";
-            serviceDeskLabel.Size = new Size(162, 20);
+            serviceDeskLabel.Size = new Size(261, 32);
             serviceDeskLabel.TabIndex = 31;
             serviceDeskLabel.Text = "Service Desk Employee";
             // 
             // isServiceDeskCheckBox
             // 
             isServiceDeskCheckBox.AutoSize = true;
-            isServiceDeskCheckBox.Location = new Point(243, 513);
-            isServiceDeskCheckBox.Margin = new Padding(2);
+            isServiceDeskCheckBox.Location = new Point(395, 821);
             isServiceDeskCheckBox.Name = "isServiceDeskCheckBox";
-            isServiceDeskCheckBox.Size = new Size(18, 17);
+            isServiceDeskCheckBox.Size = new Size(28, 27);
             isServiceDeskCheckBox.TabIndex = 30;
             isServiceDeskCheckBox.UseVisualStyleBackColor = true;
             // 
             // locationLabel
             // 
             locationLabel.AutoSize = true;
-            locationLabel.Location = new Point(44, 453);
-            locationLabel.Margin = new Padding(2, 0, 2, 0);
+            locationLabel.Location = new Point(72, 725);
             locationLabel.Name = "locationLabel";
-            locationLabel.Size = new Size(66, 20);
+            locationLabel.Size = new Size(104, 32);
             locationLabel.TabIndex = 29;
             locationLabel.Text = "Location";
             // 
             // locationTextBox
             // 
-            locationTextBox.Location = new Point(240, 450);
-            locationTextBox.Margin = new Padding(2);
+            locationTextBox.Location = new Point(390, 720);
             locationTextBox.Name = "locationTextBox";
-            locationTextBox.Size = new Size(309, 27);
+            locationTextBox.Size = new Size(500, 39);
             locationTextBox.TabIndex = 28;
             // 
             // phoneNumberTextBox
             // 
-            phoneNumberTextBox.Location = new Point(240, 386);
-            phoneNumberTextBox.Margin = new Padding(2);
+            phoneNumberTextBox.Location = new Point(390, 618);
             phoneNumberTextBox.Name = "phoneNumberTextBox";
-            phoneNumberTextBox.Size = new Size(309, 27);
+            phoneNumberTextBox.Size = new Size(500, 39);
             phoneNumberTextBox.TabIndex = 27;
             // 
             // emailTextBox
             // 
-            emailTextBox.Location = new Point(240, 321);
-            emailTextBox.Margin = new Padding(2);
+            emailTextBox.Location = new Point(390, 514);
             emailTextBox.Name = "emailTextBox";
-            emailTextBox.Size = new Size(309, 27);
+            emailTextBox.Size = new Size(500, 39);
             emailTextBox.TabIndex = 26;
             // 
             // passwordTextBox
             // 
-            passwordTextBox.Location = new Point(240, 266);
-            passwordTextBox.Margin = new Padding(2);
+            passwordTextBox.Location = new Point(390, 426);
             passwordTextBox.Name = "passwordTextBox";
-            passwordTextBox.Size = new Size(309, 27);
+            passwordTextBox.Size = new Size(500, 39);
             passwordTextBox.TabIndex = 25;
             // 
             // usernameTextBox
             // 
-            usernameTextBox.Location = new Point(240, 207);
-            usernameTextBox.Margin = new Padding(2);
+            usernameTextBox.Location = new Point(390, 331);
             usernameTextBox.Name = "usernameTextBox";
-            usernameTextBox.Size = new Size(309, 27);
+            usernameTextBox.Size = new Size(500, 39);
             usernameTextBox.TabIndex = 24;
             // 
             // lastNameTextBox
             // 
-            lastNameTextBox.Location = new Point(241, 152);
-            lastNameTextBox.Margin = new Padding(2);
+            lastNameTextBox.Location = new Point(392, 243);
             lastNameTextBox.Name = "lastNameTextBox";
-            lastNameTextBox.Size = new Size(309, 27);
+            lastNameTextBox.Size = new Size(500, 39);
             lastNameTextBox.TabIndex = 23;
             // 
             // firstNameTextBox
             // 
-            firstNameTextBox.Location = new Point(241, 95);
-            firstNameTextBox.Margin = new Padding(2);
+            firstNameTextBox.Location = new Point(392, 152);
             firstNameTextBox.Name = "firstNameTextBox";
-            firstNameTextBox.Size = new Size(309, 27);
+            firstNameTextBox.Size = new Size(500, 39);
             firstNameTextBox.TabIndex = 18;
             // 
             // createUserCreateButton
@@ -631,10 +621,9 @@ namespace DemoApp
             createUserCreateButton.FlatAppearance.MouseDownBackColor = Color.White;
             createUserCreateButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             createUserCreateButton.ForeColor = Color.White;
-            createUserCreateButton.Location = new Point(400, 581);
-            createUserCreateButton.Margin = new Padding(2);
+            createUserCreateButton.Location = new Point(650, 930);
             createUserCreateButton.Name = "createUserCreateButton";
-            createUserCreateButton.Size = new Size(148, 45);
+            createUserCreateButton.Size = new Size(240, 72);
             createUserCreateButton.TabIndex = 17;
             createUserCreateButton.Text = "CREATE USER";
             createUserCreateButton.UseVisualStyleBackColor = false;
@@ -644,10 +633,9 @@ namespace DemoApp
             // 
             createUserCancelButton.BackColor = Color.White;
             createUserCancelButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            createUserCancelButton.Location = new Point(241, 581);
-            createUserCancelButton.Margin = new Padding(2);
+            createUserCancelButton.Location = new Point(392, 930);
             createUserCancelButton.Name = "createUserCancelButton";
-            createUserCancelButton.Size = new Size(125, 45);
+            createUserCancelButton.Size = new Size(203, 72);
             createUserCancelButton.TabIndex = 16;
             createUserCancelButton.Text = "CANCEL";
             createUserCancelButton.UseVisualStyleBackColor = false;
@@ -656,60 +644,54 @@ namespace DemoApp
             // phoneNumberLabel
             // 
             phoneNumberLabel.AutoSize = true;
-            phoneNumberLabel.Location = new Point(45, 384);
-            phoneNumberLabel.Margin = new Padding(2, 0, 2, 0);
+            phoneNumberLabel.Location = new Point(73, 614);
             phoneNumberLabel.Name = "phoneNumberLabel";
-            phoneNumberLabel.Size = new Size(108, 20);
+            phoneNumberLabel.Size = new Size(177, 32);
             phoneNumberLabel.TabIndex = 14;
             phoneNumberLabel.Text = "Phone Number";
             // 
             // emailLabel
             // 
             emailLabel.AutoSize = true;
-            emailLabel.Location = new Point(46, 319);
-            emailLabel.Margin = new Padding(2, 0, 2, 0);
+            emailLabel.Location = new Point(75, 510);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new Size(46, 20);
+            emailLabel.Size = new Size(71, 32);
             emailLabel.TabIndex = 13;
             emailLabel.Text = "Email";
             // 
             // passwordLabel
             // 
             passwordLabel.AutoSize = true;
-            passwordLabel.Location = new Point(44, 262);
-            passwordLabel.Margin = new Padding(2, 0, 2, 0);
+            passwordLabel.Location = new Point(72, 419);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new Size(70, 20);
+            passwordLabel.Size = new Size(111, 32);
             passwordLabel.TabIndex = 12;
             passwordLabel.Text = "Password";
             // 
             // usernameLabel
             // 
             usernameLabel.AutoSize = true;
-            usernameLabel.Location = new Point(44, 207);
-            usernameLabel.Margin = new Padding(2, 0, 2, 0);
+            usernameLabel.Location = new Point(72, 331);
             usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new Size(75, 20);
+            usernameLabel.Size = new Size(121, 32);
             usernameLabel.TabIndex = 11;
             usernameLabel.Text = "Username";
             // 
             // lastNamelabel
             // 
             lastNamelabel.AutoSize = true;
-            lastNamelabel.Location = new Point(44, 148);
-            lastNamelabel.Margin = new Padding(2, 0, 2, 0);
+            lastNamelabel.Location = new Point(72, 237);
             lastNamelabel.Name = "lastNamelabel";
-            lastNamelabel.Size = new Size(79, 20);
+            lastNamelabel.Size = new Size(126, 32);
             lastNamelabel.TabIndex = 10;
             lastNamelabel.Text = "Last Name";
             // 
             // addUserNameLabel
             // 
             addUserNameLabel.AutoSize = true;
-            addUserNameLabel.Location = new Point(44, 95);
-            addUserNameLabel.Margin = new Padding(2, 0, 2, 0);
+            addUserNameLabel.Location = new Point(72, 152);
             addUserNameLabel.Name = "addUserNameLabel";
-            addUserNameLabel.Size = new Size(80, 20);
+            addUserNameLabel.Size = new Size(129, 32);
             addUserNameLabel.TabIndex = 9;
             addUserNameLabel.Text = "First Name";
             // 
@@ -718,24 +700,23 @@ namespace DemoApp
             addUserLabel.AutoSize = true;
             addUserLabel.BackColor = Color.Transparent;
             addUserLabel.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
-            addUserLabel.Location = new Point(10, 8);
-            addUserLabel.Margin = new Padding(2, 0, 2, 0);
+            addUserLabel.Location = new Point(16, 13);
             addUserLabel.Name = "addUserLabel";
-            addUserLabel.Size = new Size(238, 46);
+            addUserLabel.Size = new Size(371, 71);
             addUserLabel.TabIndex = 7;
             addUserLabel.Text = "Add new user";
             // 
             // DashBoard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1070, 855);
-            Controls.Add(addIncidentPanel);
+            ClientSize = new Size(1739, 1368);
             Controls.Add(ticketOverviewPanel);
             Controls.Add(userManagementPanel);
+            Controls.Add(addIncidentPanel);
             Controls.Add(DashboardPanel);
             Controls.Add(addUserPanel);
-            Margin = new Padding(4, 5, 4, 5);
+            Margin = new Padding(6, 8, 6, 8);
             Name = "DashBoard";
             Text = "Dashboard";
             Load += Form1_Load;
@@ -813,6 +794,11 @@ namespace DemoApp
         private Label serviceDeskLabel;
         private CheckBox isServiceDeskCheckBox;
         private Button LogoutButton;
+        private ColumnHeader id;
+        private ColumnHeader EmailAddress;
+        private ColumnHeader Username;
+        private ColumnHeader date;
+        private ColumnHeader priority;
     }
 }
 
