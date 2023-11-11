@@ -9,6 +9,7 @@ using MongoProject.Model;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoProject.Logic;
 using MongoProject.UI;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DemoApp
 {
@@ -19,7 +20,6 @@ namespace DemoApp
         private Databases databases;
         private EmployeeLogic employeeLogic;
         List<Employee> employees;
-        List<Ticket> tickets;
         Login login;
         public DashBoard(Employee loggedInEmployee, Login login)
         {
@@ -27,6 +27,7 @@ namespace DemoApp
             InitializeComponent();
             databases = new Databases();
             employeeLogic = new EmployeeLogic();
+            employees = databases.GetEmployees();
             this.login = login;
         }
 
@@ -97,7 +98,6 @@ namespace DemoApp
         {
             Employee employee = (Employee)userReportedInput.SelectedItem;
             Ticket ticket = new Ticket(subjectInput.Text, (TicketType)incidentTypeInput.SelectedItem, descriptionInput.Text, TicketStatus.Open, employee.Id, DateTime.Now, GetDeadline(deadlineFollowUpInput.SelectedText), (TicketPriority)priorityInput.SelectedItem);
-            databases.AddTicket(ticket);
             addIncidentPanel.Hide();
             //popup
             ticketOverviewPanel.Show();
@@ -168,6 +168,7 @@ namespace DemoApp
         private void userManagementButton_Click(object sender, EventArgs e)
         {
             HidePanels();
+            userSearchBox.Text = "Zoeken";
             userManagementPanel.Show();
             PopulateEmployeeListView();
         }
@@ -186,20 +187,42 @@ namespace DemoApp
         {
             HidePanels();
             ticketOverviewPanel.Show();
-            listviewTickets();
         }
 
         private void userSearchBox_TextChanged(object sender, EventArgs e)
         {
-            string search = userSearchBox.Text.ToUpper();
-
-            userOverviewLV.Items.Clear();
-            for (int i = 0; i < employees.Count; i++)
+            if (userSearchBox.Text == "Zoeken")
             {
-                if (employees[i].EmailAddress.ToUpper().Contains(search) || employees[i].FirstName.ToUpper().Contains(search) || employees[i].LastName.ToUpper().Contains(search))
+                
+            }
+            else
+            {
+                string search = userSearchBox.Text.ToUpper();
+
+                userOverviewLV.Items.Clear();
+                for (int i = 0; i < employees.Count; i++)
                 {
-                    FillListView(i);
+                    if (employees[i].EmailAddress.ToUpper().Contains(search) || employees[i].FirstName.ToUpper().Contains(search) || employees[i].LastName.ToUpper().Contains(search))
+                    {
+                        FillListView(i);
+                    }
                 }
+            }
+            
+        }
+        private void userSearchBox_Enter(object sender, EventArgs e)
+        {
+            if (userSearchBox.Text == "Zoeken")
+            {
+                userSearchBox.Text = "";
+            }
+        }
+
+        private void userSearchBox_Leave(object sender, EventArgs e)
+        {
+            if (userSearchBox.Text == "")
+            {
+                userSearchBox.Text = "Zoeken";
             }
         }
 
@@ -234,47 +257,6 @@ namespace DemoApp
             }
         }
 
-        //listview ticketoverview
-        private void listviewTickets()
-        {
-            int i = 0;
-            tickets = databases.GetTickets();
-            listViewTicketOverview.Items.Clear();
-            foreach (Ticket ticket in tickets)
-            {
-                i++;
-                Employee employee = GetEmployeeById(ticket.EmployeeID);
-                FillListViewTickets(i, employee);
-            }
-        }
-        private void listViewTicketOverview_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void FillListViewTickets(int i, Employee employee)
-        {
-            ListViewItem item = new ListViewItem((i).ToString());
-            item.SubItems.Add(employee.EmailAddress);
-            item.SubItems.Add(employee.username);
-            item.SubItems.Add(tickets[i].CreatedAt.ToString("dd/MM/yyyy HH:mm"));
-            item.SubItems.Add(tickets[i].Priority.ToString());
-
-            listViewTicketOverview.Items.Add(item);
-        }
-
-        private Employee GetEmployeeById(ObjectId employeeId)
-        {
-            Employee employeeById = new Employee();
-            foreach (Employee employee in employees)
-            {
-                if (employee.Id == employeeId)
-                {
-                    employeeById = employee;
-                }
-            }
-            return employeeById;
-        }
+        
     }
 }

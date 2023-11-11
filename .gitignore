@@ -83,4 +83,3 @@ MongoProject/bin/Debug/net6.0-windows/MongoProject.deps.json
 *.editorconfig
 *.props
 *.cache
-*.cache
