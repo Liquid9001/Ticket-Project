@@ -1,6 +1,10 @@
 ﻿using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
+=======
+using MongoDB.Bson;
+>>>>>>> Louise
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace MongoProject.Model
@@ -29,4 +33,8 @@ namespace MongoProject.Model
             Priority = priority;
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Louise

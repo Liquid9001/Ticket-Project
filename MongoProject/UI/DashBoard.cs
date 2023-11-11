@@ -257,6 +257,54 @@ namespace DemoApp
             }
         }
 
+<<<<<<< HEAD
         
+=======
+        //listview ticketoverview
+        private void listviewTickets()
+        {
+            int i = 0;
+            tickets = databases.GetTickets();
+            listViewTicketOverview.Items.Clear();
+            foreach (Ticket ticket in tickets)
+            {
+                i++;
+                Employee employee = GetEmployeeById(ticket.EmployeeID);
+                FillListViewTickets(i, employee);
+            }
+        }
+        private void listViewTicketOverview_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void FillListViewTickets(int i, Employee employee)
+        {
+            
+            ListViewItem item = new ListViewItem((i).ToString());
+
+            item.SubItems.Add(employee.EmailAddress);
+            item.SubItems.Add(employee.username);
+            item.SubItems.Add(tickets[i].CreatedAt.ToString("dd/MM/yyyy HH:mm"));
+            item.SubItems.Add(tickets[i].Priority.ToString());
+
+            listViewTicketOverview.Items.Add(item);
+        }
+
+        private Employee GetEmployeeById(ObjectId employeeId)
+        {
+            Employee employeeById = new Employee();
+            employees = databases.GetEmployees();
+            foreach (Employee employee in employees)
+            {
+                if (employee.Id == employeeId)
+                {
+                    employeeById = employee;
+                }
+            }
+            return employeeById;
+        }
+>>>>>>> Louise
     }
 }

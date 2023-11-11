@@ -57,7 +57,10 @@ namespace DAL
             Employee employee = collection.Find(filter).First();
             return employee;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> Louise
         public List<Ticket> GetTicketsByEmployeeId(ObjectId employeeId)
         {
             IMongoCollection<Ticket> ticketCollection = db.GetCollection<Ticket>("Tickets");
@@ -65,8 +68,11 @@ namespace DAL
             List<Ticket> tickets = ticketCollection.Find(filter).ToList();
             return tickets;
         }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> Louise
     }
 
 

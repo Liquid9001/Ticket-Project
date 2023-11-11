@@ -401,6 +401,35 @@ namespace DemoApp
             listViewTicketOverview.Size = new Size(851, 407);
             listViewTicketOverview.TabIndex = 20;
             listViewTicketOverview.UseCompatibleStateImageBehavior = false;
+<<<<<<< HEAD
+=======
+            listViewTicketOverview.View = View.Details;
+            listViewTicketOverview.SelectedIndexChanged += listViewTicketOverview_SelectedIndexChanged;
+            // 
+            // id
+            // 
+            id.Text = "ID";
+            // 
+            // EmailAddress
+            // 
+            EmailAddress.Text = "Email address";
+            EmailAddress.Width = 250;
+            // 
+            // Username
+            // 
+            Username.Text = "Username";
+            Username.Width = 150;
+            // 
+            // date
+            // 
+            date.Text = "Date";
+            date.Width = 150;
+            // 
+            // priority
+            // 
+            priority.Text = "Priority";
+            priority.Width = 70;
+>>>>>>> Louise
             // 
             // filterTextBoxInput
             // 

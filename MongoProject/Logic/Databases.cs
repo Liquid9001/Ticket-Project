@@ -32,5 +32,15 @@ namespace Logic
             List<Ticket> tickets = GetTicketsByEmployeeId(employee);
             return tickets.Count;
         }
+        public List<Ticket> GetTicketsByEmployeeId(Employee employee)
+        {
+            return dao.GetTicketsByEmployeeId(employee.Id);
+        }
+
+        public int GetTicketCount(Employee employee)
+        {
+            List<Ticket> tickets = GetTicketsByEmployeeId(employee);
+            return tickets.Count;
+        }
     }
 }
