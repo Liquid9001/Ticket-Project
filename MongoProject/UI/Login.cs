@@ -70,6 +70,7 @@ namespace MongoProject.UI
             {
                 usernameTextBox.Text = Properties.Settings.Default.Username;
                 passwordTextBox.Text = Properties.Settings.Default.Password;
+                rememberMeCheckBox.Checked = true;
             }
         }
         private void RememberMeCheck()

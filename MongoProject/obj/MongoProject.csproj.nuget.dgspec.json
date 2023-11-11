@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\enesb\\Source\\Repos\\Ticket-Project-Master\\MongoProject\\MongoProject.csproj": {}
+    "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\MongoProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\enesb\\Source\\Repos\\Ticket-Project-Master\\MongoProject\\MongoProject.csproj": {
+    "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\MongoProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\enesb\\Source\\Repos\\Ticket-Project-Master\\MongoProject\\MongoProject.csproj",
+        "projectUniqueName": "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\MongoProject.csproj",
         "projectName": "MongoProject",
-        "projectPath": "C:\\Users\\enesb\\Source\\Repos\\Ticket-Project-Master\\MongoProject\\MongoProject.csproj",
+        "projectPath": "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\MongoProject.csproj",
         "packagesPath": "C:\\Users\\enesb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\enesb\\Source\\Repos\\Ticket-Project-Master\\MongoProject\\obj\\",
+        "outputPath": "C:\\Users\\enesb\\source\\repos\\Ticket-Project\\MongoProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\enesb\\AppData\\Roaming\\NuGet\\NuGet.Config",
