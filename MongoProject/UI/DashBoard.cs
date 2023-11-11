@@ -286,11 +286,7 @@ namespace DemoApp
 
         private void FillListViewTickets(int i, Employee employee)
         {
-<<<<<<< HEAD
 
-            ListViewItem item = new ListViewItem((i).ToString());
-=======
->>>>>>> dink2
 
             ListViewItem item = new ListViewItem((i).ToString());
             item.SubItems.Add(i.ToString());
@@ -304,8 +300,6 @@ namespace DemoApp
 
         private void updateIncidentButton_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-
         }
 
         private void DashBoardButton_Click(object sender, EventArgs e)
@@ -380,8 +374,7 @@ namespace DemoApp
         {
             HidePanels();
             ticketOverviewPanel.Show();
-        }
-=======
+        
             if (listViewTicketOverview.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
@@ -471,6 +464,6 @@ namespace DemoApp
         }
 
         
->>>>>>> dink2
+
     }
 }

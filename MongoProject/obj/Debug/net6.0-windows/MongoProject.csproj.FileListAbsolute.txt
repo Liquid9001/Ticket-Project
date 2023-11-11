@@ -178,3 +178,5 @@ C:\Users\enesb\Source\Repos\Ticket-Project-Master\MongoProject\obj\Debug\net6.0-
 C:\Users\enesb\Source\Repos\Ticket-Project-Master\MongoProject\obj\Debug\net6.0-windows\ref\MongoProject.dll
 C:\Users\enesb\source\repos\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\WinForms.DataVisualization.Utilities.dll
 C:\Users\enesb\source\repos\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\WinForms.DataVisualization.dll
+C:\Users\Dink\Documents\GitHub\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\Dink\Documents\GitHub\Ticket-Project\MongoProject\bin\Debug\net6.0-windows\WinForms.DataVisualization.dll

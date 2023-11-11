@@ -81,8 +81,6 @@ namespace DAL
             Ticket ticket = ticketCollection.Find(filter).First();
             return ticket;
         }
-<<<<<<< HEAD
-=======
 
         public void UpdateTicket(Ticket ticket)
         {
@@ -97,7 +95,6 @@ namespace DAL
             FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticket.Id);
             ticketCollection.DeleteOne(filter);
         }
->>>>>>> dink2
 
     }
 

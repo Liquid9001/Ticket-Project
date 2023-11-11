@@ -63,10 +63,9 @@ namespace DemoApp
             ticketOverviewPanel = new Panel();
             updateIncidentButton = new Button();
             listViewTicketOverview = new ListView();
-<<<<<<< HEAD
-=======
+
             columnHeader5 = new ColumnHeader();
->>>>>>> dink2
+
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
@@ -103,13 +102,13 @@ namespace DemoApp
             lastNamelabel = new Label();
             addUserNameLabel = new Label();
             addUserLabel = new Label();
-<<<<<<< HEAD
+
             panelDashboard = new Panel();
             CurrentIncidentsLabel = new Label();
             ClosedTicketsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             OpenTicketsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ShowListButton = new Button();
-=======
+
             modifyIncidentPanel = new Panel();
             labelTicket = new Label();
             deadlineInputModify = new ComboBox();
@@ -128,20 +127,20 @@ namespace DemoApp
             labelSubject = new Label();
             labelModify = new Label();
             deleteIncidentButton = new Button();
->>>>>>> dink2
+
             ((System.ComponentModel.ISupportInitialize)gardenGroupLogo).BeginInit();
             DashboardPanel.SuspendLayout();
             addIncidentPanel.SuspendLayout();
             ticketOverviewPanel.SuspendLayout();
             userManagementPanel.SuspendLayout();
             addUserPanel.SuspendLayout();
-<<<<<<< HEAD
+
             panelDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ClosedTicketsChart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OpenTicketsChart).BeginInit();
-=======
+
             modifyIncidentPanel.SuspendLayout();
->>>>>>> dink2
+
             SuspendLayout();
             // 
             // gardenGroupLogo
@@ -429,10 +428,9 @@ namespace DemoApp
             // ticketOverviewPanel
             // 
             ticketOverviewPanel.BackColor = Color.White;
-<<<<<<< HEAD
-=======
+
             ticketOverviewPanel.Controls.Add(deleteIncidentButton);
->>>>>>> dink2
+
             ticketOverviewPanel.Controls.Add(updateIncidentButton);
             ticketOverviewPanel.Controls.Add(listViewTicketOverview);
             ticketOverviewPanel.Controls.Add(filterTextBoxInput);
@@ -451,29 +449,25 @@ namespace DemoApp
             updateIncidentButton.FlatAppearance.MouseDownBackColor = Color.White;
             updateIncidentButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             updateIncidentButton.ForeColor = Color.White;
-<<<<<<< HEAD
+
             updateIncidentButton.Location = new Point(695, 91);
             updateIncidentButton.Margin = new Padding(2, 3, 2, 3);
             updateIncidentButton.Name = "updateIncidentButton";
             updateIncidentButton.Size = new Size(157, 45);
-=======
+
             updateIncidentButton.Location = new Point(615, 68);
             updateIncidentButton.Margin = new Padding(2);
             updateIncidentButton.Name = "updateIncidentButton";
             updateIncidentButton.Size = new Size(137, 34);
->>>>>>> dink2
+
             updateIncidentButton.TabIndex = 21;
             updateIncidentButton.Text = "UPDATE INCIDENT";
             updateIncidentButton.UseVisualStyleBackColor = false;
             updateIncidentButton.Click += updateIncidentButton_Click;
-            // 
-            // listViewTicketOverview
-            // 
-<<<<<<< HEAD
             listViewTicketOverview.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
-=======
+
             listViewTicketOverview.Columns.AddRange(new ColumnHeader[] { columnHeader5, columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
->>>>>>> dink2
+
             listViewTicketOverview.FullRowSelect = true;
             listViewTicketOverview.GridLines = true;
             listViewTicketOverview.Location = new Point(42, 147);
@@ -484,46 +478,21 @@ namespace DemoApp
             listViewTicketOverview.UseCompatibleStateImageBehavior = false;
             listViewTicketOverview.View = View.Details;
             listViewTicketOverview.SelectedIndexChanged += listViewTicketOverview_SelectedIndexChanged;
-            // 
-<<<<<<< HEAD
-            // columnHeader1
-            // 
             columnHeader1.Text = "Email";
-            // 
-            // columnHeader2
-            // 
             columnHeader2.Text = "Username";
-            // 
-            // columnHeader3
-            // 
+
             columnHeader3.Text = "Created";
-            // 
-            // columnHeader4
-            // 
-=======
-            // columnHeader5
-            // 
+
             columnHeader5.Text = "ID";
-            // 
-            // columnHeader1
-            // 
+
             columnHeader1.Text = "Email";
-            // 
-            // columnHeader2
-            // 
+
             columnHeader2.Text = "Username";
-            // 
-            // columnHeader3
-            // 
+
             columnHeader3.Text = "Created";
-            // 
-            // columnHeader4
-            // 
->>>>>>> dink2
+
             columnHeader4.Text = "Priority";
-            // 
-            // filterTextBoxInput
-            // 
+
             filterTextBoxInput.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             filterTextBoxInput.ForeColor = Color.Silver;
             filterTextBoxInput.Location = new Point(42, 91);
@@ -850,7 +819,6 @@ namespace DemoApp
             addUserLabel.TabIndex = 7;
             addUserLabel.Text = "Add new user";
             // 
-<<<<<<< HEAD
             // panelDashboard
             // 
             panelDashboard.Controls.Add(ShowListButton);
@@ -918,7 +886,6 @@ namespace DemoApp
             ShowListButton.Text = "Show List";
             ShowListButton.UseVisualStyleBackColor = false;
             ShowListButton.Click += ShowListButton_Click;
-=======
             // modifyIncidentPanel
             // 
             modifyIncidentPanel.BackColor = Color.White;
@@ -1124,22 +1091,21 @@ namespace DemoApp
             deleteIncidentButton.Text = "REMOVE INCIDENT";
             deleteIncidentButton.UseVisualStyleBackColor = false;
             deleteIncidentButton.Click += deleteIncidentButton_Click;
->>>>>>> dink2
             // 
             // DashBoard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-<<<<<<< HEAD
+
             ClientSize = new Size(1070, 855);
             Controls.Add(panelDashboard);
             Controls.Add(ticketOverviewPanel);
             Controls.Add(userManagementPanel);
-=======
+
             ClientSize = new Size(936, 641);
             Controls.Add(ticketOverviewPanel);
             Controls.Add(modifyIncidentPanel);
->>>>>>> dink2
+
             Controls.Add(addIncidentPanel);
             Controls.Add(userManagementPanel);
             Controls.Add(DashboardPanel);
@@ -1159,15 +1125,12 @@ namespace DemoApp
             userManagementPanel.PerformLayout();
             addUserPanel.ResumeLayout(false);
             addUserPanel.PerformLayout();
-<<<<<<< HEAD
             panelDashboard.ResumeLayout(false);
             panelDashboard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ClosedTicketsChart).EndInit();
             ((System.ComponentModel.ISupportInitialize)OpenTicketsChart).EndInit();
-=======
             modifyIncidentPanel.ResumeLayout(false);
             modifyIncidentPanel.PerformLayout();
->>>>>>> dink2
             ResumeLayout(false);
         }
 
@@ -1236,13 +1199,11 @@ namespace DemoApp
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
         private Button updateIncidentButton;
-<<<<<<< HEAD
         private Panel panelDashboard;
         private Label CurrentIncidentsLabel;
         private System.Windows.Forms.DataVisualization.Charting.Chart ClosedTicketsChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart OpenTicketsChart;
         private Button ShowListButton;
-=======
         private ColumnHeader columnHeader5;
         private Panel modifyIncidentPanel;
         private ComboBox deadlineInputModify;
@@ -1262,7 +1223,6 @@ namespace DemoApp
         private Label labelModify;
         private Label labelTicket;
         private Button deleteIncidentButton;
->>>>>>> dink2
     }
 }
 

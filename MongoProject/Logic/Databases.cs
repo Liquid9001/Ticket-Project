@@ -48,12 +48,11 @@ namespace Logic
             List<Ticket> tickets = GetTicketsByEmployeeId(employee);
             return tickets.Count;
         }
-<<<<<<< HEAD
 
         public List<Ticket> GetListOfTickets()
         {
             return dao.GetAllTickets();
-=======
+        }
 
         public void UpdateTicket(Ticket ticket)
         {
@@ -63,7 +62,6 @@ namespace Logic
         public void DeleteTicket(Ticket ticket)
         {
             dao.DeleteTicket(ticket);
->>>>>>> dink2
         }
 
     }
