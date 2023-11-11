@@ -20,7 +20,6 @@ namespace MongoProject.UI
         private EmployeeLogic logic;
         public Login()
         {
-            _employee = new Employee();
             logic = new EmployeeLogic();
             InitializeComponent();
             passwordTextBox.PasswordChar = '*';
@@ -28,20 +27,29 @@ namespace MongoProject.UI
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            
+            string username = usernameTextBox.Text.Trim();
+            string password = passwordTextBox.Text;
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please enter both username and password.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
+            _employee = new Employee();
 
             try
             {
                 RememberMeCheck();
-                _employee.username = usernameTextBox.Text.ToString();
-                _employee.password = passwordTextBox.Text.ToString();
+                _employee.username = username;
+                _employee.password = password;
                 _employee = logic.ValidateUser(_employee);
+
                 if (_employee == null)
                 {
-                    MessageBox.Show("username or password are invalid", "Error", MessageBoxButtons.OK);
+                    MessageBox.Show("Username or password is invalid.", "Error", MessageBoxButtons.OK);
                 }
-                // dit is voor de waiter 
-                else if (_employee.username != null || _employee.password != null)
+                else
                 {
                     DashBoard dashboard = new DashBoard(_employee, this);
                     dashboard.Show();
@@ -49,11 +57,13 @@ namespace MongoProject.UI
                     ClearTextBox();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("username or password are invalid ");
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK);
             }
         }
+
+
         private void Login_load(object sender, EventArgs e)
         {
             //Properties.Settings.Default;
