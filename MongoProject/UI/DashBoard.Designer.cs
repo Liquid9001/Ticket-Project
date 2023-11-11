@@ -61,7 +61,11 @@ namespace DemoApp
             subjectIncidentLabel = new Label();
             newIncidentLabel = new Label();
             ticketOverviewPanel = new Panel();
+<<<<<<< HEAD
             updateIncidentButton = new Button();
+=======
+            checkBoxPriorityFilter = new CheckBox();
+>>>>>>> Louise
             listViewTicketOverview = new ListView();
 
             columnHeader5 = new ColumnHeader();
@@ -313,7 +317,6 @@ namespace DemoApp
             subjectInput.Name = "subjectInput";
             subjectInput.Size = new Size(309, 27);
             subjectInput.TabIndex = 18;
-            subjectInput.TextChanged += subjectInput_TextChanged;
             // 
             // submitTicketButton
             // 
@@ -428,10 +431,14 @@ namespace DemoApp
             // ticketOverviewPanel
             // 
             ticketOverviewPanel.BackColor = Color.White;
+<<<<<<< HEAD
 
             ticketOverviewPanel.Controls.Add(deleteIncidentButton);
 
             ticketOverviewPanel.Controls.Add(updateIncidentButton);
+=======
+            ticketOverviewPanel.Controls.Add(checkBoxPriorityFilter);
+>>>>>>> Louise
             ticketOverviewPanel.Controls.Add(listViewTicketOverview);
             ticketOverviewPanel.Controls.Add(filterTextBoxInput);
             ticketOverviewPanel.Controls.Add(createIncidentButton);
@@ -442,7 +449,22 @@ namespace DemoApp
             ticketOverviewPanel.Size = new Size(1054, 713);
             ticketOverviewPanel.TabIndex = 24;
             // 
+<<<<<<< HEAD
             // updateIncidentButton
+=======
+            // checkBoxPriorityFilter
+            // 
+            checkBoxPriorityFilter.AutoSize = true;
+            checkBoxPriorityFilter.Location = new Point(551, 182);
+            checkBoxPriorityFilter.Name = "checkBoxPriorityFilter";
+            checkBoxPriorityFilter.Size = new Size(251, 36);
+            checkBoxPriorityFilter.TabIndex = 21;
+            checkBoxPriorityFilter.Text = "Priority (high - low)";
+            checkBoxPriorityFilter.UseVisualStyleBackColor = true;
+            checkBoxPriorityFilter.CheckedChanged += checkBoxPriorityFilter_CheckedChanged;
+            // 
+            // listViewTicketOverview
+>>>>>>> Louise
             // 
             updateIncidentButton.BackColor = Color.DarkGreen;
             updateIncidentButton.FlatAppearance.BorderColor = Color.Black;
@@ -477,6 +499,7 @@ namespace DemoApp
             listViewTicketOverview.TabIndex = 20;
             listViewTicketOverview.UseCompatibleStateImageBehavior = false;
             listViewTicketOverview.View = View.Details;
+<<<<<<< HEAD
             listViewTicketOverview.SelectedIndexChanged += listViewTicketOverview_SelectedIndexChanged;
             columnHeader1.Text = "Email";
             columnHeader2.Text = "Username";
@@ -493,6 +516,35 @@ namespace DemoApp
 
             columnHeader4.Text = "Priority";
 
+=======
+            // 
+            // id
+            // 
+            id.Text = "ID";
+            // 
+            // EmailAddress
+            // 
+            EmailAddress.Text = "Email address";
+            EmailAddress.Width = 250;
+            // 
+            // Username
+            // 
+            Username.Text = "Username";
+            Username.Width = 150;
+            // 
+            // date
+            // 
+            date.Text = "Date";
+            date.Width = 150;
+            // 
+            // priority
+            // 
+            priority.Text = "Priority";
+            priority.Width = 70;
+            // 
+            // filterTextBoxInput
+            // 
+>>>>>>> Louise
             filterTextBoxInput.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             filterTextBoxInput.ForeColor = Color.Silver;
             filterTextBoxInput.Location = new Point(42, 91);
@@ -501,7 +553,8 @@ namespace DemoApp
             filterTextBoxInput.Name = "filterTextBoxInput";
             filterTextBoxInput.Size = new Size(289, 47);
             filterTextBoxInput.TabIndex = 19;
-            filterTextBoxInput.Text = " Filter by email";
+            filterTextBoxInput.Text = " Filter by email or username";
+            filterTextBoxInput.TextChanged += filterTextBoxInput_TextChanged;
             // 
             // createIncidentButton
             // 
@@ -1194,6 +1247,7 @@ namespace DemoApp
         private Label serviceDeskLabel;
         private CheckBox isServiceDeskCheckBox;
         private Button LogoutButton;
+<<<<<<< HEAD
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
@@ -1223,6 +1277,14 @@ namespace DemoApp
         private Label labelModify;
         private Label labelTicket;
         private Button deleteIncidentButton;
+=======
+        private ColumnHeader id;
+        private ColumnHeader EmailAddress;
+        private ColumnHeader Username;
+        private ColumnHeader date;
+        private ColumnHeader priority;
+        private CheckBox checkBoxPriorityFilter;
+>>>>>>> Louise
     }
 }
 

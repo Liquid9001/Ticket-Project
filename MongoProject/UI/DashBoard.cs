@@ -129,10 +129,7 @@ namespace DemoApp
             return deadlineDate;
         }
 
-        private void subjectInput_TextChanged(object sender, EventArgs e)
-        {
-            string subject = subjectInput.Text;
-        }
+        
 
         private void createUserCreateButton_Click(object sender, EventArgs e)
         {
@@ -246,7 +243,14 @@ namespace DemoApp
             Ticket ticket = new Ticket(subjectInput.Text, (TicketType)incidentTypeInput.SelectedItem, descriptionInput.Text, TicketStatus.Open, employee.Id, DateTime.Now, GetDeadline(deadlineFollowUpInput.SelectedText), (TicketPriority)priorityInput.SelectedItem);
             databases.AddTicket(ticket);
             addIncidentPanel.Hide();
-            //popup
+
+
+            DialogResult dialogResult = MessageBox.Show("Your ticket has been added!", "Ticket is added", MessageBoxButtons.OK);
+            if (dialogResult == DialogResult.OK)
+            {
+                ticketOverviewPanel.Show();
+            }
+
             ticketOverviewPanel.Show();
         }
 
@@ -273,27 +277,36 @@ namespace DemoApp
             listViewTicketOverview.Items.Clear();
             foreach (Ticket ticket in tickets)
             {
+<<<<<<< HEAD
                 Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
                 FillListViewTickets(i, employee);
+=======
+                Employee employee = GetEmployeeById(ticket.EmployeeID);
+                FillListViewTickets(i, employee, ticket);
+>>>>>>> Louise
                 i++;
             }
-        }
-        private void listViewTicketOverview_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
 
         }
 
+<<<<<<< HEAD
         private void FillListViewTickets(int i, Employee employee)
         {
 
 
             ListViewItem item = new ListViewItem((i).ToString());
             item.SubItems.Add(i.ToString());
+=======
+
+        private void FillListViewTickets(int i, Employee employee, Ticket ticket)
+        {
+            ListViewItem item = new ListViewItem((i + 1).ToString());
+>>>>>>> Louise
             item.SubItems.Add(employee.EmailAddress);
             item.SubItems.Add(employee.username);
-            item.SubItems.Add(tickets[i].CreatedAt.ToString("dd/MM/yyyy HH:mm"));
-            item.SubItems.Add(tickets[i].Priority.ToString());
+            item.SubItems.Add(ticket.CreatedAt.ToString("dd/MM/yyyy HH:mm"));
+            item.SubItems.Add(ticket.Priority.ToString());
 
             listViewTicketOverview.Items.Add(item);
         }
@@ -370,6 +383,7 @@ namespace DemoApp
             ClosedTicketsChart.Series["Series2"]["PieChart"] = "180";
         }
 
+<<<<<<< HEAD
         private void ShowListButton_Click(object sender, EventArgs e)
         {
             HidePanels();
@@ -465,5 +479,48 @@ namespace DemoApp
 
         
 
+=======
+        private void filterTextBoxInput_TextChanged(object sender, EventArgs e)
+        {
+            int i = 0;
+            string filter = filterTextBoxInput.Text;
+            tickets = databases.GetTickets();
+            listViewTicketOverview.Items.Clear();
+            foreach (Ticket ticket in tickets)
+            {
+                 Employee employee = GetEmployeeById(ticket.EmployeeID);
+                if ((employee.EmailAddress.Contains(filter)) || employee.username.Contains(filter))
+                {
+                    FillListViewTickets(i, employee, ticket);
+                }
+
+                i++;
+            }
+
+        }
+
+        private void checkBoxPriorityFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            int i = 0;
+            listViewTicketOverview.Items.Clear();
+            tickets = databases.GetTickets();
+            if (checkBoxPriorityFilter.Checked)
+            {
+                List<Ticket> sortedTickets = new List<Ticket>();
+                sortedTickets = tickets.OrderByDescending(x => (int)x.Priority).ToList();
+                foreach (Ticket ticket in sortedTickets)
+                {
+                    Employee employee = GetEmployeeById(ticket.EmployeeID);
+                    FillListViewTickets(i, employee, ticket);
+                    i++;
+                }
+            }
+            else
+            {
+                listviewTickets();
+            }
+
+        }
+>>>>>>> Louise
     }
 }
