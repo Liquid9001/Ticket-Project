@@ -49,5 +49,9 @@ namespace Logic
             return tickets.Count;
         }
 
+        public List<Ticket> GetListOfTickets()
+        {
+            return dao.GetAllTickets();
+        }
     }
 }

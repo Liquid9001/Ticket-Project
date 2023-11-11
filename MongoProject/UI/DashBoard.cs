@@ -44,6 +44,7 @@ namespace DemoApp
             addUserPanel.Hide();
             ticketOverviewPanel.Hide();
             userManagementPanel.Hide();
+            panelDashboard.Hide();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -294,6 +295,80 @@ namespace DemoApp
         private void updateIncidentButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void DashBoardButton_Click(object sender, EventArgs e)
+        {
+
+            HidePanels();
+            panelDashboard.Show();
+            OpenTicketsChart.Series["Series1"].Points.Clear();
+            OpenTicketsChart.Titles.Clear();
+            ClosedTicketsChart.Series["Series2"].Points.Clear();
+            ClosedTicketsChart.Titles.Clear();
+            if (loggedInEmployee.isServiceDesk == true)
+            {
+                tickets = databases.GetListOfTickets();
+
+            }
+            if (loggedInEmployee.isServiceDesk != true)
+            {
+                tickets = databases.GetTicketsByEmployeeId(loggedInEmployee);
+            }
+
+
+            int openTickets = 0;
+            int urgentTickets = 0;
+
+
+            foreach (Ticket t in tickets)
+            {
+                if (t.Status == TicketStatus.Open)
+                {
+                    openTickets++;
+                }
+                if (t.Status == TicketStatus.Open & (t.Deadline < (DateTime.Today)))
+                {
+                    urgentTickets++;
+                }
+            }
+
+            OpenTicketsChart.Series["Series1"].Points.AddXY(openTickets, openTickets);
+            OpenTicketsChart.Series["Series1"].Points.AddXY(tickets.Count - openTickets, tickets.Count - openTickets);
+            OpenTicketsChart.Series[0].Points[0].Color = Color.Orange;
+            OpenTicketsChart.Series[0].Points[1].Color = Color.LightGray;
+            OpenTicketsChart.Series["Series1"].IsValueShownAsLabel = false;
+            OpenTicketsChart.Titles.Add($"\n\n\n Unresolved incidents\r\nAll tickets currently open \n\n {openTickets} /  {100}");
+
+            OpenTicketsChart.ChartAreas[0].Position.Y = 100;
+            OpenTicketsChart.ChartAreas[0].Position.X = 10;
+            OpenTicketsChart.ChartAreas[0].Position.Height = 60;
+            OpenTicketsChart.ChartAreas[0].Position.Width = 80;
+            OpenTicketsChart.ChartAreas[0].BackColor = Color.Transparent;
+
+            OpenTicketsChart.Series["Series1"]["PieChart"] = "270";
+
+
+            ClosedTicketsChart.Series["Series2"].Points.AddXY(urgentTickets, urgentTickets);
+            ClosedTicketsChart.Series["Series2"].Points.AddXY(tickets.Count - urgentTickets, tickets.Count - urgentTickets);
+            ClosedTicketsChart.Series[0].Points[0].Color = Color.Red;
+            ClosedTicketsChart.Series[0].Points[1].Color = Color.LightGray;
+            ClosedTicketsChart.Series["Series2"].IsValueShownAsLabel = false;
+            ClosedTicketsChart.Titles.Add("\n\n\n Incidents past deadline\r\nThese tickets need your Immediate attention \n\n" + urgentTickets);
+
+            ClosedTicketsChart.ChartAreas[0].Position.Y = 100;
+            ClosedTicketsChart.ChartAreas[0].Position.X = 10;
+            ClosedTicketsChart.ChartAreas[0].Position.Height = 60;
+            ClosedTicketsChart.ChartAreas[0].Position.Width = 80;
+            ClosedTicketsChart.ChartAreas[0].BackColor = Color.Transparent;
+
+            ClosedTicketsChart.Series["Series2"]["PieChart"] = "180";
+        }
+
+        private void ShowListButton_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            ticketOverviewPanel.Show();
         }
     }
 }
