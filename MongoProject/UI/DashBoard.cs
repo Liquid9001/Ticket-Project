@@ -36,6 +36,7 @@ namespace DemoApp
         {
             HidePanels();
             DashboardPanel.Show();
+            panelDashboard.Show();
         }
 
         private void HidePanels()
@@ -129,7 +130,7 @@ namespace DemoApp
             return deadlineDate;
         }
 
-        
+
 
         private void createUserCreateButton_Click(object sender, EventArgs e)
         {
@@ -271,38 +272,32 @@ namespace DemoApp
             if (!loggedInEmployee.isServiceDesk)
             {
                 modifyTicketButton.Hide();
+                deleteIncidentButton.Hide();
             }
             int i = 0;
             tickets = databases.GetTickets();
             listViewTicketOverview.Items.Clear();
             foreach (Ticket ticket in tickets)
             {
-<<<<<<< HEAD
                 Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
                 FillListViewTickets(i, employee);
-=======
-                Employee employee = GetEmployeeById(ticket.EmployeeID);
-                FillListViewTickets(i, employee, ticket);
->>>>>>> Louise
                 i++;
             }
 
 
         }
 
-<<<<<<< HEAD
         private void FillListViewTickets(int i, Employee employee)
         {
 
 
             ListViewItem item = new ListViewItem((i).ToString());
             item.SubItems.Add(i.ToString());
-=======
+        }
 
         private void FillListViewTickets(int i, Employee employee, Ticket ticket)
         {
             ListViewItem item = new ListViewItem((i + 1).ToString());
->>>>>>> Louise
             item.SubItems.Add(employee.EmailAddress);
             item.SubItems.Add(employee.username);
             item.SubItems.Add(ticket.CreatedAt.ToString("dd/MM/yyyy HH:mm"));
@@ -383,12 +378,11 @@ namespace DemoApp
             ClosedTicketsChart.Series["Series2"]["PieChart"] = "180";
         }
 
-<<<<<<< HEAD
         private void ShowListButton_Click(object sender, EventArgs e)
         {
             HidePanels();
             ticketOverviewPanel.Show();
-        
+
             if (listViewTicketOverview.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
@@ -477,9 +471,7 @@ namespace DemoApp
             ticketOverviewPanel.Show();
         }
 
-        
 
-=======
         private void filterTextBoxInput_TextChanged(object sender, EventArgs e)
         {
             int i = 0;
@@ -488,7 +480,7 @@ namespace DemoApp
             listViewTicketOverview.Items.Clear();
             foreach (Ticket ticket in tickets)
             {
-                 Employee employee = GetEmployeeById(ticket.EmployeeID);
+                Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
                 if ((employee.EmailAddress.Contains(filter)) || employee.username.Contains(filter))
                 {
                     FillListViewTickets(i, employee, ticket);
@@ -510,7 +502,7 @@ namespace DemoApp
                 sortedTickets = tickets.OrderByDescending(x => (int)x.Priority).ToList();
                 foreach (Ticket ticket in sortedTickets)
                 {
-                    Employee employee = GetEmployeeById(ticket.EmployeeID);
+                    Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
                     FillListViewTickets(i, employee, ticket);
                     i++;
                 }
@@ -521,6 +513,5 @@ namespace DemoApp
             }
 
         }
->>>>>>> Louise
     }
 }
