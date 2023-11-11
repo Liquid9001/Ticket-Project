@@ -64,5 +64,11 @@ namespace Logic
             dao.DeleteTicket(ticket);
         }
 
+        public void RetireTicket(Ticket ticket)
+        {
+            ticket.Status = TicketStatus.Closed;
+            dao.RetireTicket(ticket);
+        }   
+
     }
 }

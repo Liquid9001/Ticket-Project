@@ -393,16 +393,36 @@ namespace DemoApp
         }
         private void deleteIncidentButton_Click(object sender, EventArgs e)
         {
-            // Display a confirmation dialog
-            DialogResult result = MessageBox.Show("Are you sure you want to perform this action?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            DialogResult result = MessageBox.Show("Are you sure you want to PERMANENTLY DELETE this ticket?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // Check the user's choice
+            
             if (result == DialogResult.Yes)
             {
                 ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
                 int id = int.Parse(selectedItem.SubItems[0].Text);
                 Ticket ticket = tickets[id];
                 databases.DeleteTicket(ticket);
+                MessageBox.Show("Ticket deleted!");
+                listviewTickets();
+            }
+            else
+            {
+                MessageBox.Show("Ticket not deleted!");
+            }
+        }
+        private void retireIncidentButton_Click(object sender, EventArgs e)
+        {
+            
+            DialogResult result = MessageBox.Show("Are you sure you want to retire this ticket?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            
+            if (result == DialogResult.Yes)
+            {
+                ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
+                int id = int.Parse(selectedItem.SubItems[0].Text);
+                Ticket ticket = tickets[id];
+                databases.RetireTicket(ticket);
                 MessageBox.Show("Ticket deleted!");
                 listviewTickets();
             }
@@ -513,5 +533,7 @@ namespace DemoApp
             }
 
         }
+
+        
     }
 }

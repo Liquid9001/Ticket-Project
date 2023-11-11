@@ -96,6 +96,13 @@ namespace DAL
             ticketCollection.DeleteOne(filter);
         }
 
+        public void RetireTicket(Ticket ticket)
+        {
+            IMongoCollection<Ticket> ticketCollection = db.GetCollection<Ticket>("Tickets");
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticket.Id);
+            ticketCollection.ReplaceOne(filter, ticket);
+        }
+
     }
 
 

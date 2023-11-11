@@ -30,12 +30,12 @@ namespace DemoApp
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             gardenGroupLogo = new PictureBox();
             DashboardPanel = new Panel();
             LogoutButton = new Button();
@@ -61,6 +61,7 @@ namespace DemoApp
             subjectIncidentLabel = new Label();
             newIncidentLabel = new Label();
             ticketOverviewPanel = new Panel();
+            retireIncidentButton = new Button();
             deleteIncidentButton = new Button();
             updateIncidentButton = new Button();
             checkBoxPriorityFilter = new CheckBox();
@@ -124,7 +125,6 @@ namespace DemoApp
             labelTypeOfIncident = new Label();
             labelSubject = new Label();
             labelModify = new Label();
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)gardenGroupLogo).BeginInit();
             DashboardPanel.SuspendLayout();
             addIncidentPanel.SuspendLayout();
@@ -422,7 +422,7 @@ namespace DemoApp
             // ticketOverviewPanel
             // 
             ticketOverviewPanel.BackColor = Color.White;
-            ticketOverviewPanel.Controls.Add(button1);
+            ticketOverviewPanel.Controls.Add(retireIncidentButton);
             ticketOverviewPanel.Controls.Add(deleteIncidentButton);
             ticketOverviewPanel.Controls.Add(updateIncidentButton);
             ticketOverviewPanel.Controls.Add(checkBoxPriorityFilter);
@@ -435,6 +435,22 @@ namespace DemoApp
             ticketOverviewPanel.Name = "ticketOverviewPanel";
             ticketOverviewPanel.Size = new Size(922, 535);
             ticketOverviewPanel.TabIndex = 24;
+            // 
+            // retireIncidentButton
+            // 
+            retireIncidentButton.BackColor = Color.Purple;
+            retireIncidentButton.FlatAppearance.BorderColor = Color.Black;
+            retireIncidentButton.FlatAppearance.MouseDownBackColor = Color.White;
+            retireIncidentButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            retireIncidentButton.ForeColor = Color.White;
+            retireIncidentButton.Location = new Point(348, 70);
+            retireIncidentButton.Margin = new Padding(2);
+            retireIncidentButton.Name = "retireIncidentButton";
+            retireIncidentButton.Size = new Size(129, 32);
+            retireIncidentButton.TabIndex = 23;
+            retireIncidentButton.Text = "RETIRE INCIDENT";
+            retireIncidentButton.UseVisualStyleBackColor = false;
+            retireIncidentButton.Click += retireIncidentButton_Click;
             // 
             // deleteIncidentButton
             // 
@@ -880,36 +896,36 @@ namespace DemoApp
             // 
             // ClosedTicketsChart
             // 
-            chartArea1.Name = "ChartArea1";
-            ClosedTicketsChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            ClosedTicketsChart.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            ClosedTicketsChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            ClosedTicketsChart.Legends.Add(legend3);
             ClosedTicketsChart.Location = new Point(519, 158);
             ClosedTicketsChart.Margin = new Padding(3, 2, 3, 2);
             ClosedTicketsChart.Name = "ClosedTicketsChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Legend = "Legend1";
-            series1.Name = "Series2";
-            ClosedTicketsChart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series3.Legend = "Legend1";
+            series3.Name = "Series2";
+            ClosedTicketsChart.Series.Add(series3);
             ClosedTicketsChart.Size = new Size(371, 339);
             ClosedTicketsChart.TabIndex = 1;
             ClosedTicketsChart.Text = "chart2";
             // 
             // OpenTicketsChart
             // 
-            chartArea2.Name = "ChartArea1";
-            OpenTicketsChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            OpenTicketsChart.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            OpenTicketsChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            OpenTicketsChart.Legends.Add(legend4);
             OpenTicketsChart.Location = new Point(65, 158);
             OpenTicketsChart.Margin = new Padding(3, 2, 3, 2);
             OpenTicketsChart.Name = "OpenTicketsChart";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            OpenTicketsChart.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            OpenTicketsChart.Series.Add(series4);
             OpenTicketsChart.Size = new Size(371, 339);
             OpenTicketsChart.TabIndex = 0;
             OpenTicketsChart.Text = "chart1";
@@ -1104,21 +1120,6 @@ namespace DemoApp
             labelModify.TabIndex = 7;
             labelModify.Text = "Modify incident ticket";
             // 
-            // button1
-            // 
-            button1.BackColor = Color.Purple;
-            button1.FlatAppearance.BorderColor = Color.Black;
-            button1.FlatAppearance.MouseDownBackColor = Color.White;
-            button1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(348, 70);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(129, 32);
-            button1.TabIndex = 23;
-            button1.Text = "RETIRE INCIDENT";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // DashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1250,7 +1251,7 @@ namespace DemoApp
         private ColumnHeader date;
         private ColumnHeader priority;
         private CheckBox checkBoxPriorityFilter;
-        private Button button1;
+        private Button retireIncidentButton;
     }
 }
 
