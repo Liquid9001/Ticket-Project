@@ -272,20 +272,30 @@ namespace DemoApp
         //listview ticketoverview
         private void listviewTickets()
         {
-            if (!loggedInEmployee.isServiceDesk)
+            if (loggedInEmployee.isServiceDesk == true)
             {
-                modifyTicketButton.Hide();
-                deleteIncidentButton.Hide();
+                tickets = databases.GetTickets();
+                int i = 0;
+                listViewTicketOverview.Items.Clear();
+                foreach (Ticket ticket in tickets)
+                {
+                    Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
+                    FillListViewTickets(i, employee, ticket);
+                    i++;
+                }
             }
-            int i = 0;
-            tickets = databases.GetTickets();
-            listViewTicketOverview.Items.Clear();
-            foreach (Ticket ticket in tickets)
+            else
             {
-                Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
-                FillListViewTickets(i, employee, ticket);
-                i++;
+                tickets = databases.GetTicketsByEmployeeId(loggedInEmployee);
+                int i = 0;
+                listViewTicketOverview.Items.Clear();
+                foreach (Ticket ticket in tickets)
+                {
+                    FillListViewTickets(i, loggedInEmployee, ticket);
+                    i++;
+                }
             }
+            
 
 
         }
