@@ -68,7 +68,8 @@ namespace Logic
         {
             ticket.Status = TicketStatus.Closed;
             dao.RetireTicket(ticket);
-        }   
+        }  
+        
 
     }
 }

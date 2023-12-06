@@ -1,4 +1,5 @@
 ﻿using DAL;
+using MongoDB.Bson;
 using MongoProject.Model;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,21 @@ namespace MongoProject.Logic
             dao.AddEmployee(employee);
         }
 
+        public void CheckIfUserExists(string username, string email)
+        {
+            Employee employee = dao.GetEmployeeUsername(username);
+            if (employee != null)
+            {
+                throw new Exception("Username already exists");
+            }
+
+            Employee employee1 = dao.GetEmployeeEmail(email);
+            if (employee1 != null)
+            {
+                throw new Exception("Email already exists");
+            }
+        }
+
         public string CreateSalt()
         {
             const int length = 10;
@@ -61,6 +77,25 @@ namespace MongoProject.Logic
             Random rnd = new Random();
             return new string(Enumerable.Repeat(chars, length)
             .Select(s => s[rnd.Next(s.Length)]).ToArray());
+        }
+
+        public void RemoveEmployeeAndTickets(Employee employee)
+        {
+            try
+            {
+                dao.DeleteUserAndTickets(employee.Id);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
+
+        public void UpdateEmployee(Employee employee)
+        {
+            employee.password = HashPassword(employee);
+            dao.UpdateEmployee(employee);
         }
 
     }

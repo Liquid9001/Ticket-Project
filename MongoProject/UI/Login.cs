@@ -88,14 +88,14 @@ namespace MongoProject.UI
                 Properties.Settings.Default.Save();
             }
         }
-        private void ClearTextBox() 
+        private void ClearTextBox()
         {
-            if (!rememberMeCheckBox.Checked) 
+            if (!rememberMeCheckBox.Checked)
             {
                 usernameTextBox.Text = "";
                 passwordTextBox.Text = "";
             }
-            
+
 
         }
     }

@@ -119,7 +119,16 @@ namespace DemoApp
 
         private void createUserCreateButton_Click(object sender, EventArgs e)
         {
+            CreateUser();
+        }
 
+        private void CreateUser()
+        {
+            if (usernameTextBox.Text == "" || passwordTextBox.Text == "" || firstNameTextBox.Text == "" || lastNameTextBox.Text == "" || emailTextBox.Text == "" || phoneNumberTextBox.Text == "" || locationTextBox.Text == "")
+            {
+                MessageBox.Show("Please fill in all the fields");
+                return;
+            }
             string username = usernameTextBox.Text;
             string password = passwordTextBox.Text;
             bool isServiceDesk = isServiceDeskCheckBox.Checked;
@@ -129,14 +138,29 @@ namespace DemoApp
             string phoneNumber = phoneNumberTextBox.Text;
             string location = locationTextBox.Text;
 
+            try
+            {
+                employeeLogic.CheckIfUserExists(username, emailAddress);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "Sequence contains no elements")
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+            }
+
             employeeLogic.AddEmployee(username, password, isServiceDesk, firstName, lastName, emailAddress, phoneNumber, location);
 
             MessageBox.Show("User created");
             HidePanels();
             ShowUserManagementPanel();
             PopulateEmployeeListView();
-
-
         }
 
         private void ShowUserManagementPanel()
@@ -162,6 +186,9 @@ namespace DemoApp
         {
             HidePanels();
             addUserPanel.Show();
+            updateUserButton.Hide();
+            deleteUserButton.Hide();
+            ClearUserUpdatePanel();
         }
 
         private void userManagementButton_Click(object sender, EventArgs e)
@@ -256,6 +283,7 @@ namespace DemoApp
             }
 
             ticketOverviewPanel.Show();
+            listviewTickets();
         }
 
         private void LogoutButton_Click(object sender, EventArgs e)
@@ -275,34 +303,30 @@ namespace DemoApp
             if (loggedInEmployee.isServiceDesk == true)
             {
                 tickets = databases.GetTickets();
-                int i = 0;
                 listViewTicketOverview.Items.Clear();
                 foreach (Ticket ticket in tickets)
                 {
                     Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
-                    FillListViewTickets(i, employee, ticket);
-                    i++;
+                    FillListViewTickets(employee, ticket);
                 }
             }
             else
             {
                 tickets = databases.GetTicketsByEmployeeId(loggedInEmployee);
-                int i = 0;
                 listViewTicketOverview.Items.Clear();
                 foreach (Ticket ticket in tickets)
                 {
-                    FillListViewTickets(i, loggedInEmployee, ticket);
-                    i++;
+                    FillListViewTickets(loggedInEmployee, ticket);
                 }
             }
-            
+
 
 
         }
 
-        private void FillListViewTickets(int i, Employee employee, Ticket ticket)
+        private void FillListViewTickets(Employee employee, Ticket ticket)
         {
-            ListViewItem item = new ListViewItem((i + 1).ToString());
+            ListViewItem item = new ListViewItem(ticket.Id.ToString());
             item.SubItems.Add(employee.EmailAddress);
             item.SubItems.Add(employee.username);
             item.SubItems.Add(ticket.CreatedAt.ToString("dd/MM/yyyy HH:mm"));
@@ -316,9 +340,9 @@ namespace DemoApp
 
             if (listViewTicketOverview.SelectedItems.Count > 0)
             {
-                ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
-                int id = int.Parse(selectedItem.SubItems[0].Text);
-                Ticket ticket = tickets[id - 1];
+                ListViewItem item = listViewTicketOverview.SelectedItems[0];
+                string id = item.SubItems[0].Text;
+                Ticket ticket = databases.GetTicketById(ObjectId.Parse(id));
                 OpenModifyTicket(ticket);
             }
         }
@@ -422,26 +446,6 @@ namespace DemoApp
                 MessageBox.Show("Ticket not deleted!");
             }
         }
-        private void retireIncidentButton_Click(object sender, EventArgs e)
-        {
-
-            DialogResult result = MessageBox.Show("Are you sure you want to retire this ticket?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-
-            if (result == DialogResult.Yes)
-            {
-                ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
-                int id = int.Parse(selectedItem.SubItems[0].Text);
-                Ticket ticket = tickets[id - 1];
-                databases.RetireTicket(ticket);
-                MessageBox.Show("Ticket deleted!");
-                listviewTickets();
-            }
-            else
-            {
-                MessageBox.Show("Ticket not deleted!");
-            }
-        }
 
         private void OpenModifyTicket(Ticket ticket)
         {
@@ -474,14 +478,32 @@ namespace DemoApp
             //initiate combobox 'reported user'
             List<Employee> employees = databases.GetEmployees();
             reportedbyInputModify.DataSource = employees;
-            reportedbyInputModify.SelectedItem = employee;
             reportedbyInputModify.DisplayMember = "FirstName";
+
+            Employee employee1 = databases.GetEmployeeById(ticket.EmployeeID);
+            reportedbyInputModify.SelectedItem = employee1;
 
 
             subjectInputModify.Text = ticket.Title;
             descriptionModifyInput.Text = ticket.Description;
 
+
+            //initiate combobox 'status'
+            statusComboBox.DataSource = Enum.GetValues(typeof(TicketStatus));
+            statusComboBox.SelectedItem = ticket.Status;
+
             modifyIncidentPanel.Show();
+
+            if (loggedInEmployee.isServiceDesk == true)
+            {
+                reportedbyInputModify.Show();
+                labelReportedBy.Show();
+            }
+            else
+            {
+                reportedbyInputModify.Hide();
+                labelReportedBy.Hide();
+            }
         }
 
 
@@ -489,10 +511,12 @@ namespace DemoApp
         private void modifyTicketButton_Click(object sender, EventArgs e)
         {
             Ticket oldTicket = (Ticket)labelTicket.Tag;
-            Ticket ticket = new Ticket(oldTicket.Id, subjectInputModify.Text, (TicketType)typeinputModify.SelectedItem, descriptionModifyInput.Text, TicketStatus.Open, oldTicket.EmployeeID, oldTicket.CreatedAt, GetDeadline(deadlineInputModify.SelectedText), (TicketPriority)priorityInputModify.SelectedItem);
+            Employee employee = (Employee)reportedbyInputModify.SelectedItem;
+            Ticket ticket = new Ticket(oldTicket.Id, subjectInputModify.Text, (TicketType)typeinputModify.SelectedItem, descriptionModifyInput.Text, (TicketStatus)statusComboBox.SelectedItem, employee.Id, oldTicket.CreatedAt, GetDeadline(deadlineInputModify.SelectedText), (TicketPriority)priorityInputModify.SelectedItem);
             databases.UpdateTicket(ticket);
             modifyIncidentPanel.Hide();
             ticketOverviewPanel.Show();
+            listviewTickets();
         }
 
         private void cancelModifyButton_Click(object sender, EventArgs e)
@@ -505,7 +529,6 @@ namespace DemoApp
 
         private void filterTextBoxInput_TextChanged(object sender, EventArgs e)
         {
-            int i = 0;
             string filter = filterTextBoxInput.Text;
             tickets = databases.GetTickets();
             listViewTicketOverview.Items.Clear();
@@ -514,34 +537,55 @@ namespace DemoApp
                 Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
                 if ((employee.EmailAddress.Contains(filter)) || employee.username.Contains(filter))
                 {
-                    FillListViewTickets(i, employee, ticket);
+                    FillListViewTickets(employee, ticket);
                 }
-
-                i++;
             }
 
         }
 
         private void checkBoxPriorityFilter_CheckedChanged(object sender, EventArgs e)
         {
-            int i = 0;
-            listViewTicketOverview.Items.Clear();
-            tickets = databases.GetTickets();
-            if (checkBoxPriorityFilter.Checked)
+            if (loggedInEmployee.isServiceDesk == true)
             {
-                List<Ticket> sortedTickets = new List<Ticket>();
-                sortedTickets = tickets.OrderByDescending(x => (int)x.Priority).ToList();
-                foreach (Ticket ticket in sortedTickets)
+                listViewTicketOverview.Items.Clear();
+                tickets = databases.GetTickets();
+                if (checkBoxPriorityFilter.Checked)
                 {
-                    Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
-                    FillListViewTickets(i, employee, ticket);
-                    i++;
+                    List<Ticket> sortedTickets = new List<Ticket>();
+                    sortedTickets = tickets.OrderByDescending(x => (int)x.Priority).ToList();
+                    foreach (Ticket ticket in sortedTickets)
+                    {
+                        Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
+                        FillListViewTickets(employee, ticket);
+                    }
+
+                }
+                else
+                {
+                    listviewTickets();
                 }
             }
             else
             {
-                listviewTickets();
+                listViewTicketOverview.Items.Clear();
+                tickets = databases.GetTicketsByEmployeeId(loggedInEmployee);
+                if (checkBoxPriorityFilter.Checked)
+                {
+                    List<Ticket> sortedTickets = new List<Ticket>();
+                    sortedTickets = tickets.OrderByDescending(x => (int)x.Priority).ToList();
+                    foreach (Ticket ticket in sortedTickets)
+                    {
+                        Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
+                        FillListViewTickets(employee, ticket);
+                    }
+
+                }
+                else
+                {
+                    listviewTickets();
+                }
             }
+
 
         }
 
@@ -549,6 +593,150 @@ namespace DemoApp
         {
             addIncidentPanel.Hide();
             ticketOverviewPanel.Show();
+        }
+
+        private void filterTextBoxInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                string filter = filterTextBoxInput.Text.ToUpper();
+                tickets = databases.GetTickets();
+                listViewTicketOverview.Items.Clear();
+                foreach (Ticket ticket in tickets)
+                {
+                    Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
+                    if ((employee.EmailAddress.Contains(filter)) || employee.username.Contains(filter))
+                    {
+                        FillListViewTickets(employee, ticket);
+                    }
+                }
+            }
+        }
+
+        private void filterTextBoxInput_Enter(object sender, EventArgs e)
+        {
+            if (filterTextBoxInput.Text == "Filter by email or username")
+            {
+                filterTextBoxInput.Text = "";
+            }
+        }
+
+        private void filterTextBoxInput_Leave(object sender, EventArgs e)
+        {
+            if (filterTextBoxInput.Text == "")
+            {
+                filterTextBoxInput.Text = "Filter by email or username";
+            }
+        }
+
+        private void editUserButton_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            addUserPanel.Show();
+            createUserCreateButton.Hide();
+            updateUserButton.Show();
+            deleteUserButton.Show();
+            addUserLabel.Text = "Edit user";
+            ListViewItem item = userOverviewLV.SelectedItems[0];
+            int id = int.Parse(item.SubItems[0].Text);
+            Employee employee = employees[id - 1];
+
+            modifyUserLabel.Tag = employee;
+
+
+            usernameTextBox.Text = employee.username;
+            firstNameTextBox.Text = employee.FirstName;
+            lastNameTextBox.Text = employee.LastName;
+            emailTextBox.Text = employee.EmailAddress;
+            phoneNumberTextBox.Text = employee.PhoneNumber;
+            locationTextBox.Text = employee.Location;
+            isServiceDeskCheckBox.Checked = employee.isServiceDesk;
+            addUserButton.Hide();
+
+        }
+
+        void ClearUserUpdatePanel()
+        {
+            usernameTextBox.Text = "";
+            passwordTextBox.Text = "";
+            firstNameTextBox.Text = "";
+            lastNameTextBox.Text = "";
+            emailTextBox.Text = "";
+            phoneNumberTextBox.Text = "";
+            locationTextBox.Text = "";
+            isServiceDeskCheckBox.Checked = false;
+        }
+
+        private void deleteUserButton_Click(object sender, EventArgs e)
+        {
+            Employee employee = (Employee)modifyUserLabel.Tag;
+            DialogResult result = MessageBox.Show("Are you sure you want to PERMANENTLY DELETE this user?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                employeeLogic.RemoveEmployeeAndTickets(employee);
+                MessageBox.Show("User deleted!");
+            }
+            else
+            {
+                MessageBox.Show("User not deleted!");
+            }
+            HidePanels();
+            ShowUserManagementPanel();
+            PopulateEmployeeListView();
+        }
+
+        private void updateUserButton_Click(object sender, EventArgs e)
+        {
+            Employee employee = (Employee)modifyUserLabel.Tag;
+            if (usernameTextBox.Text == "" || firstNameTextBox.Text == "" || lastNameTextBox.Text == "" || emailTextBox.Text == "" || phoneNumberTextBox.Text == "" || locationTextBox.Text == "")
+            {
+                MessageBox.Show("Please fill in all the fields");
+                return;
+            }
+            string username = usernameTextBox.Text;
+            string password = passwordTextBox.Text;
+            bool isServiceDesk = isServiceDeskCheckBox.Checked;
+            string firstName = firstNameTextBox.Text;
+            string lastName = lastNameTextBox.Text;
+            string emailAddress = emailTextBox.Text;
+            string phoneNumber = phoneNumberTextBox.Text;
+            string location = locationTextBox.Text;
+
+            if (username == employee.username && emailAddress == employee.EmailAddress)
+            {
+                UpdateEmployee(employee, username, password, isServiceDesk, firstName, lastName, emailAddress, phoneNumber, location);
+            }
+            else
+            {
+                try
+                {
+                    employeeLogic.CheckIfUserExists(username, emailAddress);
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message == "Sequence contains no elements")
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
+                }
+                UpdateEmployee(employee, username, password, isServiceDesk, firstName, lastName, emailAddress, phoneNumber, location);
+            }
+            HidePanels();
+            ShowUserManagementPanel();
+            PopulateEmployeeListView();
+
+        }
+
+        private void UpdateEmployee(Employee employee, string username, string password, bool isServiceDesk, string firstName, string lastName, string emailAddress, string phoneNumber, string location)
+        {
+            Employee newEmployee = new Employee(username, password, isServiceDesk, firstName, lastName, emailAddress, phoneNumber, location, employee.Salt);
+            employeeLogic.UpdateEmployee(newEmployee);
+            MessageBox.Show("User updated!");
         }
     }
 }

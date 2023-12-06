@@ -55,17 +55,17 @@
             DashboardPanel.Location = new Point(0, 1);
             DashboardPanel.Margin = new Padding(2);
             DashboardPanel.Name = "DashboardPanel";
-            DashboardPanel.Size = new Size(1065, 124);
+            DashboardPanel.Size = new Size(932, 72);
             DashboardPanel.TabIndex = 2;
             // 
             // licensedToLabel
             // 
             licensedToLabel.AutoSize = true;
             licensedToLabel.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            licensedToLabel.Location = new Point(702, 44);
+            licensedToLabel.Location = new Point(614, 33);
             licensedToLabel.Margin = new Padding(2, 0, 2, 0);
             licensedToLabel.Name = "licensedToLabel";
-            licensedToLabel.Size = new Size(367, 32);
+            licensedToLabel.Size = new Size(288, 25);
             licensedToLabel.TabIndex = 3;
             licensedToLabel.Text = "Licensed to: The Garden Group";
             // 
@@ -74,10 +74,10 @@
             noDeskLabel.AutoSize = true;
             noDeskLabel.BackColor = Color.Transparent;
             noDeskLabel.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
-            noDeskLabel.Location = new Point(906, 0);
+            noDeskLabel.Location = new Point(793, 0);
             noDeskLabel.Margin = new Padding(2, 0, 2, 0);
             noDeskLabel.Name = "noDeskLabel";
-            noDeskLabel.Size = new Size(145, 46);
+            noDeskLabel.Size = new Size(117, 37);
             noDeskLabel.TabIndex = 2;
             noDeskLabel.Text = "NoDesk";
             // 
@@ -87,7 +87,7 @@
             gardenGroupLogo.Location = new Point(2, -1);
             gardenGroupLogo.Margin = new Padding(2);
             gardenGroupLogo.Name = "gardenGroupLogo";
-            gardenGroupLogo.Size = new Size(406, 86);
+            gardenGroupLogo.Size = new Size(412, 59);
             gardenGroupLogo.SizeMode = PictureBoxSizeMode.CenterImage;
             gardenGroupLogo.TabIndex = 1;
             gardenGroupLogo.TabStop = false;
@@ -95,42 +95,44 @@
             // usernameLabel
             // 
             usernameLabel.AutoSize = true;
-            usernameLabel.Location = new Point(368, 274);
+            usernameLabel.Location = new Point(322, 206);
             usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new Size(75, 20);
+            usernameLabel.Size = new Size(60, 15);
             usernameLabel.TabIndex = 3;
             usernameLabel.Text = "Username";
             // 
             // passwordLabel
             // 
             passwordLabel.AutoSize = true;
-            passwordLabel.Location = new Point(368, 364);
+            passwordLabel.Location = new Point(322, 273);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new Size(70, 20);
+            passwordLabel.Size = new Size(57, 15);
             passwordLabel.TabIndex = 4;
             passwordLabel.Text = "Password";
             // 
             // usernameTextBox
             // 
-            usernameTextBox.Location = new Point(368, 297);
+            usernameTextBox.Location = new Point(322, 223);
+            usernameTextBox.Margin = new Padding(3, 2, 3, 2);
             usernameTextBox.Name = "usernameTextBox";
-            usernameTextBox.Size = new Size(279, 27);
+            usernameTextBox.Size = new Size(245, 23);
             usernameTextBox.TabIndex = 5;
             // 
             // passwordTextBox
             // 
-            passwordTextBox.Location = new Point(368, 397);
+            passwordTextBox.Location = new Point(322, 298);
+            passwordTextBox.Margin = new Padding(3, 2, 3, 2);
             passwordTextBox.Name = "passwordTextBox";
-            passwordTextBox.Size = new Size(279, 27);
+            passwordTextBox.Size = new Size(245, 23);
             passwordTextBox.TabIndex = 6;
             // 
             // noDeskTextLabel
             // 
             noDeskTextLabel.AutoSize = true;
             noDeskTextLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            noDeskTextLabel.Location = new Point(431, 137);
+            noDeskTextLabel.Location = new Point(377, 103);
             noDeskTextLabel.Name = "noDeskTextLabel";
-            noDeskTextLabel.Size = new Size(127, 28);
+            noDeskTextLabel.Size = new Size(101, 21);
             noDeskTextLabel.TabIndex = 7;
             noDeskTextLabel.Text = "NoDesk: TGG";
             // 
@@ -138,18 +140,19 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(330, 187);
+            label2.Location = new Point(289, 140);
             label2.Name = "label2";
-            label2.Size = new Size(391, 56);
+            label2.Size = new Size(308, 42);
             label2.TabIndex = 8;
             label2.Text = "Please provide login credentials to login to \r\nNoDesk for The Garden Group";
             // 
             // rememberMeCheckBox
             // 
             rememberMeCheckBox.AutoSize = true;
-            rememberMeCheckBox.Location = new Point(368, 445);
+            rememberMeCheckBox.Location = new Point(322, 334);
+            rememberMeCheckBox.Margin = new Padding(3, 2, 3, 2);
             rememberMeCheckBox.Name = "rememberMeCheckBox";
-            rememberMeCheckBox.Size = new Size(129, 24);
+            rememberMeCheckBox.Size = new Size(104, 19);
             rememberMeCheckBox.TabIndex = 10;
             rememberMeCheckBox.Text = "Remember Me";
             rememberMeCheckBox.UseVisualStyleBackColor = true;
@@ -158,9 +161,10 @@
             // 
             loginButton.BackColor = Color.DeepSkyBlue;
             loginButton.ForeColor = SystemColors.ButtonHighlight;
-            loginButton.Location = new Point(387, 493);
+            loginButton.Location = new Point(339, 370);
+            loginButton.Margin = new Padding(3, 2, 3, 2);
             loginButton.Name = "loginButton";
-            loginButton.Size = new Size(218, 58);
+            loginButton.Size = new Size(191, 44);
             loginButton.TabIndex = 11;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = false;
@@ -168,10 +172,10 @@
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1067, 595);
+            ClientSize = new Size(934, 446);
             Controls.Add(loginButton);
             Controls.Add(rememberMeCheckBox);
             Controls.Add(label2);
@@ -181,6 +185,7 @@
             Controls.Add(passwordLabel);
             Controls.Add(usernameLabel);
             Controls.Add(DashboardPanel);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Login";
             Text = "Login";
             Load += Login_load;

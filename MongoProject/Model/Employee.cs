@@ -36,5 +36,10 @@ namespace MongoProject.Model
             this.Location = Location;
             this.Salt = Salt;
         }
+        public override bool Equals(object obj)
+        {
+            return obj is Employee employee && this.Id.Equals(employee.Id);
+        }
+
     }
 }

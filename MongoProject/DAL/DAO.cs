@@ -5,6 +5,7 @@ using Model;
 using MongoDB.Bson.Serialization;
 using MongoProject.Model;
 using Logic;
+using System.Text.RegularExpressions;
 
 namespace DAL
 {
@@ -58,6 +59,14 @@ namespace DAL
             return employee;
         }
 
+        public Employee GetEmployeeEmail(string email)
+        {
+            IMongoCollection<Employee> collection = db.GetCollection<Employee>("Employees");
+            FilterDefinition<Employee> filter = Builders<Employee>.Filter.Eq("EmailAddress", email);
+            Employee employee = collection.Find(filter).First();
+            return employee;
+        }
+
         public Employee GetEmployeeById(ObjectId id)
         {
             IMongoCollection<Employee> collection = db.GetCollection<Employee>("Employees");
@@ -102,6 +111,38 @@ namespace DAL
             FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticket.Id);
             ticketCollection.ReplaceOne(filter, ticket);
         }
+
+        public void DeleteEmployee(Employee employee)
+        {
+            IMongoCollection<Employee> employeeCollection = db.GetCollection<Employee>("Employees");
+            FilterDefinition<Employee> filter = Builders<Employee>.Filter.Eq(t => t.Id, employee.Id);
+            employeeCollection.DeleteOne(filter);
+        }
+
+        public void DeleteUserAndTickets(ObjectId userId)
+        {
+            // Access the employee and ticket collections
+            var employeeCollection = db.GetCollection<Employee>("Employees");
+            var ticketCollection = db.GetCollection<Ticket>("Tickets");
+
+            // Delete the employee
+            var employeeFilter = Builders<Employee>.Filter.Eq("_id", userId);
+            employeeCollection.DeleteOne(employeeFilter);
+
+            // Delete all tickets associated with the employee
+            var ticketFilter = Builders<Ticket>.Filter.Eq("EmployeeID", userId);
+            ticketCollection.DeleteMany(ticketFilter);
+        }
+
+        public void UpdateEmployee(Employee employee)
+        {
+            IMongoCollection<Employee> employeeCollection = db.GetCollection<Employee>("Employees");
+            FilterDefinition<Employee> filter = Builders<Employee>.Filter.Eq(t => t.Id, employee.Id);
+            employeeCollection.ReplaceOne(filter, employee);
+        }
+
+
+
 
     }
 
