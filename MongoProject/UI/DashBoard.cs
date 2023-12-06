@@ -76,11 +76,15 @@ namespace DemoApp
             userReportedInput.DisplayMember = "FirstName";
             if (loggedInEmployee.isServiceDesk == true)
             {
+                userReportedInput.Show();
+                userReportedLabel.Show();
                 userReportedInput.DataSource = employees;
                 userReportedInput.Text = "Select user";
             }
             else
             {
+                userReportedInput.Hide();
+                userReportedLabel.Hide();
                 userReportedInput.Text = loggedInEmployee.FirstName;
             }
             addIncidentPanel.Show();
@@ -127,16 +131,29 @@ namespace DemoApp
 
             MessageBox.Show("User created");
             HidePanels();
-            userManagementPanel.Show();
+            ShowUserManagementPanel();
             PopulateEmployeeListView();
 
 
         }
 
+        private void ShowUserManagementPanel()
+        {
+            if (loggedInEmployee.isServiceDesk == true)
+            {
+                addUserButton.Show();
+            }
+            else
+            {
+                addUserButton.Hide();
+            }
+            userManagementPanel.Show();
+        }
+
         private void createUserCancelButton_Click(object sender, EventArgs e)
         {
             HidePanels();
-            userManagementPanel.Show();
+            ShowUserManagementPanel();
         }
 
         private void addUserButton_Click(object sender, EventArgs e)
@@ -149,7 +166,7 @@ namespace DemoApp
         {
             HidePanels();
             userSearchBox.Text = "Zoeken";
-            userManagementPanel.Show();
+            ShowUserManagementPanel();
             PopulateEmployeeListView();
         }
 
@@ -215,7 +232,16 @@ namespace DemoApp
 
         private void submitTicketButton_Click_1(object sender, EventArgs e)
         {
-            Employee employee = (Employee)userReportedInput.SelectedItem;
+            Employee employee;
+            if (loggedInEmployee.isServiceDesk == true)
+            {
+                employee = (Employee)userReportedInput.SelectedItem;
+            }
+            else
+            {
+                employee = loggedInEmployee;
+            }
+
             Ticket ticket = new Ticket(subjectInput.Text, (TicketType)incidentTypeInput.SelectedItem, descriptionInput.Text, TicketStatus.Open, employee.Id, DateTime.Now, GetDeadline(deadlineFollowUpInput.SelectedText), (TicketPriority)priorityInput.SelectedItem);
             databases.AddTicket(ticket);
             addIncidentPanel.Hide();
