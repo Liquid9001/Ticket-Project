@@ -36,6 +36,8 @@ namespace DemoApp
         {
             HidePanels();
             DashboardPanel.Show();
+            panelDashboard.Show();
+            LoadDashboard();
         }
 
         private void HidePanels()
@@ -316,6 +318,11 @@ namespace DemoApp
 
             HidePanels();
             panelDashboard.Show();
+            LoadDashboard();
+        }
+
+        private void LoadDashboard()
+        {
             OpenTicketsChart.Series["Series1"].Points.Clear();
             OpenTicketsChart.Titles.Clear();
             ClosedTicketsChart.Series["Series2"].Points.Clear();
@@ -383,6 +390,7 @@ namespace DemoApp
         {
             HidePanels();
             ticketOverviewPanel.Show();
+            listviewTickets();
         }
         private void deleteIncidentButton_Click(object sender, EventArgs e)
         {
