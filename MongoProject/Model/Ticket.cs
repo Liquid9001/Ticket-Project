@@ -17,6 +17,8 @@ namespace MongoProject.Model
         public DateTime Deadline { get; set; }
         public TicketPriority Priority { get; set; }
 
+        public int OriginalIndex { get; set; }
+
         public Ticket(string title, TicketType typeOfIncident, string description, TicketStatus status, ObjectId employeeID, DateTime createdAt, DateTime deadline, TicketPriority priority)
         {
             Title = title;

@@ -16,12 +16,14 @@ namespace DemoApp
 
     public partial class DashBoard : Form
     {
+        List<Ticket> sortedTickets;
         Employee loggedInEmployee;
         private Databases databases;
         private EmployeeLogic employeeLogic;
         List<Employee> employees;
         List<Ticket> tickets;
         Login login;
+        Dictionary<Ticket, Employee> employeeDictionary;
         public DashBoard(Employee loggedInEmployee, Login login)
         {
             this.loggedInEmployee = loggedInEmployee;
@@ -37,6 +39,14 @@ namespace DemoApp
             HidePanels();
             DashboardPanel.Show();
             panelDashboard.Show();
+            if (loggedInEmployee.isServiceDesk == true)
+            {
+                userManagementButton.Show();
+            }
+            else
+            {
+                userManagementButton.Hide();
+            }
             LoadDashboard();
         }
 
@@ -186,7 +196,6 @@ namespace DemoApp
         {
             HidePanels();
             addUserPanel.Show();
-            updateUserButton.Hide();
             deleteUserButton.Hide();
             ClearUserUpdatePanel();
         }
@@ -300,23 +309,32 @@ namespace DemoApp
         //listview ticketoverview
         private void listviewTickets()
         {
+            employeeDictionary = new Dictionary<Ticket, Employee>();
             if (loggedInEmployee.isServiceDesk == true)
             {
                 tickets = databases.GetTickets();
                 listViewTicketOverview.Items.Clear();
+                int i = 0;
                 foreach (Ticket ticket in tickets)
                 {
+
                     Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
-                    FillListViewTickets(employee, ticket);
+                    employeeDictionary.Add(ticket, employee);
+                    FillListViewTickets(employee, ticket, i);
+                    i++;
                 }
             }
             else
             {
                 tickets = databases.GetTicketsByEmployeeId(loggedInEmployee);
                 listViewTicketOverview.Items.Clear();
+                int i = 0;
                 foreach (Ticket ticket in tickets)
                 {
-                    FillListViewTickets(loggedInEmployee, ticket);
+
+                    employeeDictionary.Add(ticket, loggedInEmployee);
+                    FillListViewTickets(loggedInEmployee, ticket, i);
+                    i++;
                 }
             }
 
@@ -324,13 +342,15 @@ namespace DemoApp
 
         }
 
-        private void FillListViewTickets(Employee employee, Ticket ticket)
+        private void FillListViewTickets(Employee employee, Ticket ticket, int i)
         {
-            ListViewItem item = new ListViewItem(ticket.Id.ToString());
+            ListViewItem item = new ListViewItem((i + 1).ToString());
             item.SubItems.Add(employee.EmailAddress);
+            item.SubItems.Add(ticket.Title);
             item.SubItems.Add(employee.username);
             item.SubItems.Add(ticket.CreatedAt.ToString("dd/MM/yyyy HH:mm"));
             item.SubItems.Add(ticket.Priority.ToString());
+            item.Tag = ticket;
 
             listViewTicketOverview.Items.Add(item);
         }
@@ -341,8 +361,9 @@ namespace DemoApp
             if (listViewTicketOverview.SelectedItems.Count > 0)
             {
                 ListViewItem item = listViewTicketOverview.SelectedItems[0];
-                string id = item.SubItems[0].Text;
-                Ticket ticket = databases.GetTicketById(ObjectId.Parse(id));
+
+                Ticket ticket = (Ticket)item.Tag;
+
                 OpenModifyTicket(ticket);
             }
         }
@@ -387,13 +408,23 @@ namespace DemoApp
                     urgentTickets++;
                 }
             }
+            int nrOfTickets = 0;
+            if (loggedInEmployee.isServiceDesk == true)
+            {
+                nrOfTickets = tickets.Count;
+            }
+            else
+            {
+                nrOfTickets = databases.GetTicketCount(loggedInEmployee);
+            }
+
 
             OpenTicketsChart.Series["Series1"].Points.AddXY(openTickets, openTickets);
             OpenTicketsChart.Series["Series1"].Points.AddXY(tickets.Count - openTickets, tickets.Count - openTickets);
             OpenTicketsChart.Series[0].Points[0].Color = Color.Orange;
             OpenTicketsChart.Series[0].Points[1].Color = Color.LightGray;
             OpenTicketsChart.Series["Series1"].IsValueShownAsLabel = false;
-            OpenTicketsChart.Titles.Add($"\n\n\n Unresolved incidents\r\nAll tickets currently open \n\n {openTickets} /  {100}");
+            OpenTicketsChart.Titles.Add($"\n\n\n Unresolved incidents\r\nAll tickets currently open \n\n {openTickets} /  {nrOfTickets}");
 
             OpenTicketsChart.ChartAreas[0].Position.Y = 100;
             OpenTicketsChart.ChartAreas[0].Position.X = 10;
@@ -426,7 +457,7 @@ namespace DemoApp
             ticketOverviewPanel.Show();
             listviewTickets();
         }
-        private void deleteIncidentButton_Click(object sender, EventArgs e)
+        private void DeleteIncidentButton_Click(object sender, EventArgs e)
         {
 
             DialogResult result = MessageBox.Show("Are you sure you want to PERMANENTLY DELETE this ticket?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -435,8 +466,7 @@ namespace DemoApp
             if (result == DialogResult.Yes)
             {
                 ListViewItem selectedItem = listViewTicketOverview.SelectedItems[0];
-                int id = int.Parse(selectedItem.SubItems[0].Text);
-                Ticket ticket = tickets[id - 1];
+                Ticket ticket = (Ticket)selectedItem.Tag;
                 databases.DeleteTicket(ticket);
                 MessageBox.Show("Ticket deleted!");
                 listviewTickets();
@@ -526,37 +556,43 @@ namespace DemoApp
             ticketOverviewPanel.Show();
         }
 
-
         private void filterTextBoxInput_TextChanged(object sender, EventArgs e)
         {
             string filter = filterTextBoxInput.Text;
-            tickets = databases.GetTickets();
             listViewTicketOverview.Items.Clear();
-            foreach (Ticket ticket in tickets)
+            int i = 0;
+            foreach (var item in employeeDictionary)
             {
-                Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
+                Ticket ticket = item.Key;
+                Employee employee = item.Value;
                 if ((employee.EmailAddress.Contains(filter)) || employee.username.Contains(filter))
                 {
-                    FillListViewTickets(employee, ticket);
+                    FillListViewTickets(employee, ticket, i);
+
                 }
+                i++;
             }
 
         }
 
         private void checkBoxPriorityFilter_CheckedChanged(object sender, EventArgs e)
         {
+            int i = 0;
             if (loggedInEmployee.isServiceDesk == true)
             {
                 listViewTicketOverview.Items.Clear();
-                tickets = databases.GetTickets();
                 if (checkBoxPriorityFilter.Checked)
                 {
-                    List<Ticket> sortedTickets = new List<Ticket>();
-                    sortedTickets = tickets.OrderByDescending(x => (int)x.Priority).ToList();
+                    for (int j = 0; j < tickets.Count; j++)
+                    {
+                        tickets[j].OriginalIndex = j;
+                    }
+                    List<Ticket> sortedTickets = tickets.OrderByDescending(x => (int)x.Priority).ToList();
+
                     foreach (Ticket ticket in sortedTickets)
                     {
                         Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
-                        FillListViewTickets(employee, ticket);
+                        FillListViewTickets(employee, ticket, ticket.OriginalIndex);
                     }
 
                 }
@@ -576,7 +612,8 @@ namespace DemoApp
                     foreach (Ticket ticket in sortedTickets)
                     {
                         Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
-                        FillListViewTickets(employee, ticket);
+                        FillListViewTickets(employee, ticket, i);
+                        i++;
                     }
 
                 }
@@ -602,13 +639,15 @@ namespace DemoApp
                 string filter = filterTextBoxInput.Text.ToUpper();
                 tickets = databases.GetTickets();
                 listViewTicketOverview.Items.Clear();
+                int i = 0;
                 foreach (Ticket ticket in tickets)
                 {
                     Employee employee = databases.GetEmployeeById(ticket.EmployeeID);
                     if ((employee.EmailAddress.Contains(filter)) || employee.username.Contains(filter))
                     {
-                        FillListViewTickets(employee, ticket);
+                        FillListViewTickets(employee, ticket, i);
                     }
+                    i++;
                 }
             }
         }
@@ -621,20 +660,13 @@ namespace DemoApp
             }
         }
 
-        private void filterTextBoxInput_Leave(object sender, EventArgs e)
-        {
-            if (filterTextBoxInput.Text == "")
-            {
-                filterTextBoxInput.Text = "Filter by email or username";
-            }
-        }
+
 
         private void editUserButton_Click(object sender, EventArgs e)
         {
             HidePanels();
             addUserPanel.Show();
             createUserCreateButton.Hide();
-            updateUserButton.Show();
             deleteUserButton.Show();
             addUserLabel.Text = "Edit user";
             ListViewItem item = userOverviewLV.SelectedItems[0];
@@ -738,5 +770,7 @@ namespace DemoApp
             employeeLogic.UpdateEmployee(newEmployee);
             MessageBox.Show("User updated!");
         }
+
+
     }
 }

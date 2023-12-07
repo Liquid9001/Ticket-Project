@@ -78,10 +78,13 @@ namespace DAL
         public List<Ticket> GetTicketsByEmployeeId(ObjectId employeeId)
         {
             IMongoCollection<Ticket> ticketCollection = db.GetCollection<Ticket>("Tickets");
-            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(t => t.EmployeeID, employeeId);
-            List<Ticket> tickets = ticketCollection.Find(filter).ToList();
+            var match = new BsonDocument("$match",
+                new BsonDocument("EmployeeID", employeeId));
+            var pipeline = new[] { match };
+            List<Ticket> tickets = ticketCollection.Aggregate<Ticket>(pipeline).ToList();
             return tickets;
         }
+
 
         public Ticket GetTicketByID(ObjectId ticketID)
         {
