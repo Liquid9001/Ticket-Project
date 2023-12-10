@@ -130,10 +130,12 @@ namespace DemoApp
         private void createUserCreateButton_Click(object sender, EventArgs e)
         {
             CreateUser();
+          
         }
 
         private void CreateUser()
         {
+            
             if (usernameTextBox.Text == "" || passwordTextBox.Text == "" || firstNameTextBox.Text == "" || lastNameTextBox.Text == "" || emailTextBox.Text == "" || phoneNumberTextBox.Text == "" || locationTextBox.Text == "")
             {
                 MessageBox.Show("Please fill in all the fields");
@@ -197,6 +199,8 @@ namespace DemoApp
             HidePanels();
             addUserPanel.Show();
             deleteUserButton.Hide();
+            createUserCreateButton.Show();
+            addUserLabel.Text = "Add new user";
             ClearUserUpdatePanel();
         }
 
