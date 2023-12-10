@@ -668,26 +668,34 @@ namespace DemoApp
 
         private void editUserButton_Click(object sender, EventArgs e)
         {
-            HidePanels();
-            addUserPanel.Show();
-            createUserCreateButton.Hide();
-            deleteUserButton.Show();
-            addUserLabel.Text = "Edit user";
-            ListViewItem item = userOverviewLV.SelectedItems[0];
-            int id = int.Parse(item.SubItems[0].Text);
-            Employee employee = employees[id - 1];
+            try
+            {
+                ListViewItem item = userOverviewLV.SelectedItems[0];
+                HidePanels();
+                addUserPanel.Show();
+                createUserCreateButton.Hide();
+                deleteUserButton.Show();
+                addUserLabel.Text = "Edit user";
+                
+                int id = int.Parse(item.SubItems[0].Text);
+                Employee employee = employees[id - 1];
 
-            modifyUserLabel.Tag = employee;
+                modifyUserLabel.Tag = employee;
 
 
-            usernameTextBox.Text = employee.username;
-            firstNameTextBox.Text = employee.FirstName;
-            lastNameTextBox.Text = employee.LastName;
-            emailTextBox.Text = employee.EmailAddress;
-            phoneNumberTextBox.Text = employee.PhoneNumber;
-            locationTextBox.Text = employee.Location;
-            isServiceDeskCheckBox.Checked = employee.isServiceDesk;
-            addUserButton.Hide();
+                usernameTextBox.Text = employee.username;
+                firstNameTextBox.Text = employee.FirstName;
+                lastNameTextBox.Text = employee.LastName;
+                emailTextBox.Text = employee.EmailAddress;
+                phoneNumberTextBox.Text = employee.PhoneNumber;
+                locationTextBox.Text = employee.Location;
+                isServiceDeskCheckBox.Checked = employee.isServiceDesk;
+                addUserButton.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select an user.");
+            }
 
         }
 
